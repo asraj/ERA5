@@ -1,0 +1,199 @@
+{
+  "generated_by": "tdes/run_demo.py",
+  "all_passed": true,
+  "summary": {
+    "Tokenizer integrity": "PASS",
+    "Shard immutability": "PASS",
+    "Evaluation firewall": "PASS",
+    "Crash recovery": "PASS",
+    "Replay": "PASS",
+    "Fork from earlier checkpoint": "PASS",
+    "Packing correctness": "PASS",
+    "Mixture compliance": "PASS",
+    "OPUS audit trail": "PASS",
+    "Learning trace": "PASS",
+    "Throughput": "PASS",
+    "Consumption ledger": "PASS"
+  },
+  "checks": [
+    {
+      "requirement": "Tokenizer integrity",
+      "result": "PASS",
+      "evidence": "submission_artifacts/manifests/*.manifest.json",
+      "detail": {
+        "tokenizer_hash": "03c3294cb3e7683378a694726727eb0a",
+        "shards_verified": 19,
+        "content_hash_failures": 0,
+        "roundtrip_faithful": true
+      }
+    },
+    {
+      "requirement": "Shard immutability",
+      "result": "PASS",
+      "evidence": "content hash recomputed over mutated bytes",
+      "detail": {
+        "original": "95dd000fee267b81",
+        "mutated": "213dcda0da1bd408"
+      }
+    },
+    {
+      "requirement": "Evaluation firewall",
+      "result": "PASS",
+      "evidence": "submission_artifacts/reports/firewall.json",
+      "detail": {
+        "shard_blocked_reason": "never_train_flag",
+        "admission_gate": "split_not_trainable:test",
+        "content_probe": "contamination:eval-bench-00",
+        "fingerprints": 107
+      }
+    },
+    {
+      "requirement": "Crash recovery",
+      "result": "PASS",
+      "evidence": "submission_artifacts/ledgers/consumption.jsonl + checkpoints/*.json",
+      "detail": {
+        "crash_at": 12,
+        "resumed_from": "main-step0009",
+        "expected_next_batch": "main:10",
+        "actual_next_batch": "main:10",
+        "hash_match": true,
+        "ledger_contiguous": "contiguous",
+        "steps": "0..23",
+        "duplicates_or_gaps": false
+      }
+    },
+    {
+      "requirement": "Replay",
+      "result": "PASS",
+      "evidence": "submission_artifacts/reports/replay.json",
+      "detail": {
+        "interval": [
+          2,
+          8
+        ],
+        "batches_checked": 7,
+        "mismatches": []
+      }
+    },
+    {
+      "requirement": "Fork from earlier checkpoint",
+      "result": "PASS",
+      "evidence": "submission_artifacts/reports/fork.json",
+      "detail": {
+        "origin_branch": "main",
+        "origin_checkpoint": "main-step0009",
+        "divergence_step": 10,
+        "new_branch": "branch-b",
+        "origin_next_hash": "abffc3510ae4fb3cd3efc6617c61b14d5195fd7c7be349fc4aee6efa77e3a8f4",
+        "fork_next_hash": "260411b937e374eeeaee4791a2cd795d72256e1cfabd113d3df1ae3b9774a38a",
+        "streams_differ": true
+      }
+    },
+    {
+      "requirement": "Packing correctness",
+      "result": "PASS",
+      "evidence": "submission_artifacts/reports/packing.json",
+      "detail": {
+        "utilization": 1.0,
+        "useful_loss_bearing_tokens": 384,
+        "total_positions": 384,
+        "context_tokens_masked_from_loss": false
+      }
+    },
+    {
+      "requirement": "Mixture compliance",
+      "result": "PASS",
+      "evidence": "submission_artifacts/reports/mixture_compliance.json",
+      "detail": {
+        "planned_share": {
+          "agentic": 0.0875,
+          "code": 0.1875,
+          "general_web": 0.3937,
+          "indic": 0.2125,
+          "reasoning": 0.1188
+        },
+        "actual_share": {
+          "agentic": 0.0938,
+          "code": 0.1615,
+          "general_web": 0.3542,
+          "indic": 0.2448,
+          "reasoning": 0.1458
+        },
+        "protected_floors": {
+          "indic": 0.08,
+          "agentic": 0.015,
+          "reasoning": 0.015
+        },
+        "floors_met": {
+          "indic": true,
+          "agentic": true,
+          "reasoning": true
+        },
+        "max_abs_deviation": 0.0395
+      }
+    },
+    {
+      "requirement": "OPUS audit trail",
+      "result": "PASS",
+      "evidence": "submission_artifacts/reports/opus_decisions.json",
+      "detail": {
+        "rejected": 110,
+        "protected_override": 49,
+        "accepted": 255,
+        "deferred": 13,
+        "total": 427
+      }
+    },
+    {
+      "requirement": "Learning trace",
+      "result": "PASS",
+      "evidence": "submission_artifacts/ledgers/learning.json",
+      "detail": {
+        "first_loss": 8.3161,
+        "last_loss": 8.1939,
+        "shards_with_token_level_trace": 16,
+        "shards_scored": 16,
+        "classifications": [
+          "neutral",
+          "useful"
+        ]
+      }
+    },
+    {
+      "requirement": "Throughput",
+      "result": "PASS",
+      "evidence": "submission_artifacts/performance.json",
+      "detail": {
+        "batches": 27,
+        "wall_seconds": 0.5667,
+        "total_positions": 10368,
+        "useful_loss_bearing_tokens": 7230,
+        "pad_positions": 2518,
+        "packing_utilization": 0.7571,
+        "raw_tokens_per_sec": 18294.2,
+        "useful_loss_bearing_tokens_per_sec": 12757.2
+      }
+    },
+    {
+      "requirement": "Consumption ledger",
+      "result": "PASS",
+      "evidence": "submission_artifacts/ledgers/consumption.jsonl",
+      "detail": {
+        "records": 24,
+        "fields_per_record": 23
+      }
+    }
+  ],
+  "headline": {
+    "corpus_source": "real:openwebtext+india-wikipedia",
+    "documents": 233,
+    "vocab": 4096,
+    "tokenizer_hash": "03c3294cb3e7683378a694726727eb0a",
+    "schedule_hash": "a134a1cf86f3b63c",
+    "steps": 24,
+    "crash_at": 12,
+    "resumed_from": "main-step0009",
+    "useful_loss_bearing_tokens_per_sec": 12757.2,
+    "packing_utilization": 0.7571
+  }
+}

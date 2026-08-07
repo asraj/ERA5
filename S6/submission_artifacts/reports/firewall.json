@@ -1,0 +1,35 @@
+{
+  "registry": {
+    "eval-bench-00": {
+      "shard_id": "eval-bench-00",
+      "split": "test",
+      "content_hash": "4b5a76121901baa2eedb2aef89a6731d904958739263dc9474604c8ed6ec1b60",
+      "benchmark_id": "TDES-BENCH-v1",
+      "never_train": true,
+      "access_log": []
+    },
+    "valid-00": {
+      "shard_id": "valid-00",
+      "split": "validation",
+      "content_hash": "c7bf13f3ec835b73db4084905254b20f0d51b7354a0f173cd9f03e8b560a336a",
+      "benchmark_id": "TDES-VALID-v1",
+      "never_train": true,
+      "access_log": []
+    }
+  },
+  "events": [
+    {
+      "event": "shard_blocked",
+      "shard_id": "eval-bench-00",
+      "benchmark_id": "TDES-BENCH-v1",
+      "reason": "never_train_flag"
+    },
+    {
+      "event": "content_blocked",
+      "shard_id": "eval-bench-00",
+      "benchmark_id": "injected_probe",
+      "reason": "29_fingerprint_hits"
+    }
+  ],
+  "fingerprint_count": 107
+}

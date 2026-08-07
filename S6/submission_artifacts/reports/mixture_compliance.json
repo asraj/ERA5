@@ -1,0 +1,27 @@
+{
+  "planned_share": {
+    "agentic": 0.0875,
+    "code": 0.1875,
+    "general_web": 0.3937,
+    "indic": 0.2125,
+    "reasoning": 0.1188
+  },
+  "actual_share": {
+    "agentic": 0.0938,
+    "code": 0.1615,
+    "general_web": 0.3542,
+    "indic": 0.2448,
+    "reasoning": 0.1458
+  },
+  "protected_floors": {
+    "indic": 0.08,
+    "agentic": 0.015,
+    "reasoning": 0.015
+  },
+  "floors_met": {
+    "indic": true,
+    "agentic": true,
+    "reasoning": true
+  },
+  "max_abs_deviation": 0.0395
+}

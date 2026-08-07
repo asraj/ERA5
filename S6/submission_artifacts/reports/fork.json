@@ -1,0 +1,9 @@
+{
+  "origin_branch": "main",
+  "origin_checkpoint": "main-step0009",
+  "divergence_step": 10,
+  "new_branch": "branch-b",
+  "origin_next_hash": "abffc3510ae4fb3cd3efc6617c61b14d5195fd7c7be349fc4aee6efa77e3a8f4",
+  "fork_next_hash": "260411b937e374eeeaee4791a2cd795d72256e1cfabd113d3df1ae3b9774a38a",
+  "streams_differ": true
+}

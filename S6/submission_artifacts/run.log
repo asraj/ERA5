@@ -1,0 +1,26 @@
+[18:31:53] === V5 Training Data Execution System ===
+[18:31:53] [EVENT] documents_loaded source=real:openwebtext+india-wikipedia lanes=['agentic', 'code', 'general_web', 'indic', 'reasoning'] docs=233 eval_docs=12
+[18:31:53] [EVENT] tokenizer_frozen vocab=4096 hash=03c3294cb3e76833 roundtrip_ok=True
+[18:31:53] [EVENT] shards_created train=17 test=1 validation=1
+[18:31:53] [PASS] tokenizer_hash_verified shards=19 failures=0
+[18:31:53] [PASS] manifests_validated required_fields_present=True
+[18:31:53] [PASS] eval_shard_blocked reason=never_train_flag admission=split_not_trainable:test content_probe=contamination:eval-bench-00
+[18:31:53] [EVENT] mixture_compiled stages=['foundation', 'capability', 'long_context', 'anneal'] hash=a134a1cf86f3b63c
+[18:31:53] [PASS] checkpoint_saved id=main-step0004 step=4 ledger_offset=6655
+[18:31:54] [PASS] checkpoint_saved id=main-step0009 step=9 ledger_offset=13327
+[18:31:54] [EVENT] crash_simulated at step=12 (uncommitted since checkpoint main-step0009)
+[18:31:54] [PASS] crash_simulated at_step=12
+[18:31:54] [EVENT] run_resumed from=main-step0009 ledger_offset=13327 uncommitted_bytes_discarded=3923 expected_next_batch=main:10
+[18:31:54] [PASS] checkpoint_saved id=main-step0014 step=14 ledger_offset=19812
+[18:31:54] [PASS] checkpoint_saved id=main-step0019 step=19 ledger_offset=26295
+[18:31:54] [PASS] resume_next_batch_matched expected=main:10 actual=main:10 hash_match=True
+[18:31:54] [PASS] ledger_contiguous contiguous steps=24
+[18:31:54] [PASS] replay_hash_matched interval=[2, 8] batches=7 mismatches=0
+[18:31:54] [PASS] branch_forked branch-b from main-step0009 diverging at step 10 (streams_differ=True)
+[18:31:54] [EVENT] batches_packed utilization=1.000 useful_tokens=384
+[18:31:54] [EVENT] mixture_compliance planned={'agentic': 0.0875, 'code': 0.1875, 'general_web': 0.3937, 'indic': 0.2125, 'reasoning': 0.1188} actual={'agentic': 0.0938, 'code': 0.1615, 'general_web': 0.3542, 'indic': 0.2448, 'reasoning': 0.1458} floors_met={'indic': True, 'agentic': True, 'reasoning': True}
+[18:31:54] [EVENT] opus_decisions_recorded {'rejected': 110, 'protected_override': 49, 'accepted': 255, 'deferred': 13}
+[18:31:54] [EVENT] learning_ledger_written shards=16 loss 8.3161 -> 8.1939
+[18:31:54] [EVENT] audit_completed interval=[5,15] shards=15 stages=['capability', 'foundation']
+[18:31:54] [EVENT] performance_measured useful_tok/s=12757.2 packing_utilization=0.7571
+[18:31:54] [PASS] evidence_bundle_written checks=12

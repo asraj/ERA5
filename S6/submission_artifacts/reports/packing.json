@@ -1,0 +1,19 @@
+{
+  "policies_available": [
+    "pad_only",
+    "concat_chop",
+    "greedy",
+    "best_fit",
+    "structure_preserving",
+    "long_context"
+  ],
+  "probe_batch": "main:3",
+  "stage": "foundation",
+  "sequences": 2,
+  "utilization": 1.0,
+  "useful_loss_bearing_tokens": 384,
+  "total_positions": 384,
+  "position_ids_reset_per_sample": true,
+  "attention": "block_diagonal_by_segment_id",
+  "context_tokens_masked_from_loss": false
+}

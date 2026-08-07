@@ -1,0 +1,11 @@
+{
+  "checkpoint_id": "main-step0004",
+  "branch_id": "main",
+  "global_step": 4,
+  "ledger_offset": 6655,
+  "next_batch_id": "main:5",
+  "param_hash": "bbbcf91c987b12bf7d4e0819f1f39bc88e018611c16d2202f5190611eb9fa363",
+  "tokenizer_hash": "03c3294cb3e7683378a694726727eb0a8391ef49be5ccde99bd1ce744c3919cb",
+  "schedule_hash": "a134a1cf86f3b63c6d14e202bc1b088b8b749000e419aa0a9d2b690e736dca0e",
+  "weights_file": "main-step0004.npz"
+}
