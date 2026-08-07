@@ -85,6 +85,30 @@ class TinyLM:
         per_token = {int(t): float(l) for t, l in zip(keep, losses)}
         return float(losses.mean()), per_token, gnorm
 
+    def evaluate(self, tokens, loss_mask, segment_ids) -> float:
+        """Forward-only mean loss. Used for validation shards: they may be read
+        for evaluation but must never move a weight."""
+        T = len(tokens)
+        toks = np.asarray(tokens, dtype=np.int64)
+        segs = np.asarray(segment_ids)
+        ctx_vecs, targets = [], []
+        for t in range(1, T):
+            if loss_mask[t] != 1:
+                continue
+            lo = max(0, t - self.ctx)
+            prev = [p for p in range(lo, t) if segs[p] == segs[t]]
+            if not prev:
+                continue
+            ctx_vecs.append(self.E[toks[prev]].mean(axis=0)); targets.append(toks[t])
+        if not targets:
+            return 0.0
+        H = np.tanh(np.stack(ctx_vecs))
+        logits = H @ self.W + self.b
+        logits -= logits.max(axis=1, keepdims=True)
+        P = np.exp(logits); P /= P.sum(axis=1, keepdims=True)
+        y = np.asarray(targets)
+        return float((-np.log(np.clip(P[np.arange(len(y)), y], 1e-12, None))).mean())
+
     @staticmethod
     def top_perplexity(per_token: dict, tokens, k: int = 3) -> list:
         """Token-level trace: the most surprising loss-bearing positions."""

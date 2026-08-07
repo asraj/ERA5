@@ -15,6 +15,7 @@ MANIFEST_REQUIRED = [
     "language", "capability_lane", "license", "provenance_tier",
     "cleaning_pipeline_hash", "dedup_status", "contamination_status",
     "eval_overlap", "content_hash", "parent_shard_ids", "split",
+    "reserved_for_anneal",
 ]
 
 
@@ -43,6 +44,7 @@ class ShardManifest:
     content_hash: str
     parent_shard_ids: list
     split: str                      # train | validation | test
+    reserved_for_anneal: bool = False   # held back for the cooldown, unspendable earlier
     spans: list = field(default_factory=list)
 
     def to_json(self) -> str:
@@ -62,7 +64,8 @@ class ShardWriter:
     def write(self, shard_id: str, docs: list, *, lane: str, language: str,
               license: str, tier: str, split: str = "train",
               dedup_status: str = "deduplicated", contamination_status: str = "scanned",
-              eval_overlap: bool = False, source_ids=None, parents=None) -> ShardManifest:
+              eval_overlap: bool = False, source_ids=None, parents=None,
+              reserved_for_anneal: bool = False) -> ShardManifest:
         """docs: list of (doc_id, text). Tokens are laid out contiguously with EOS between docs."""
         toks, spans, doc_ids = [], [], []
         for doc_id, text in docs:
@@ -93,7 +96,8 @@ class ShardWriter:
             provenance_tier=tier, cleaning_pipeline_hash=self.clean_hash,
             dedup_status=dedup_status, contamination_status=contamination_status,
             eval_overlap=eval_overlap, content_hash=content_hash,
-            parent_shard_ids=parents or [], split=split, spans=spans)
+            parent_shard_ids=parents or [], split=split,
+            reserved_for_anneal=reserved_for_anneal, spans=spans)
         with open(os.path.join(self.root, "manifests", f"{shard_id}.manifest.json"), "w",
                   encoding="utf-8") as f:
             f.write(man.to_json())

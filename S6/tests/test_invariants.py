@@ -121,6 +121,60 @@ class TestPackingMasks(unittest.TestCase):
             self.assertTrue(sq.validate(24, 0), pol)
 
 
+class TestAttentionAndReserve(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.mkdtemp()
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+    def test_attention_is_block_diagonal_and_causal(self):
+        p = Packer(16, pad_id=0, eos_id=1)
+        s = [{"tokens": [5, 6, 7], "sample_id": "a", "lane": "x"},
+             {"tokens": [8, 9], "sample_id": "b", "lane": "x"}]
+        sq = p.pack(s, "greedy")
+        ok, why = sq.check_attention()
+        self.assertTrue(ok, why)
+        m = sq.attention_mask()
+        self.assertFalse(m[0][1])                       # cannot see the future
+        self.assertFalse(m[4][0])                       # sample b cannot see sample a
+        self.assertTrue(m[4][3])                        # but can see its own earlier token
+
+    def test_anneal_reserve_is_unspendable_before_the_cooldown(self):
+        from tdes.shards import ShardWriter as SW
+        tok = FrozenTokenizer.train([f"reserved indic document number {i} here" for i in range(20)]
+                                    + [f"ordinary web document {i} of text" for i in range(20)], 512)
+        w = SW(self.tmp, tok, sha256_str("c/1"))
+        w.write("general_web-00", [(f"g{i}", f"ordinary web document {i} of text") for i in range(10)],
+                lane="general_web", language="en", license="MIT", tier="tier-B")
+        w.write("indic-00", [(f"n{i}", f"reserved indic document number {i} here") for i in range(5)],
+                lane="indic", language="hi", license="MIT", tier="tier-A")
+        w.write("indic-99", [(f"r{i}", f"reserved indic document number {i} here") for i in range(5)],
+                lane="indic", language="hi", license="MIT", tier="tier-A",
+                reserved_for_anneal=True)
+        store = ShardStore(self.tmp, tok.hash)
+        sched = default_schedule(20, seq_len=96)
+        eng = Engine(self.tmp, store, sched, EvalFirewall(), tok, Opus(),
+                     ConsumptionLedger(os.path.join(self.tmp, "l", "c.jsonl")),
+                     LearningLedger(os.path.join(self.tmp, "l", "l.json")),
+                     microbatch=1, samples_per_seq=3, log=lambda *_: None)
+        self.assertIn("indic-99", eng.builder.reserved_shards)
+        anneal_start = sched.stages[-1].step_start
+        for step in range(anneal_start):                     # main run may not touch it
+            self.assertNotIn("indic-99", eng.builder.build("main", step, "pv").shard_ids)
+        seen = set()
+        for step in range(anneal_start, 20):                 # cooldown may spend it
+            seen |= set(eng.builder.build("main", step, "pv").shard_ids)
+        self.assertIn("indic-99", seen)
+
+    def test_validation_read_does_not_move_a_weight(self):
+        tok, store, fw, sched, eng, _ = tiny_world(self.tmp)
+        before = eng.model.param_hash()
+        loss = eng.model.evaluate(store.tokens("general_web-00")[:120], [1] * 120, [0] * 120)
+        self.assertGreater(loss, 0.0)
+        self.assertEqual(before, eng.model.param_hash())
+
+
 class TestMixture(unittest.TestCase):
     def test_floors_never_exceed_share_and_warmup_blends(self):
         sched = default_schedule(40, 128)

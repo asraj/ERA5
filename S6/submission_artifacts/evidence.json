@@ -9,7 +9,10 @@
     "Replay": "PASS",
     "Fork from earlier checkpoint": "PASS",
     "Packing correctness": "PASS",
+    "Attention & position masks": "PASS",
     "Mixture compliance": "PASS",
+    "Anneal reserve held back": "PASS",
+    "Validation firewall (read, never trained)": "PASS",
     "OPUS audit trail": "PASS",
     "Learning trace": "PASS",
     "Throughput": "PASS",
@@ -84,8 +87,8 @@
         "origin_checkpoint": "main-step0009",
         "divergence_step": 10,
         "new_branch": "branch-b",
-        "origin_next_hash": "abffc3510ae4fb3cd3efc6617c61b14d5195fd7c7be349fc4aee6efa77e3a8f4",
-        "fork_next_hash": "260411b937e374eeeaee4791a2cd795d72256e1cfabd113d3df1ae3b9774a38a",
+        "origin_next_hash": "09570b2bbc3f98eecb6557273729996ea09f7d7f3e066e4956e211901f2a16b9",
+        "fork_next_hash": "3a6a911822906c4b7eb03bc839a6c03a8ea8faa61c0bee249893993d520c8b2e",
         "streams_differ": true
       }
     },
@@ -94,10 +97,23 @@
       "result": "PASS",
       "evidence": "submission_artifacts/reports/packing.json",
       "detail": {
-        "utilization": 1.0,
-        "useful_loss_bearing_tokens": 384,
+        "utilization": 0.9219,
+        "useful_loss_bearing_tokens": 354,
         "total_positions": 384,
-        "context_tokens_masked_from_loss": false
+        "context_tokens_masked_from_loss": false,
+        "attention_check": "block_diagonal_causal_ok",
+        "sequences_validated_across_whole_run": 48,
+        "all_sequences_valid": true
+      }
+    },
+    {
+      "requirement": "Attention & position masks",
+      "result": "PASS",
+      "evidence": "submission_artifacts/reports/packing.json",
+      "detail": {
+        "block_diagonal_causal": "block_diagonal_causal_ok",
+        "sequences_checked": 48,
+        "policies_compared": 6
       }
     },
     {
@@ -115,9 +131,9 @@
         "actual_share": {
           "agentic": 0.0938,
           "code": 0.1615,
-          "general_web": 0.3542,
-          "indic": 0.2448,
-          "reasoning": 0.1458
+          "general_web": 0.3438,
+          "indic": 0.2396,
+          "reasoning": 0.1615
         },
         "protected_floors": {
           "indic": 0.08,
@@ -129,7 +145,37 @@
           "agentic": true,
           "reasoning": true
         },
-        "max_abs_deviation": 0.0395
+        "max_abs_deviation": 0.0499
+      }
+    },
+    {
+      "requirement": "Anneal reserve held back",
+      "result": "PASS",
+      "evidence": "submission_artifacts/reports/anneal_reserve.json",
+      "detail": {
+        "reserved_shards": [
+          "agentic-02",
+          "indic-02"
+        ],
+        "anneal_starts_at_step": 21,
+        "spent_before_anneal": [],
+        "spent_during_anneal": [
+          "agentic-02",
+          "indic-02"
+        ],
+        "held_back_correctly": true
+      }
+    },
+    {
+      "requirement": "Validation firewall (read, never trained)",
+      "result": "PASS",
+      "evidence": "submission_artifacts/reports/validation.json",
+      "detail": {
+        "shard_id": "valid-00",
+        "val_loss": 8.214162,
+        "params_unchanged": true,
+        "gradient_bearing": false,
+        "appears_in_consumption_ledger": false
       }
     },
     {
@@ -137,11 +183,11 @@
       "result": "PASS",
       "evidence": "submission_artifacts/reports/opus_decisions.json",
       "detail": {
-        "rejected": 110,
-        "protected_override": 49,
-        "accepted": 255,
-        "deferred": 13,
-        "total": 427
+        "rejected": 184,
+        "protected_override": 76,
+        "accepted": 428,
+        "deferred": 30,
+        "total": 718
       }
     },
     {
@@ -150,7 +196,7 @@
       "evidence": "submission_artifacts/ledgers/learning.json",
       "detail": {
         "first_loss": 8.3161,
-        "last_loss": 8.1939,
+        "last_loss": 8.1872,
         "shards_with_token_level_trace": 16,
         "shards_scored": 16,
         "classifications": [
@@ -165,13 +211,13 @@
       "evidence": "submission_artifacts/performance.json",
       "detail": {
         "batches": 27,
-        "wall_seconds": 0.5667,
+        "wall_seconds": 0.5669,
         "total_positions": 10368,
-        "useful_loss_bearing_tokens": 7230,
-        "pad_positions": 2518,
-        "packing_utilization": 0.7571,
-        "raw_tokens_per_sec": 18294.2,
-        "useful_loss_bearing_tokens_per_sec": 12757.2
+        "useful_loss_bearing_tokens": 7422,
+        "pad_positions": 2293,
+        "packing_utilization": 0.7788,
+        "raw_tokens_per_sec": 18287.8,
+        "useful_loss_bearing_tokens_per_sec": 13091.5
       }
     },
     {
@@ -193,7 +239,7 @@
     "steps": 24,
     "crash_at": 12,
     "resumed_from": "main-step0009",
-    "useful_loss_bearing_tokens_per_sec": 12757.2,
-    "packing_utilization": 0.7571
+    "useful_loss_bearing_tokens_per_sec": 13091.5,
+    "packing_utilization": 0.7788
   }
 }

@@ -9,9 +9,9 @@
   "actual_share": {
     "agentic": 0.0938,
     "code": 0.1615,
-    "general_web": 0.3542,
-    "indic": 0.2448,
-    "reasoning": 0.1458
+    "general_web": 0.3438,
+    "indic": 0.2396,
+    "reasoning": 0.1615
   },
   "protected_floors": {
     "indic": 0.08,
@@ -23,5 +23,5 @@
     "agentic": true,
     "reasoning": true
   },
-  "max_abs_deviation": 0.0395
+  "max_abs_deviation": 0.0499
 }

@@ -70,19 +70,36 @@ class BatchBuilder:
         self.tok, self.opus = tokenizer, opus
         self.microbatch, self.samples_per_seq = microbatch, samples_per_seq
         self.packer = Packer(schedule.stages[0].sequence_length, tokenizer.pad_id, tokenizer.eos_id)
-        # lane -> [(shard_id, span_idx)] built once from admitted train shards
+        # lane -> [(shard_id, span_idx)]. Two pools: the ordinary stream, and the
+        # anneal reserve which the main run is NOT allowed to spend. If the selector
+        # could consume the best Indic/agentic data early there would be nothing
+        # special left for the cooldown, so the reserve is withheld structurally.
         self.pools: dict[str, list] = {}
+        self.reserve_pools: dict[str, list] = {}
+        self.reserved_shards: set = set()
         for sid, m in sorted(store.manifests.items()):
             if m.split != "train":
                 continue
             ok, _ = firewall.check_shard(sid)
             if not ok:
                 continue
-            self.pools.setdefault(m.capability_lane, []).extend(
+            target = self.reserve_pools if m.reserved_for_anneal else self.pools
+            target.setdefault(m.capability_lane, []).extend(
                 (sid, i) for i in range(len(m.spans)))
+            if m.reserved_for_anneal:
+                self.reserved_shards.add(sid)
 
-    def _candidate(self, rng, lane) -> dict:
-        pool = self.pools[lane]
+    def _pools_for(self, stage_name: str) -> dict:
+        """The reserve only becomes spendable during the anneal stage."""
+        if stage_name != "anneal":
+            return self.pools
+        merged = {l: list(v) for l, v in self.pools.items()}
+        for l, v in self.reserve_pools.items():
+            merged.setdefault(l, []).extend(v)
+        return merged
+
+    def _candidate(self, rng, lane, pools) -> dict:
+        pool = pools[lane]
         sid, si = pool[rng.randrange(len(pool))]
         span = self.store.manifests[sid].spans[si]
         toks = self.store.span_tokens(sid, si)
@@ -95,7 +112,8 @@ class BatchBuilder:
     def build(self, branch: str, step: int, proxy_version: str) -> BuiltBatch:
         weights, stage = self.schedule.weights_for(step)
         rng = _rng_for(branch, step, self.schedule.hash)
-        lanes = [l for l in sorted(weights) if l in self.pools]
+        pools = self._pools_for(stage.name)
+        lanes = [l for l in sorted(weights) if l in pools]
         wts = [weights[l] for l in lanes]
         need = self.microbatch * self.samples_per_seq
 
@@ -104,7 +122,7 @@ class BatchBuilder:
         while len(accepted) < need and tries < need * 12:
             tries += 1
             lane = rng.choices(lanes, weights=wts, k=1)[0]
-            cand = self._candidate(rng, lane)
+            cand = self._candidate(rng, lane, pools)
             cid = f"{branch}:{step}:{tries}"
             floors = stage.protected_floors
             share_now = lane_counts.get(lane, 0) / need
@@ -230,6 +248,44 @@ class Engine:
                          f"checkpoint {last_ckpt['checkpoint_id'] if last_ckpt else 'none'})")
                 raise CrashSignal(str(step))
         return {"last_checkpoint": last_ckpt, "final_step": end_step - 1}
+
+    # ---------- validation: read, never trained on ----------
+    def validation_pass(self, shard_id: str, seq_len: int = 192) -> dict:
+        """Validation data may be READ for evaluation but must never become
+        gradient-bearing. We prove that by hashing the parameters before and
+        after: the loss is computed, no weight moves."""
+        before = self.model.param_hash()
+        toks = self.store.tokens(shard_id)[:seq_len]
+        segs = [0] * len(toks)
+        mask = [1] * len(toks)
+        loss = self.model.evaluate(toks, mask, segs)      # forward only
+        after = self.model.param_hash()
+        self.firewall.note_access(shard_id, "validation_eval")
+        return {"shard_id": shard_id, "val_loss": round(loss, 6),
+                "params_unchanged": before == after,
+                "gradient_bearing": False,
+                "appears_in_consumption_ledger":
+                    any(shard_id in r["shard_ids"] for r in self.cl.read())}
+
+    def token_trace(self, branch: str, step: int, proxy_version: str, limit: int = 60) -> dict:
+        """Token-level learning signal for one batch: loss and perplexity per
+        loss-bearing position, tied back to its shard and lane."""
+        b = self.builder.build(branch, step, proxy_version)
+        sq = b.sequences[0]
+        _, per_tok, _ = self.model.step(sq.tokens, sq.loss_mask, sq.segment_ids, lr=0.0)
+        rows = []
+        for pos in sorted(per_tok)[:limit]:
+            seg = sq.segment_ids[pos]
+            rows.append({"position": pos, "token_id": int(sq.tokens[pos]),
+                         "decoded": self.tok.decode([sq.tokens[pos]])[:24],
+                         "segment": int(seg),
+                         "sample_id": sq.sample_ids[seg] if seg < len(sq.sample_ids) else None,
+                         "lane": sq.lanes[seg] if seg < len(sq.lanes) else None,
+                         "loss": round(per_tok[pos], 5),
+                         "perplexity": round(float(np.exp(min(per_tok[pos], 20))), 3),
+                         "loss_bearing": True})
+        return {"batch_id": b.batch_id, "stage": b.stage,
+                "loss_bearing_tokens": len(per_tok), "shown": len(rows), "tokens": rows}
 
     # ---------- replay / fork / audit ----------
     def replay(self, branch: str, lo: int, hi: int) -> dict:

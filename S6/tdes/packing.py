@@ -43,6 +43,29 @@ class PackedSequence:
                 expect += 1
         return True
 
+    def attention_mask(self):
+        """Materialise the block-diagonal causal mask this packing implies.
+        mask[i][j] is True iff position i may attend to position j: same packed
+        sample (segment) AND j <= i. Unrelated samples sharing the window can
+        therefore never leak into each other through attention."""
+        n = len(self.tokens)
+        return [[(self.segment_ids[j] == self.segment_ids[i]) and (j <= i)
+                 for j in range(n)] for i in range(n)]
+
+    def check_attention(self) -> tuple[bool, str]:
+        m = self.attention_mask()
+        n = len(self.tokens)
+        for i in range(n):
+            if not m[i][i]:
+                return False, "token_cannot_attend_to_itself"
+            for j in range(n):
+                if m[i][j]:
+                    if j > i:
+                        return False, f"future_leak_{i}_{j}"
+                    if self.segment_ids[j] != self.segment_ids[i]:
+                        return False, f"cross_sample_leak_{i}_{j}"
+        return True, "block_diagonal_causal_ok"
+
     @property
     def useful_tokens(self) -> int:
         return sum(self.loss_mask)

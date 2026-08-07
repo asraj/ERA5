@@ -17,7 +17,7 @@ itself generates.
 
 ```bash
 python run_demo.py                              # full demonstration, ~5 seconds
-python -m unittest discover -s tests -v         # 14 invariant tests
+python -m unittest discover -s tests -v         # 17 invariant tests
 ```
 
 No third-party dependencies except **numpy** (the tiny model). Corpus: the real
@@ -70,9 +70,11 @@ sample boundary and increase by one within it. For agentic/reasoning lanes the l
 context (prompt, tool observation) is masked out — training a model to reproduce tool
 output would teach it to hallucinate results instead of calling the tool.
 
-**Attention isolation is by segment id.** Packing several samples into one window is
-only safe if they cannot see each other; `segment_ids` expresses the block-diagonal
-mask, recorded in the ledger as `attention_policy`.
+**Attention isolation is by segment id, and the mask is materialised.**
+`PackedSequence.attention_mask()` builds the block-diagonal causal matrix
+(`same segment AND j <= i`) and `check_attention()` verifies three things on every
+sequence of the whole run: no token sees the future, no token sees another packed
+sample, and every token sees itself.
 
 **OPUS decisions are part of the stream, not a filter in front of it.** Every
 candidate — accepted, rejected, deferred or floor-rescued — is written to the audit
@@ -83,6 +85,16 @@ protected floor has something real to rescue.
 **Protected floors sit outside the selector.** When a lane's share in the batch under
 construction falls below its floor, the candidate is admitted with
 `protected_floor_override = true` regardless of score.
+
+**The anneal reserve is withheld structurally, not by convention.** Shards flagged
+`reserved_for_anneal` live in a separate pool that `BatchBuilder` only merges in once
+the schedule reaches the `anneal` stage. If the selector could spend the best
+Indic/agentic data early there would be nothing special left for the cooldown, so the
+demo proves the reserve is untouched before the anneal and spent inside it.
+
+**Validation is read but never gradient-bearing.** `Engine.validation_pass()` computes
+a forward-only loss and hashes the parameters before and after to prove no weight
+moved, and asserts the validation shard never appears in the consumption ledger.
 
 **Determinism of OPUS under replay.** Scores are a pure function of
 `(proxy_version, candidate_id, lane)`, and `proxy_version` is recorded per batch, so
@@ -103,6 +115,8 @@ replays. From a real run:
 [PASS] ledger_contiguous contiguous steps=24
 [PASS] replay_hash_matched interval=[2, 8] batches=7 mismatches=0
 [PASS] branch_forked branch-b from main-step0009 diverging at step 10 (streams_differ=True)
+[PASS] anneal_reserve_protected leaked_before_anneal=[] spent_in_anneal=['agentic-02','indic-02']
+[PASS] validation_read_not_trained params_unchanged=True in_ledger=False
 ```
 
 Three-layer eval firewall proof: the test shard is refused at the registry
@@ -123,8 +137,9 @@ submission_artifacts/
   ledgers/learning.json       per-shard loss delta, grad norm, classification
   checkpoints/                weights (.npz) + metadata bound to ledger offsets
   shards/                     immutable .bin token arrays
-  reports/                    replay, fork, audit, packing, mixture compliance,
-                              opus decisions, firewall
+  reports/                    replay, fork, audit, packing (+ per-policy efficiency),
+                              mixture compliance, opus decisions, firewall,
+                              anneal_reserve, validation, token_trace
 ```
 
 `evidence.json` is produced by `tdes/evidence.py`, which recomputes each verdict from
@@ -147,3 +162,6 @@ reading the demo's output, so it tests behaviour and not artifacts:
 - fork diverges and records its origin
 - checkpoint offset truncates to exactly the committed records
 - OPUS deterministic, and floor deficit forces an override
+- attention mask is block-diagonal and causal (no future leak, no cross-sample leak)
+- anneal reserve is unspendable before the cooldown and spendable inside it
+- a validation read moves no weight

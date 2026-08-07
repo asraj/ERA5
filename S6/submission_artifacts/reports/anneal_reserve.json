@@ -1,0 +1,13 @@
+{
+  "reserved_shards": [
+    "agentic-02",
+    "indic-02"
+  ],
+  "anneal_starts_at_step": 21,
+  "spent_before_anneal": [],
+  "spent_during_anneal": [
+    "agentic-02",
+    "indic-02"
+  ],
+  "held_back_correctly": true
+}

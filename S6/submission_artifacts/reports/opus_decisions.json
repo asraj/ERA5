@@ -1,36 +1,36 @@
 {
   "counts": {
-    "rejected": 110,
-    "protected_override": 49,
-    "accepted": 255,
-    "deferred": 13
+    "rejected": 184,
+    "protected_override": 76,
+    "accepted": 428,
+    "deferred": 30
   },
   "by_lane": {
     "general_web": {
-      "rejected": 45,
-      "accepted": 115,
-      "deferred": 7
+      "rejected": 76,
+      "accepted": 175,
+      "deferred": 10
     },
     "indic": {
-      "protected_override": 21,
-      "accepted": 56,
-      "rejected": 36,
-      "deferred": 2
+      "protected_override": 34,
+      "accepted": 93,
+      "rejected": 54,
+      "deferred": 9
     },
     "code": {
-      "rejected": 15,
-      "accepted": 47,
-      "deferred": 4
+      "rejected": 31,
+      "accepted": 80,
+      "deferred": 11
     },
     "agentic": {
-      "accepted": 13,
-      "protected_override": 15,
-      "rejected": 10
+      "accepted": 23,
+      "protected_override": 22,
+      "rejected": 12
     },
     "reasoning": {
-      "protected_override": 13,
-      "accepted": 24,
-      "rejected": 4
+      "protected_override": 20,
+      "accepted": 57,
+      "rejected": 11
     }
   },
   "decisions": [
@@ -149,7 +149,7 @@
     {
       "candidate_id": "main:0:9",
       "shard_ids": [
-        "agentic-02"
+        "agentic-00"
       ],
       "lane": "agentic",
       "stage": "foundation",
@@ -158,12 +158,12 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 53
+      "effective_tokens": 56
     },
     {
       "candidate_id": "main:0:10",
       "shard_ids": [
-        "general_web-00"
+        "general_web-01"
       ],
       "lane": "general_web",
       "stage": "foundation",
@@ -172,12 +172,12 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 659
+      "effective_tokens": 675
     },
     {
       "candidate_id": "main:0:11",
       "shard_ids": [
-        "general_web-01"
+        "general_web-02"
       ],
       "lane": "general_web",
       "stage": "foundation",
@@ -186,7 +186,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 472
+      "effective_tokens": 696
     },
     {
       "candidate_id": "main:1:1",
@@ -331,7 +331,7 @@
     {
       "candidate_id": "main:2:3",
       "shard_ids": [
-        "indic-02"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -340,82 +340,96 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 1505
+      "effective_tokens": 43
     },
     {
       "candidate_id": "main:2:4",
-      "shard_ids": [
-        "general_web-01"
-      ],
-      "lane": "general_web",
-      "stage": "foundation",
-      "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.794109,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 578
-    },
-    {
-      "candidate_id": "main:2:5",
       "shard_ids": [
         "agentic-00"
       ],
       "lane": "agentic",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.0,
-      "status": "protected_override",
-      "reason": "protected_floor_rescue",
-      "protected_floor_override": true,
-      "effective_tokens": 53
+      "score": 0.644109,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 56
     },
     {
-      "candidate_id": "main:2:6",
+      "candidate_id": "main:2:5",
       "shard_ids": [
         "indic-00"
       ],
       "lane": "indic",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.499408,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
+      "score": 0.0,
+      "status": "rejected",
+      "reason": "low_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 32
     },
     {
-      "candidate_id": "main:2:7",
+      "candidate_id": "main:2:6",
       "shard_ids": [
         "code-01"
       ],
       "lane": "code",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.754475,
+      "score": 0.619408,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 52
     },
     {
-      "candidate_id": "main:2:8",
+      "candidate_id": "main:2:7",
       "shard_ids": [
         "general_web-02"
       ],
       "lane": "general_web",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.413529,
+      "score": 0.754475,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 524
     },
     {
+      "candidate_id": "main:2:8",
+      "shard_ids": [
+        "reasoning-00"
+      ],
+      "lane": "reasoning",
+      "stage": "foundation",
+      "proxy_version": "proxy-v1@ckpt0",
+      "score": 0.353529,
+      "status": "protected_override",
+      "reason": "protected_floor_rescue",
+      "protected_floor_override": true,
+      "effective_tokens": 46
+    },
+    {
+      "candidate_id": "main:2:9",
+      "shard_ids": [
+        "reasoning-01"
+      ],
+      "lane": "reasoning",
+      "stage": "foundation",
+      "proxy_version": "proxy-v1@ckpt0",
+      "score": 0.623295,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 46
+    },
+    {
       "candidate_id": "main:3:1",
       "shard_ids": [
-        "indic-02"
+        "indic-00"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -424,68 +438,68 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 1505
+      "effective_tokens": 32
     },
     {
       "candidate_id": "main:3:2",
       "shard_ids": [
-        "indic-00"
+        "code-02"
       ],
-      "lane": "indic",
+      "lane": "code",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.238258,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
+      "score": 0.358258,
+      "status": "deferred",
+      "reason": "borderline_utility_defer_to_later_phase",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 52
     },
     {
       "candidate_id": "main:3:3",
       "shard_ids": [
-        "general_web-00"
+        "code-02"
       ],
-      "lane": "general_web",
+      "lane": "code",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt0",
       "score": 0.76693,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 313
+      "effective_tokens": 52
     },
     {
       "candidate_id": "main:3:4",
       "shard_ids": [
-        "general_web-02"
+        "reasoning-01"
       ],
-      "lane": "general_web",
+      "lane": "reasoning",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.955509,
+      "score": 0.895509,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 571
+      "effective_tokens": 46
     },
     {
       "candidate_id": "main:3:5",
       "shard_ids": [
-        "general_web-00"
+        "indic-00"
       ],
-      "lane": "general_web",
+      "lane": "indic",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.537166,
+      "score": 0.417166,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 645
+      "effective_tokens": 32
     },
     {
       "candidate_id": "main:3:6",
       "shard_ids": [
-        "general_web-01"
+        "general_web-00"
       ],
       "lane": "general_web",
       "stage": "foundation",
@@ -494,49 +508,49 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 636
+      "effective_tokens": 548
     },
     {
       "candidate_id": "main:3:7",
-      "shard_ids": [
-        "indic-00"
-      ],
-      "lane": "indic",
-      "stage": "foundation",
-      "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.590503,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 32
-    },
-    {
-      "candidate_id": "main:3:8",
       "shard_ids": [
         "general_web-01"
       ],
       "lane": "general_web",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.712218,
+      "score": 0.710503,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 578
     },
     {
-      "candidate_id": "main:3:9",
+      "candidate_id": "main:3:8",
       "shard_ids": [
         "indic-01"
       ],
       "lane": "indic",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.547206,
+      "score": 0.592218,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 43
+    },
+    {
+      "candidate_id": "main:3:9",
+      "shard_ids": [
+        "general_web-01"
+      ],
+      "lane": "general_web",
+      "stage": "foundation",
+      "proxy_version": "proxy-v1@ckpt0",
+      "score": 0.667206,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 634
     },
     {
       "candidate_id": "main:4:1",
@@ -639,7 +653,7 @@
     {
       "candidate_id": "main:4:8",
       "shard_ids": [
-        "indic-02"
+        "indic-00"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -648,12 +662,12 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 1505
+      "effective_tokens": 32
     },
     {
       "candidate_id": "main:4:9",
       "shard_ids": [
-        "general_web-00"
+        "general_web-02"
       ],
       "lane": "general_web",
       "stage": "foundation",
@@ -662,7 +676,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 651
+      "effective_tokens": 626
     },
     {
       "candidate_id": "main:5:1",
@@ -751,7 +765,7 @@
     {
       "candidate_id": "main:5:7",
       "shard_ids": [
-        "indic-02"
+        "indic-00"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -760,35 +774,35 @@
       "status": "protected_override",
       "reason": "protected_floor_rescue",
       "protected_floor_override": true,
-      "effective_tokens": 1505
+      "effective_tokens": 32
     },
     {
       "candidate_id": "main:5:8",
       "shard_ids": [
-        "general_web-01"
+        "code-00"
       ],
-      "lane": "general_web",
+      "lane": "code",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
       "score": 0.938657,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 539
+      "effective_tokens": 51
     },
     {
       "candidate_id": "main:5:9",
       "shard_ids": [
-        "code-01"
+        "general_web-02"
       ],
-      "lane": "code",
+      "lane": "general_web",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
       "score": 0.500996,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 654
     },
     {
       "candidate_id": "main:6:1",
@@ -835,7 +849,7 @@
     {
       "candidate_id": "main:6:4",
       "shard_ids": [
-        "indic-02"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -844,21 +858,21 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 1505
+      "effective_tokens": 43
     },
     {
       "candidate_id": "main:6:5",
       "shard_ids": [
-        "reasoning-00"
+        "general_web-02"
       ],
-      "lane": "reasoning",
+      "lane": "general_web",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.056607,
-      "status": "protected_override",
-      "reason": "protected_floor_rescue",
-      "protected_floor_override": true,
-      "effective_tokens": 46
+      "score": 0.116607,
+      "status": "rejected",
+      "reason": "low_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 612
     },
     {
       "candidate_id": "main:6:6",
@@ -891,7 +905,7 @@
     {
       "candidate_id": "main:6:8",
       "shard_ids": [
-        "indic-02"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -900,21 +914,21 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 1505
+      "effective_tokens": 43
     },
     {
       "candidate_id": "main:6:9",
       "shard_ids": [
-        "general_web-02"
+        "indic-00"
       ],
-      "lane": "general_web",
+      "lane": "indic",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.791929,
+      "score": 0.671929,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 626
+      "effective_tokens": 32
     },
     {
       "candidate_id": "main:6:10",
@@ -928,21 +942,35 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 696
+      "effective_tokens": 674
     },
     {
       "candidate_id": "main:6:11",
       "shard_ids": [
-        "indic-02"
+        "general_web-00"
       ],
-      "lane": "indic",
+      "lane": "general_web",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.860955,
+      "score": 0.980955,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 1505
+      "effective_tokens": 611
+    },
+    {
+      "candidate_id": "main:6:12",
+      "shard_ids": [
+        "reasoning-01"
+      ],
+      "lane": "reasoning",
+      "stage": "foundation",
+      "proxy_version": "proxy-v1@ckpt5",
+      "score": 0.715459,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 46
     },
     {
       "candidate_id": "main:7:1",
@@ -975,7 +1003,7 @@
     {
       "candidate_id": "main:7:3",
       "shard_ids": [
-        "indic-02"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -984,82 +1012,82 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 1505
+      "effective_tokens": 43
     },
     {
       "candidate_id": "main:7:4",
       "shard_ids": [
-        "general_web-01"
+        "code-02"
       ],
-      "lane": "general_web",
+      "lane": "code",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
       "score": 0.834609,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 543
+      "effective_tokens": 52
     },
     {
       "candidate_id": "main:7:5",
       "shard_ids": [
-        "general_web-02"
+        "indic-00"
       ],
-      "lane": "general_web",
+      "lane": "indic",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.645353,
+      "score": 0.525353,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 674
+      "effective_tokens": 32
     },
     {
       "candidate_id": "main:7:6",
-      "shard_ids": [
-        "agentic-00"
-      ],
-      "lane": "agentic",
-      "stage": "foundation",
-      "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.0,
-      "status": "protected_override",
-      "reason": "protected_floor_rescue",
-      "protected_floor_override": true,
-      "effective_tokens": 53
-    },
-    {
-      "candidate_id": "main:7:7",
       "shard_ids": [
         "general_web-01"
       ],
       "lane": "general_web",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.525535,
+      "score": 0.127359,
+      "status": "rejected",
+      "reason": "low_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 570
+    },
+    {
+      "candidate_id": "main:7:7",
+      "shard_ids": [
+        "indic-01"
+      ],
+      "lane": "indic",
+      "stage": "foundation",
+      "proxy_version": "proxy-v1@ckpt5",
+      "score": 0.405535,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 606
+      "effective_tokens": 43
     },
     {
       "candidate_id": "main:7:8",
       "shard_ids": [
-        "general_web-02"
+        "code-01"
       ],
-      "lane": "general_web",
+      "lane": "code",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
       "score": 0.48558,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 654
+      "effective_tokens": 52
     },
     {
       "candidate_id": "main:7:9",
       "shard_ids": [
-        "general_web-00"
+        "general_web-01"
       ],
       "lane": "general_web",
       "stage": "foundation",
@@ -1068,12 +1096,26 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 503
+      "effective_tokens": 577
+    },
+    {
+      "candidate_id": "main:7:10",
+      "shard_ids": [
+        "general_web-01"
+      ],
+      "lane": "general_web",
+      "stage": "foundation",
+      "proxy_version": "proxy-v1@ckpt5",
+      "score": 0.788192,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 634
     },
     {
       "candidate_id": "main:8:1",
       "shard_ids": [
-        "indic-02"
+        "indic-00"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -1082,35 +1124,35 @@
       "status": "protected_override",
       "reason": "protected_floor_rescue",
       "protected_floor_override": true,
-      "effective_tokens": 1505
+      "effective_tokens": 32
     },
     {
       "candidate_id": "main:8:2",
-      "shard_ids": [
-        "reasoning-01"
-      ],
-      "lane": "reasoning",
-      "stage": "foundation",
-      "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.352711,
-      "status": "protected_override",
-      "reason": "protected_floor_rescue",
-      "protected_floor_override": true,
-      "effective_tokens": 46
-    },
-    {
-      "candidate_id": "main:8:3",
       "shard_ids": [
         "general_web-00"
       ],
       "lane": "general_web",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.273216,
+      "score": 0.412711,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 556
+    },
+    {
+      "candidate_id": "main:8:3",
+      "shard_ids": [
+        "indic-01"
+      ],
+      "lane": "indic",
+      "stage": "foundation",
+      "proxy_version": "proxy-v1@ckpt5",
+      "score": 0.153216,
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 556
+      "effective_tokens": 43
     },
     {
       "candidate_id": "main:8:4",
@@ -1129,124 +1171,110 @@
     {
       "candidate_id": "main:8:5",
       "shard_ids": [
-        "indic-01"
-      ],
-      "lane": "indic",
-      "stage": "foundation",
-      "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.0,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 43
-    },
-    {
-      "candidate_id": "main:8:6",
-      "shard_ids": [
         "general_web-00"
       ],
       "lane": "general_web",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.826012,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
+      "score": 0.074223,
+      "status": "rejected",
+      "reason": "low_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 560
     },
     {
-      "candidate_id": "main:8:7",
+      "candidate_id": "main:8:6",
       "shard_ids": [
         "reasoning-02"
       ],
       "lane": "reasoning",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.522997,
+      "score": 0.766012,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 46
     },
     {
-      "candidate_id": "main:8:8",
+      "candidate_id": "main:8:7",
       "shard_ids": [
         "indic-00"
       ],
       "lane": "indic",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.852058,
+      "score": 0.462997,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 32
     },
     {
-      "candidate_id": "main:8:9",
+      "candidate_id": "main:8:8",
       "shard_ids": [
         "general_web-00"
       ],
       "lane": "general_web",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.265289,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
+      "score": 0.972058,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 613
     },
     {
-      "candidate_id": "main:8:10",
+      "candidate_id": "main:8:9",
       "shard_ids": [
         "agentic-00"
       ],
       "lane": "agentic",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.756769,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
-      "protected_floor_override": false,
+      "score": 0.115289,
+      "status": "protected_override",
+      "reason": "protected_floor_rescue",
+      "protected_floor_override": true,
       "effective_tokens": 53
     },
     {
-      "candidate_id": "main:8:11",
+      "candidate_id": "main:8:10",
       "shard_ids": [
         "indic-01"
       ],
       "lane": "indic",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.0,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
+      "score": 0.786769,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 43
     },
     {
-      "candidate_id": "main:8:12",
+      "candidate_id": "main:8:11",
       "shard_ids": [
         "general_web-01"
       ],
       "lane": "general_web",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.890575,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
+      "score": 0.005439,
+      "status": "rejected",
+      "reason": "low_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 578
     },
     {
-      "candidate_id": "main:8:13",
+      "candidate_id": "main:8:12",
       "shard_ids": [
         "indic-01"
       ],
       "lane": "indic",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.566485,
+      "score": 0.770575,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
@@ -1367,7 +1395,7 @@
     {
       "candidate_id": "main:9:9",
       "shard_ids": [
-        "agentic-02"
+        "agentic-00"
       ],
       "lane": "agentic",
       "stage": "capability",
@@ -1376,54 +1404,54 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 53
+      "effective_tokens": 56
     },
     {
       "candidate_id": "main:9:10",
       "shard_ids": [
-        "agentic-01"
+        "indic-00"
       ],
-      "lane": "agentic",
+      "lane": "indic",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.293065,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 56
+      "score": 0.323065,
+      "status": "protected_override",
+      "reason": "protected_floor_rescue",
+      "protected_floor_override": true,
+      "effective_tokens": 32
     },
     {
       "candidate_id": "main:9:11",
       "shard_ids": [
-        "code-01"
+        "indic-00"
       ],
-      "lane": "code",
+      "lane": "indic",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.475781,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
+      "score": 0.355781,
+      "status": "deferred",
+      "reason": "borderline_utility_defer_to_later_phase",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 32
     },
     {
       "candidate_id": "main:9:12",
       "shard_ids": [
-        "general_web-00"
+        "reasoning-02"
       ],
-      "lane": "general_web",
+      "lane": "reasoning",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.669602,
+      "score": 0.609602,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 334
+      "effective_tokens": 46
     },
     {
       "candidate_id": "main:9:13",
       "shard_ids": [
-        "reasoning-02"
+        "reasoning-01"
       ],
       "lane": "reasoning",
       "stage": "capability",
@@ -1437,16 +1465,16 @@
     {
       "candidate_id": "main:9:14",
       "shard_ids": [
-        "reasoning-01"
+        "general_web-00"
       ],
-      "lane": "reasoning",
+      "lane": "general_web",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.822424,
+      "score": 0.882424,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 46
+      "effective_tokens": 569
     },
     {
       "candidate_id": "main:10:1",
@@ -1465,7 +1493,7 @@
     {
       "candidate_id": "main:10:2",
       "shard_ids": [
-        "indic-02"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "capability",
@@ -1474,12 +1502,12 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 1505
+      "effective_tokens": 43
     },
     {
       "candidate_id": "main:10:3",
       "shard_ids": [
-        "indic-01"
+        "indic-00"
       ],
       "lane": "indic",
       "stage": "capability",
@@ -1488,68 +1516,68 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
-    },
-    {
-      "candidate_id": "main:10:4",
-      "shard_ids": [
-        "indic-00"
-      ],
-      "lane": "indic",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.724466,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
-      "protected_floor_override": false,
       "effective_tokens": 32
     },
     {
-      "candidate_id": "main:10:5",
+      "candidate_id": "main:10:4",
       "shard_ids": [
         "agentic-01"
       ],
       "lane": "agentic",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.599272,
+      "score": 0.694466,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 56
     },
     {
-      "candidate_id": "main:10:6",
+      "candidate_id": "main:10:5",
       "shard_ids": [
         "general_web-02"
       ],
       "lane": "general_web",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.071009,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
+      "score": 0.749272,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 654
     },
     {
-      "candidate_id": "main:10:7",
+      "candidate_id": "main:10:6",
       "shard_ids": [
         "code-02"
       ],
       "lane": "code",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.551671,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
+      "score": 0.071009,
+      "status": "rejected",
+      "reason": "low_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 62
     },
     {
-      "candidate_id": "main:10:8",
+      "candidate_id": "main:10:7",
       "shard_ids": [
         "general_web-01"
+      ],
+      "lane": "general_web",
+      "stage": "capability",
+      "proxy_version": "proxy-v1@ckpt10",
+      "score": 0.551671,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 650
+    },
+    {
+      "candidate_id": "main:10:8",
+      "shard_ids": [
+        "general_web-02"
       ],
       "lane": "general_web",
       "stage": "capability",
@@ -1558,7 +1586,7 @@
       "status": "deferred",
       "reason": "borderline_utility_defer_to_later_phase",
       "protected_floor_override": false,
-      "effective_tokens": 650
+      "effective_tokens": 636
     },
     {
       "candidate_id": "main:10:9",
@@ -1572,54 +1600,54 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 636
-    },
-    {
-      "candidate_id": "main:10:10",
-      "shard_ids": [
-        "general_web-02"
-      ],
-      "lane": "general_web",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.12917,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
-      "protected_floor_override": false,
       "effective_tokens": 655
     },
     {
-      "candidate_id": "main:10:11",
+      "candidate_id": "main:10:10",
       "shard_ids": [
         "indic-01"
       ],
       "lane": "indic",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.152641,
+      "score": 0.00917,
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 43
     },
     {
-      "candidate_id": "main:10:12",
+      "candidate_id": "main:10:11",
       "shard_ids": [
         "code-02"
       ],
       "lane": "code",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.482226,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
+      "score": 0.272641,
+      "status": "rejected",
+      "reason": "low_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 52
     },
     {
+      "candidate_id": "main:10:12",
+      "shard_ids": [
+        "indic-00"
+      ],
+      "lane": "indic",
+      "stage": "capability",
+      "proxy_version": "proxy-v1@ckpt10",
+      "score": 0.362226,
+      "status": "deferred",
+      "reason": "borderline_utility_defer_to_later_phase",
+      "protected_floor_override": false,
+      "effective_tokens": 32
+    },
+    {
       "candidate_id": "main:10:13",
       "shard_ids": [
-        "indic-02"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "capability",
@@ -1628,26 +1656,26 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 1505
+      "effective_tokens": 43
     },
     {
       "candidate_id": "main:10:14",
       "shard_ids": [
-        "code-00"
+        "general_web-01"
       ],
-      "lane": "code",
+      "lane": "general_web",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt10",
       "score": 0.151787,
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 684
     },
     {
       "candidate_id": "main:10:15",
       "shard_ids": [
-        "general_web-02"
+        "general_web-00"
       ],
       "lane": "general_web",
       "stage": "capability",
@@ -1656,21 +1684,35 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 604
+      "effective_tokens": 545
     },
     {
       "candidate_id": "main:10:16",
       "shard_ids": [
-        "general_web-02"
+        "code-02"
       ],
-      "lane": "general_web",
+      "lane": "code",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt10",
       "score": 0.995542,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 719
+      "effective_tokens": 62
+    },
+    {
+      "candidate_id": "main:10:17",
+      "shard_ids": [
+        "reasoning-01"
+      ],
+      "lane": "reasoning",
+      "stage": "capability",
+      "proxy_version": "proxy-v1@ckpt10",
+      "score": 0.731293,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 46
     },
     {
       "candidate_id": "main:11:1",
@@ -1927,7 +1969,7 @@
     {
       "candidate_id": "main:12:9",
       "shard_ids": [
-        "indic-02"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "capability",
@@ -1936,17 +1978,255 @@
       "status": "protected_override",
       "reason": "protected_floor_rescue",
       "protected_floor_override": true,
-      "effective_tokens": 1505
+      "effective_tokens": 43
     },
     {
       "candidate_id": "main:12:10",
       "shard_ids": [
-        "reasoning-00"
+        "code-01"
+      ],
+      "lane": "code",
+      "stage": "capability",
+      "proxy_version": "proxy-v1@ckpt10",
+      "score": 0.728035,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 61
+    },
+    {
+      "candidate_id": "main:10:1",
+      "shard_ids": [
+        "indic-00"
+      ],
+      "lane": "indic",
+      "stage": "capability",
+      "proxy_version": "proxy-v1@ckpt10",
+      "score": 0.0,
+      "status": "protected_override",
+      "reason": "protected_floor_rescue",
+      "protected_floor_override": true,
+      "effective_tokens": 32
+    },
+    {
+      "candidate_id": "main:10:2",
+      "shard_ids": [
+        "indic-01"
+      ],
+      "lane": "indic",
+      "stage": "capability",
+      "proxy_version": "proxy-v1@ckpt10",
+      "score": 0.262666,
+      "status": "rejected",
+      "reason": "low_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 43
+    },
+    {
+      "candidate_id": "main:10:3",
+      "shard_ids": [
+        "indic-00"
+      ],
+      "lane": "indic",
+      "stage": "capability",
+      "proxy_version": "proxy-v1@ckpt10",
+      "score": 0.851463,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 32
+    },
+    {
+      "candidate_id": "main:10:4",
+      "shard_ids": [
+        "agentic-01"
+      ],
+      "lane": "agentic",
+      "stage": "capability",
+      "proxy_version": "proxy-v1@ckpt10",
+      "score": 0.694466,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 56
+    },
+    {
+      "candidate_id": "main:10:5",
+      "shard_ids": [
+        "general_web-02"
+      ],
+      "lane": "general_web",
+      "stage": "capability",
+      "proxy_version": "proxy-v1@ckpt10",
+      "score": 0.749272,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 654
+    },
+    {
+      "candidate_id": "main:10:6",
+      "shard_ids": [
+        "code-02"
+      ],
+      "lane": "code",
+      "stage": "capability",
+      "proxy_version": "proxy-v1@ckpt10",
+      "score": 0.071009,
+      "status": "rejected",
+      "reason": "low_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 62
+    },
+    {
+      "candidate_id": "main:10:7",
+      "shard_ids": [
+        "general_web-01"
+      ],
+      "lane": "general_web",
+      "stage": "capability",
+      "proxy_version": "proxy-v1@ckpt10",
+      "score": 0.551671,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 650
+    },
+    {
+      "candidate_id": "main:10:8",
+      "shard_ids": [
+        "general_web-02"
+      ],
+      "lane": "general_web",
+      "stage": "capability",
+      "proxy_version": "proxy-v1@ckpt10",
+      "score": 0.352021,
+      "status": "deferred",
+      "reason": "borderline_utility_defer_to_later_phase",
+      "protected_floor_override": false,
+      "effective_tokens": 636
+    },
+    {
+      "candidate_id": "main:10:9",
+      "shard_ids": [
+        "general_web-02"
+      ],
+      "lane": "general_web",
+      "stage": "capability",
+      "proxy_version": "proxy-v1@ckpt10",
+      "score": 0.453622,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 655
+    },
+    {
+      "candidate_id": "main:10:10",
+      "shard_ids": [
+        "indic-01"
+      ],
+      "lane": "indic",
+      "stage": "capability",
+      "proxy_version": "proxy-v1@ckpt10",
+      "score": 0.00917,
+      "status": "rejected",
+      "reason": "low_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 43
+    },
+    {
+      "candidate_id": "main:10:11",
+      "shard_ids": [
+        "code-02"
+      ],
+      "lane": "code",
+      "stage": "capability",
+      "proxy_version": "proxy-v1@ckpt10",
+      "score": 0.272641,
+      "status": "rejected",
+      "reason": "low_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 52
+    },
+    {
+      "candidate_id": "main:10:12",
+      "shard_ids": [
+        "indic-00"
+      ],
+      "lane": "indic",
+      "stage": "capability",
+      "proxy_version": "proxy-v1@ckpt10",
+      "score": 0.362226,
+      "status": "deferred",
+      "reason": "borderline_utility_defer_to_later_phase",
+      "protected_floor_override": false,
+      "effective_tokens": 32
+    },
+    {
+      "candidate_id": "main:10:13",
+      "shard_ids": [
+        "indic-01"
+      ],
+      "lane": "indic",
+      "stage": "capability",
+      "proxy_version": "proxy-v1@ckpt10",
+      "score": 0.139037,
+      "status": "rejected",
+      "reason": "low_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 43
+    },
+    {
+      "candidate_id": "main:10:14",
+      "shard_ids": [
+        "general_web-01"
+      ],
+      "lane": "general_web",
+      "stage": "capability",
+      "proxy_version": "proxy-v1@ckpt10",
+      "score": 0.151787,
+      "status": "rejected",
+      "reason": "low_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 684
+    },
+    {
+      "candidate_id": "main:10:15",
+      "shard_ids": [
+        "general_web-00"
+      ],
+      "lane": "general_web",
+      "stage": "capability",
+      "proxy_version": "proxy-v1@ckpt10",
+      "score": 0.079226,
+      "status": "rejected",
+      "reason": "low_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 545
+    },
+    {
+      "candidate_id": "main:10:16",
+      "shard_ids": [
+        "code-02"
+      ],
+      "lane": "code",
+      "stage": "capability",
+      "proxy_version": "proxy-v1@ckpt10",
+      "score": 0.995542,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 62
+    },
+    {
+      "candidate_id": "main:10:17",
+      "shard_ids": [
+        "reasoning-01"
       ],
       "lane": "reasoning",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.668035,
+      "score": 0.731293,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
@@ -1969,7 +2249,7 @@
     {
       "candidate_id": "main:10:2",
       "shard_ids": [
-        "indic-02"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "capability",
@@ -1978,12 +2258,12 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 1505
+      "effective_tokens": 43
     },
     {
       "candidate_id": "main:10:3",
       "shard_ids": [
-        "indic-01"
+        "indic-00"
       ],
       "lane": "indic",
       "stage": "capability",
@@ -1992,68 +2272,68 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
-    },
-    {
-      "candidate_id": "main:10:4",
-      "shard_ids": [
-        "indic-00"
-      ],
-      "lane": "indic",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.724466,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
-      "protected_floor_override": false,
       "effective_tokens": 32
     },
     {
-      "candidate_id": "main:10:5",
+      "candidate_id": "main:10:4",
       "shard_ids": [
         "agentic-01"
       ],
       "lane": "agentic",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.599272,
+      "score": 0.694466,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 56
     },
     {
-      "candidate_id": "main:10:6",
+      "candidate_id": "main:10:5",
       "shard_ids": [
         "general_web-02"
       ],
       "lane": "general_web",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.071009,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
+      "score": 0.749272,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 654
     },
     {
-      "candidate_id": "main:10:7",
+      "candidate_id": "main:10:6",
       "shard_ids": [
         "code-02"
       ],
       "lane": "code",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.551671,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
+      "score": 0.071009,
+      "status": "rejected",
+      "reason": "low_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 62
     },
     {
-      "candidate_id": "main:10:8",
+      "candidate_id": "main:10:7",
       "shard_ids": [
         "general_web-01"
+      ],
+      "lane": "general_web",
+      "stage": "capability",
+      "proxy_version": "proxy-v1@ckpt10",
+      "score": 0.551671,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 650
+    },
+    {
+      "candidate_id": "main:10:8",
+      "shard_ids": [
+        "general_web-02"
       ],
       "lane": "general_web",
       "stage": "capability",
@@ -2062,7 +2342,7 @@
       "status": "deferred",
       "reason": "borderline_utility_defer_to_later_phase",
       "protected_floor_override": false,
-      "effective_tokens": 650
+      "effective_tokens": 636
     },
     {
       "candidate_id": "main:10:9",
@@ -2076,54 +2356,54 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 636
-    },
-    {
-      "candidate_id": "main:10:10",
-      "shard_ids": [
-        "general_web-02"
-      ],
-      "lane": "general_web",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.12917,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
-      "protected_floor_override": false,
       "effective_tokens": 655
     },
     {
-      "candidate_id": "main:10:11",
+      "candidate_id": "main:10:10",
       "shard_ids": [
         "indic-01"
       ],
       "lane": "indic",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.152641,
+      "score": 0.00917,
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 43
     },
     {
-      "candidate_id": "main:10:12",
+      "candidate_id": "main:10:11",
       "shard_ids": [
         "code-02"
       ],
       "lane": "code",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.482226,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
+      "score": 0.272641,
+      "status": "rejected",
+      "reason": "low_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 52
     },
     {
+      "candidate_id": "main:10:12",
+      "shard_ids": [
+        "indic-00"
+      ],
+      "lane": "indic",
+      "stage": "capability",
+      "proxy_version": "proxy-v1@ckpt10",
+      "score": 0.362226,
+      "status": "deferred",
+      "reason": "borderline_utility_defer_to_later_phase",
+      "protected_floor_override": false,
+      "effective_tokens": 32
+    },
+    {
       "candidate_id": "main:10:13",
       "shard_ids": [
-        "indic-02"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "capability",
@@ -2132,250 +2412,26 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 1505
-    },
-    {
-      "candidate_id": "main:10:14",
-      "shard_ids": [
-        "code-00"
-      ],
-      "lane": "code",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.151787,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 52
-    },
-    {
-      "candidate_id": "main:10:15",
-      "shard_ids": [
-        "general_web-02"
-      ],
-      "lane": "general_web",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.079226,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 604
-    },
-    {
-      "candidate_id": "main:10:16",
-      "shard_ids": [
-        "general_web-02"
-      ],
-      "lane": "general_web",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.995542,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 719
-    },
-    {
-      "candidate_id": "main:10:1",
-      "shard_ids": [
-        "indic-00"
-      ],
-      "lane": "indic",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.0,
-      "status": "protected_override",
-      "reason": "protected_floor_rescue",
-      "protected_floor_override": true,
-      "effective_tokens": 32
-    },
-    {
-      "candidate_id": "main:10:2",
-      "shard_ids": [
-        "indic-02"
-      ],
-      "lane": "indic",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.262666,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 1505
-    },
-    {
-      "candidate_id": "main:10:3",
-      "shard_ids": [
-        "indic-01"
-      ],
-      "lane": "indic",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.851463,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
-      "protected_floor_override": false,
       "effective_tokens": 43
     },
     {
-      "candidate_id": "main:10:4",
-      "shard_ids": [
-        "indic-00"
-      ],
-      "lane": "indic",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.724466,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 32
-    },
-    {
-      "candidate_id": "main:10:5",
-      "shard_ids": [
-        "agentic-01"
-      ],
-      "lane": "agentic",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.599272,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 56
-    },
-    {
-      "candidate_id": "main:10:6",
-      "shard_ids": [
-        "general_web-02"
-      ],
-      "lane": "general_web",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.071009,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 654
-    },
-    {
-      "candidate_id": "main:10:7",
-      "shard_ids": [
-        "code-02"
-      ],
-      "lane": "code",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.551671,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 62
-    },
-    {
-      "candidate_id": "main:10:8",
+      "candidate_id": "main:10:14",
       "shard_ids": [
         "general_web-01"
       ],
       "lane": "general_web",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.352021,
-      "status": "deferred",
-      "reason": "borderline_utility_defer_to_later_phase",
-      "protected_floor_override": false,
-      "effective_tokens": 650
-    },
-    {
-      "candidate_id": "main:10:9",
-      "shard_ids": [
-        "general_web-02"
-      ],
-      "lane": "general_web",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.453622,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 636
-    },
-    {
-      "candidate_id": "main:10:10",
-      "shard_ids": [
-        "general_web-02"
-      ],
-      "lane": "general_web",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.12917,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 655
-    },
-    {
-      "candidate_id": "main:10:11",
-      "shard_ids": [
-        "indic-01"
-      ],
-      "lane": "indic",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.152641,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 43
-    },
-    {
-      "candidate_id": "main:10:12",
-      "shard_ids": [
-        "code-02"
-      ],
-      "lane": "code",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.482226,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 52
-    },
-    {
-      "candidate_id": "main:10:13",
-      "shard_ids": [
-        "indic-02"
-      ],
-      "lane": "indic",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.139037,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 1505
-    },
-    {
-      "candidate_id": "main:10:14",
-      "shard_ids": [
-        "code-00"
-      ],
-      "lane": "code",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@ckpt10",
       "score": 0.151787,
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 684
     },
     {
       "candidate_id": "main:10:15",
       "shard_ids": [
-        "general_web-02"
+        "general_web-00"
       ],
       "lane": "general_web",
       "stage": "capability",
@@ -2384,21 +2440,35 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 604
+      "effective_tokens": 545
     },
     {
       "candidate_id": "main:10:16",
       "shard_ids": [
-        "general_web-02"
+        "code-02"
       ],
-      "lane": "general_web",
+      "lane": "code",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt10",
       "score": 0.995542,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 719
+      "effective_tokens": 62
+    },
+    {
+      "candidate_id": "main:10:17",
+      "shard_ids": [
+        "reasoning-01"
+      ],
+      "lane": "reasoning",
+      "stage": "capability",
+      "proxy_version": "proxy-v1@ckpt10",
+      "score": 0.731293,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 46
     },
     {
       "candidate_id": "main:11:1",
@@ -2655,7 +2725,7 @@
     {
       "candidate_id": "main:12:9",
       "shard_ids": [
-        "indic-02"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "capability",
@@ -2664,21 +2734,21 @@
       "status": "protected_override",
       "reason": "protected_floor_rescue",
       "protected_floor_override": true,
-      "effective_tokens": 1505
+      "effective_tokens": 43
     },
     {
       "candidate_id": "main:12:10",
       "shard_ids": [
-        "reasoning-00"
+        "code-01"
       ],
-      "lane": "reasoning",
+      "lane": "code",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.668035,
+      "score": 0.728035,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 46
+      "effective_tokens": 61
     },
     {
       "candidate_id": "main:13:1",
@@ -3033,7 +3103,7 @@
     {
       "candidate_id": "main:15:2",
       "shard_ids": [
-        "indic-02"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "capability",
@@ -3042,26 +3112,26 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 1505
+      "effective_tokens": 43
     },
     {
       "candidate_id": "main:15:3",
       "shard_ids": [
-        "general_web-00"
+        "indic-00"
       ],
-      "lane": "general_web",
+      "lane": "indic",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt15",
-      "score": 0.988458,
+      "score": 0.868458,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 568
+      "effective_tokens": 32
     },
     {
       "candidate_id": "main:15:4",
       "shard_ids": [
-        "indic-02"
+        "indic-00"
       ],
       "lane": "indic",
       "stage": "capability",
@@ -3070,7 +3140,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 1505
+      "effective_tokens": 32
     },
     {
       "candidate_id": "main:15:5",
@@ -3084,101 +3154,73 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 579
+      "effective_tokens": 575
     },
     {
       "candidate_id": "main:15:6",
       "shard_ids": [
-        "general_web-01"
+        "agentic-01"
       ],
-      "lane": "general_web",
+      "lane": "agentic",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt15",
-      "score": 0.037922,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 713
+      "score": 0.0,
+      "status": "protected_override",
+      "reason": "protected_floor_rescue",
+      "protected_floor_override": true,
+      "effective_tokens": 53
     },
     {
       "candidate_id": "main:15:7",
-      "shard_ids": [
-        "code-00"
-      ],
-      "lane": "code",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@ckpt15",
-      "score": 0.287378,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 51
-    },
-    {
-      "candidate_id": "main:15:8",
-      "shard_ids": [
-        "code-02"
-      ],
-      "lane": "code",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@ckpt15",
-      "score": 0.386182,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 62
-    },
-    {
-      "candidate_id": "main:15:9",
       "shard_ids": [
         "indic-00"
       ],
       "lane": "indic",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt15",
-      "score": 0.044559,
+      "score": 0.167378,
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 32
     },
     {
-      "candidate_id": "main:15:10",
+      "candidate_id": "main:15:8",
       "shard_ids": [
         "reasoning-01"
       ],
       "lane": "reasoning",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt15",
-      "score": 0.553155,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
-      "protected_floor_override": false,
+      "score": 0.326182,
+      "status": "protected_override",
+      "reason": "protected_floor_rescue",
+      "protected_floor_override": true,
       "effective_tokens": 46
     },
     {
-      "candidate_id": "main:15:11",
+      "candidate_id": "main:15:9",
       "shard_ids": [
         "code-02"
       ],
       "lane": "code",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt15",
-      "score": 0.160754,
+      "score": 0.164559,
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 52
     },
     {
-      "candidate_id": "main:15:12",
+      "candidate_id": "main:15:10",
       "shard_ids": [
         "code-02"
       ],
       "lane": "code",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt15",
-      "score": 0.477088,
+      "score": 0.613155,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
@@ -3229,7 +3271,7 @@
     {
       "candidate_id": "main:16:4",
       "shard_ids": [
-        "agentic-02"
+        "agentic-00"
       ],
       "lane": "agentic",
       "stage": "capability",
@@ -3238,91 +3280,105 @@
       "status": "protected_override",
       "reason": "protected_floor_rescue",
       "protected_floor_override": true,
-      "effective_tokens": 53
+      "effective_tokens": 56
     },
     {
       "candidate_id": "main:16:5",
       "shard_ids": [
-        "agentic-01"
-      ],
-      "lane": "agentic",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@ckpt15",
-      "score": 0.035013,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 53
-    },
-    {
-      "candidate_id": "main:16:6",
-      "shard_ids": [
-        "indic-02"
-      ],
-      "lane": "indic",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@ckpt15",
-      "score": 0.072443,
-      "status": "protected_override",
-      "reason": "protected_floor_rescue",
-      "protected_floor_override": true,
-      "effective_tokens": 1505
-    },
-    {
-      "candidate_id": "main:16:7",
-      "shard_ids": [
-        "code-00"
-      ],
-      "lane": "code",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@ckpt15",
-      "score": 0.093231,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 52
-    },
-    {
-      "candidate_id": "main:16:8",
-      "shard_ids": [
-        "code-00"
-      ],
-      "lane": "code",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@ckpt15",
-      "score": 0.635079,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 51
-    },
-    {
-      "candidate_id": "main:16:9",
-      "shard_ids": [
-        "general_web-01"
+        "general_web-02"
       ],
       "lane": "general_web",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt15",
-      "score": 0.596083,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
+      "score": 0.185013,
+      "status": "rejected",
+      "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 557
+      "effective_tokens": 598
     },
     {
-      "candidate_id": "main:16:10",
+      "candidate_id": "main:16:6",
       "shard_ids": [
         "general_web-00"
       ],
       "lane": "general_web",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt15",
-      "score": 0.942407,
+      "score": 0.192443,
+      "status": "rejected",
+      "reason": "low_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 635
+    },
+    {
+      "candidate_id": "main:16:7",
+      "shard_ids": [
+        "general_web-00"
+      ],
+      "lane": "general_web",
+      "stage": "capability",
+      "proxy_version": "proxy-v1@ckpt15",
+      "score": 0.093231,
+      "status": "rejected",
+      "reason": "low_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 639
+    },
+    {
+      "candidate_id": "main:16:8",
+      "shard_ids": [
+        "general_web-01"
+      ],
+      "lane": "general_web",
+      "stage": "capability",
+      "proxy_version": "proxy-v1@ckpt15",
+      "score": 0.635079,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 507
+      "effective_tokens": 551
+    },
+    {
+      "candidate_id": "main:16:9",
+      "shard_ids": [
+        "reasoning-01"
+      ],
+      "lane": "reasoning",
+      "stage": "capability",
+      "proxy_version": "proxy-v1@ckpt15",
+      "score": 0.536083,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 46
+    },
+    {
+      "candidate_id": "main:16:10",
+      "shard_ids": [
+        "agentic-01"
+      ],
+      "lane": "agentic",
+      "stage": "capability",
+      "proxy_version": "proxy-v1@ckpt15",
+      "score": 0.792407,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 53
+    },
+    {
+      "candidate_id": "main:16:11",
+      "shard_ids": [
+        "code-01"
+      ],
+      "lane": "code",
+      "stage": "capability",
+      "proxy_version": "proxy-v1@ckpt15",
+      "score": 0.444536,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 52
     },
     {
       "candidate_id": "main:17:1",
@@ -3397,7 +3453,7 @@
     {
       "candidate_id": "main:17:6",
       "shard_ids": [
-        "indic-02"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "capability",
@@ -3406,21 +3462,21 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 1505
+      "effective_tokens": 43
     },
     {
       "candidate_id": "main:17:7",
       "shard_ids": [
-        "reasoning-02"
+        "indic-01"
       ],
-      "lane": "reasoning",
+      "lane": "indic",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt15",
-      "score": 0.501328,
+      "score": 0.441328,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 46
+      "effective_tokens": 43
     },
     {
       "candidate_id": "main:17:8",
@@ -3523,7 +3579,7 @@
     {
       "candidate_id": "main:18:3",
       "shard_ids": [
-        "indic-02"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "long_context",
@@ -3532,12 +3588,12 @@
       "status": "protected_override",
       "reason": "protected_floor_rescue",
       "protected_floor_override": true,
-      "effective_tokens": 1505
+      "effective_tokens": 43
     },
     {
       "candidate_id": "main:18:4",
       "shard_ids": [
-        "general_web-01"
+        "general_web-02"
       ],
       "lane": "general_web",
       "stage": "long_context",
@@ -3546,12 +3602,12 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 557
+      "effective_tokens": 670
     },
     {
       "candidate_id": "main:18:5",
       "shard_ids": [
-        "indic-02"
+        "indic-00"
       ],
       "lane": "indic",
       "stage": "long_context",
@@ -3560,40 +3616,40 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 1505
+      "effective_tokens": 32
     },
     {
       "candidate_id": "main:18:6",
       "shard_ids": [
-        "general_web-02"
+        "code-02"
       ],
-      "lane": "general_web",
+      "lane": "code",
       "stage": "long_context",
       "proxy_version": "proxy-v1@ckpt15",
       "score": 0.090996,
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 356
+      "effective_tokens": 52
     },
     {
       "candidate_id": "main:18:7",
       "shard_ids": [
-        "code-01"
+        "general_web-01"
       ],
-      "lane": "code",
+      "lane": "general_web",
       "stage": "long_context",
       "proxy_version": "proxy-v1@ckpt15",
       "score": 0.446721,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 564
     },
     {
       "candidate_id": "main:18:8",
       "shard_ids": [
-        "general_web-01"
+        "general_web-02"
       ],
       "lane": "general_web",
       "stage": "long_context",
@@ -3602,12 +3658,12 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 528
+      "effective_tokens": 637
     },
     {
       "candidate_id": "main:18:9",
       "shard_ids": [
-        "general_web-01"
+        "general_web-02"
       ],
       "lane": "general_web",
       "stage": "long_context",
@@ -3616,12 +3672,12 @@
       "status": "deferred",
       "reason": "borderline_utility_defer_to_later_phase",
       "protected_floor_override": false,
-      "effective_tokens": 550
+      "effective_tokens": 637
     },
     {
       "candidate_id": "main:18:10",
       "shard_ids": [
-        "indic-02"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "long_context",
@@ -3630,21 +3686,21 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 1505
+      "effective_tokens": 43
     },
     {
       "candidate_id": "main:18:11",
       "shard_ids": [
-        "indic-01"
+        "code-01"
       ],
-      "lane": "indic",
+      "lane": "code",
       "stage": "long_context",
       "proxy_version": "proxy-v1@ckpt15",
-      "score": 0.657742,
+      "score": 0.777742,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 52
     },
     {
       "candidate_id": "main:19:1",
@@ -3663,7 +3719,7 @@
     {
       "candidate_id": "main:19:2",
       "shard_ids": [
-        "agentic-02"
+        "agentic-00"
       ],
       "lane": "agentic",
       "stage": "long_context",
@@ -3677,110 +3733,96 @@
     {
       "candidate_id": "main:19:3",
       "shard_ids": [
-        "agentic-02"
+        "reasoning-00"
       ],
-      "lane": "agentic",
+      "lane": "reasoning",
       "stage": "long_context",
       "proxy_version": "proxy-v1@ckpt15",
-      "score": 0.72466,
+      "score": 0.81466,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 53
+      "effective_tokens": 46
     },
     {
       "candidate_id": "main:19:4",
       "shard_ids": [
-        "code-02"
+        "general_web-00"
       ],
-      "lane": "code",
+      "lane": "general_web",
       "stage": "long_context",
       "proxy_version": "proxy-v1@ckpt15",
       "score": 0.516051,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 673
     },
     {
       "candidate_id": "main:19:5",
       "shard_ids": [
-        "code-01"
+        "reasoning-00"
       ],
-      "lane": "code",
+      "lane": "reasoning",
       "stage": "long_context",
       "proxy_version": "proxy-v1@ckpt15",
-      "score": 0.866789,
+      "score": 0.806789,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 46
     },
     {
       "candidate_id": "main:19:6",
       "shard_ids": [
-        "agentic-01"
+        "general_web-00"
       ],
-      "lane": "agentic",
+      "lane": "general_web",
       "stage": "long_context",
       "proxy_version": "proxy-v1@ckpt15",
-      "score": 0.260068,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
+      "score": 0.410068,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 53
+      "effective_tokens": 556
     },
     {
       "candidate_id": "main:19:7",
       "shard_ids": [
-        "agentic-01"
+        "reasoning-01"
       ],
-      "lane": "agentic",
+      "lane": "reasoning",
       "stage": "long_context",
       "proxy_version": "proxy-v1@ckpt15",
-      "score": 0.081122,
+      "score": 0.171122,
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 56
+      "effective_tokens": 46
     },
     {
       "candidate_id": "main:19:8",
       "shard_ids": [
-        "indic-01"
+        "general_web-02"
       ],
-      "lane": "indic",
+      "lane": "general_web",
       "stage": "long_context",
       "proxy_version": "proxy-v1@ckpt15",
-      "score": 0.558153,
+      "score": 0.678153,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 356
     },
     {
       "candidate_id": "main:19:9",
       "shard_ids": [
-        "indic-02"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "long_context",
       "proxy_version": "proxy-v1@ckpt15",
       "score": 0.718451,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 1505
-    },
-    {
-      "candidate_id": "main:19:10",
-      "shard_ids": [
-        "indic-01"
-      ],
-      "lane": "indic",
-      "stage": "long_context",
-      "proxy_version": "proxy-v1@ckpt15",
-      "score": 0.820971,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
@@ -3831,7 +3873,7 @@
     {
       "candidate_id": "main:20:4",
       "shard_ids": [
-        "indic-02"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "long_context",
@@ -3840,35 +3882,35 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 1505
+      "effective_tokens": 43
     },
     {
       "candidate_id": "main:20:5",
       "shard_ids": [
-        "indic-02"
+        "general_web-02"
       ],
-      "lane": "indic",
+      "lane": "general_web",
       "stage": "long_context",
       "proxy_version": "proxy-v1@ckpt20",
-      "score": 0.61131,
+      "score": 0.73131,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 1505
+      "effective_tokens": 356
     },
     {
       "candidate_id": "main:20:6",
       "shard_ids": [
-        "reasoning-01"
+        "general_web-01"
       ],
-      "lane": "reasoning",
+      "lane": "general_web",
       "stage": "long_context",
       "proxy_version": "proxy-v1@ckpt20",
-      "score": 0.709821,
+      "score": 0.769821,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 46
+      "effective_tokens": 713
     },
     {
       "candidate_id": "main:20:7",
@@ -3882,40 +3924,40 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 356
+      "effective_tokens": 645
     },
     {
       "candidate_id": "main:20:8",
       "shard_ids": [
-        "general_web-01"
+        "indic-00"
       ],
-      "lane": "general_web",
+      "lane": "indic",
       "stage": "long_context",
       "proxy_version": "proxy-v1@ckpt20",
-      "score": 0.103842,
+      "score": 0.0,
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 713
+      "effective_tokens": 32
     },
     {
       "candidate_id": "main:20:9",
       "shard_ids": [
-        "general_web-02"
+        "agentic-01"
       ],
-      "lane": "general_web",
+      "lane": "agentic",
       "stage": "long_context",
       "proxy_version": "proxy-v1@ckpt20",
-      "score": 0.94476,
+      "score": 0.79476,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 645
+      "effective_tokens": 56
     },
     {
       "candidate_id": "main:20:10",
       "shard_ids": [
-        "indic-00"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "long_context",
@@ -3924,49 +3966,63 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
-    },
-    {
-      "candidate_id": "main:20:11",
-      "shard_ids": [
-        "agentic-01"
-      ],
-      "lane": "agentic",
-      "stage": "long_context",
-      "proxy_version": "proxy-v1@ckpt20",
-      "score": 0.004085,
-      "status": "protected_override",
-      "reason": "protected_floor_rescue",
-      "protected_floor_override": true,
-      "effective_tokens": 56
-    },
-    {
-      "candidate_id": "main:20:12",
-      "shard_ids": [
-        "indic-01"
-      ],
-      "lane": "indic",
-      "stage": "long_context",
-      "proxy_version": "proxy-v1@ckpt20",
-      "score": 0.144311,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
-      "protected_floor_override": false,
       "effective_tokens": 43
     },
     {
-      "candidate_id": "main:20:13",
+      "candidate_id": "main:20:11",
       "shard_ids": [
         "general_web-02"
       ],
       "lane": "general_web",
       "stage": "long_context",
       "proxy_version": "proxy-v1@ckpt20",
+      "score": 0.154085,
+      "status": "rejected",
+      "reason": "low_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 605
+    },
+    {
+      "candidate_id": "main:20:12",
+      "shard_ids": [
+        "general_web-01"
+      ],
+      "lane": "general_web",
+      "stage": "long_context",
+      "proxy_version": "proxy-v1@ckpt20",
+      "score": 0.264311,
+      "status": "rejected",
+      "reason": "low_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 528
+    },
+    {
+      "candidate_id": "main:20:13",
+      "shard_ids": [
+        "code-00"
+      ],
+      "lane": "code",
+      "stage": "long_context",
+      "proxy_version": "proxy-v1@ckpt20",
       "score": 0.503192,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 605
+      "effective_tokens": 51
+    },
+    {
+      "candidate_id": "main:20:14",
+      "shard_ids": [
+        "general_web-01"
+      ],
+      "lane": "general_web",
+      "stage": "long_context",
+      "proxy_version": "proxy-v1@ckpt20",
+      "score": 0.805335,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 584
     },
     {
       "candidate_id": "main:21:1",
@@ -4559,7 +4615,7 @@
     {
       "candidate_id": "main:2:3",
       "shard_ids": [
-        "indic-02"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -4568,82 +4624,96 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 1505
+      "effective_tokens": 43
     },
     {
       "candidate_id": "main:2:4",
-      "shard_ids": [
-        "general_web-01"
-      ],
-      "lane": "general_web",
-      "stage": "foundation",
-      "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.794109,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 578
-    },
-    {
-      "candidate_id": "main:2:5",
       "shard_ids": [
         "agentic-00"
       ],
       "lane": "agentic",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.0,
-      "status": "protected_override",
-      "reason": "protected_floor_rescue",
-      "protected_floor_override": true,
-      "effective_tokens": 53
+      "score": 0.644109,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 56
     },
     {
-      "candidate_id": "main:2:6",
+      "candidate_id": "main:2:5",
       "shard_ids": [
         "indic-00"
       ],
       "lane": "indic",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.499408,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
+      "score": 0.0,
+      "status": "rejected",
+      "reason": "low_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 32
     },
     {
-      "candidate_id": "main:2:7",
+      "candidate_id": "main:2:6",
       "shard_ids": [
         "code-01"
       ],
       "lane": "code",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.754475,
+      "score": 0.619408,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 52
     },
     {
-      "candidate_id": "main:2:8",
+      "candidate_id": "main:2:7",
       "shard_ids": [
         "general_web-02"
       ],
       "lane": "general_web",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.413529,
+      "score": 0.754475,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 524
     },
     {
+      "candidate_id": "main:2:8",
+      "shard_ids": [
+        "reasoning-00"
+      ],
+      "lane": "reasoning",
+      "stage": "foundation",
+      "proxy_version": "proxy-v1@ckpt0",
+      "score": 0.353529,
+      "status": "protected_override",
+      "reason": "protected_floor_rescue",
+      "protected_floor_override": true,
+      "effective_tokens": 46
+    },
+    {
+      "candidate_id": "main:2:9",
+      "shard_ids": [
+        "reasoning-01"
+      ],
+      "lane": "reasoning",
+      "stage": "foundation",
+      "proxy_version": "proxy-v1@ckpt0",
+      "score": 0.623295,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 46
+    },
+    {
       "candidate_id": "main:3:1",
       "shard_ids": [
-        "indic-02"
+        "indic-00"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -4652,68 +4722,68 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 1505
+      "effective_tokens": 32
     },
     {
       "candidate_id": "main:3:2",
       "shard_ids": [
-        "indic-00"
+        "code-02"
       ],
-      "lane": "indic",
+      "lane": "code",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.238258,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
+      "score": 0.358258,
+      "status": "deferred",
+      "reason": "borderline_utility_defer_to_later_phase",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 52
     },
     {
       "candidate_id": "main:3:3",
       "shard_ids": [
-        "general_web-00"
+        "code-02"
       ],
-      "lane": "general_web",
+      "lane": "code",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt0",
       "score": 0.76693,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 313
+      "effective_tokens": 52
     },
     {
       "candidate_id": "main:3:4",
       "shard_ids": [
-        "general_web-02"
+        "reasoning-01"
       ],
-      "lane": "general_web",
+      "lane": "reasoning",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.955509,
+      "score": 0.895509,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 571
+      "effective_tokens": 46
     },
     {
       "candidate_id": "main:3:5",
       "shard_ids": [
-        "general_web-00"
+        "indic-00"
       ],
-      "lane": "general_web",
+      "lane": "indic",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.537166,
+      "score": 0.417166,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 645
+      "effective_tokens": 32
     },
     {
       "candidate_id": "main:3:6",
       "shard_ids": [
-        "general_web-01"
+        "general_web-00"
       ],
       "lane": "general_web",
       "stage": "foundation",
@@ -4722,49 +4792,49 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 636
+      "effective_tokens": 548
     },
     {
       "candidate_id": "main:3:7",
-      "shard_ids": [
-        "indic-00"
-      ],
-      "lane": "indic",
-      "stage": "foundation",
-      "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.590503,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 32
-    },
-    {
-      "candidate_id": "main:3:8",
       "shard_ids": [
         "general_web-01"
       ],
       "lane": "general_web",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.712218,
+      "score": 0.710503,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 578
     },
     {
-      "candidate_id": "main:3:9",
+      "candidate_id": "main:3:8",
       "shard_ids": [
         "indic-01"
       ],
       "lane": "indic",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.547206,
+      "score": 0.592218,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 43
+    },
+    {
+      "candidate_id": "main:3:9",
+      "shard_ids": [
+        "general_web-01"
+      ],
+      "lane": "general_web",
+      "stage": "foundation",
+      "proxy_version": "proxy-v1@ckpt0",
+      "score": 0.667206,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 634
     },
     {
       "candidate_id": "main:4:1",
@@ -4867,7 +4937,7 @@
     {
       "candidate_id": "main:4:8",
       "shard_ids": [
-        "indic-02"
+        "indic-00"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -4876,12 +4946,12 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 1505
+      "effective_tokens": 32
     },
     {
       "candidate_id": "main:4:9",
       "shard_ids": [
-        "general_web-00"
+        "general_web-02"
       ],
       "lane": "general_web",
       "stage": "foundation",
@@ -4890,7 +4960,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 651
+      "effective_tokens": 626
     },
     {
       "candidate_id": "main:5:1",
@@ -4979,7 +5049,7 @@
     {
       "candidate_id": "main:5:7",
       "shard_ids": [
-        "indic-02"
+        "indic-00"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -4988,35 +5058,35 @@
       "status": "protected_override",
       "reason": "protected_floor_rescue",
       "protected_floor_override": true,
-      "effective_tokens": 1505
+      "effective_tokens": 32
     },
     {
       "candidate_id": "main:5:8",
       "shard_ids": [
-        "general_web-01"
+        "code-00"
       ],
-      "lane": "general_web",
+      "lane": "code",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
       "score": 0.938657,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 539
+      "effective_tokens": 51
     },
     {
       "candidate_id": "main:5:9",
       "shard_ids": [
-        "code-01"
+        "general_web-02"
       ],
-      "lane": "code",
+      "lane": "general_web",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
       "score": 0.500996,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 654
     },
     {
       "candidate_id": "main:6:1",
@@ -5063,7 +5133,7 @@
     {
       "candidate_id": "main:6:4",
       "shard_ids": [
-        "indic-02"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -5072,21 +5142,21 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 1505
+      "effective_tokens": 43
     },
     {
       "candidate_id": "main:6:5",
       "shard_ids": [
-        "reasoning-00"
+        "general_web-02"
       ],
-      "lane": "reasoning",
+      "lane": "general_web",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.056607,
-      "status": "protected_override",
-      "reason": "protected_floor_rescue",
-      "protected_floor_override": true,
-      "effective_tokens": 46
+      "score": 0.116607,
+      "status": "rejected",
+      "reason": "low_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 612
     },
     {
       "candidate_id": "main:6:6",
@@ -5119,7 +5189,7 @@
     {
       "candidate_id": "main:6:8",
       "shard_ids": [
-        "indic-02"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -5128,21 +5198,21 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 1505
+      "effective_tokens": 43
     },
     {
       "candidate_id": "main:6:9",
       "shard_ids": [
-        "general_web-02"
+        "indic-00"
       ],
-      "lane": "general_web",
+      "lane": "indic",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.791929,
+      "score": 0.671929,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 626
+      "effective_tokens": 32
     },
     {
       "candidate_id": "main:6:10",
@@ -5156,21 +5226,35 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 696
+      "effective_tokens": 674
     },
     {
       "candidate_id": "main:6:11",
       "shard_ids": [
-        "indic-02"
+        "general_web-00"
       ],
-      "lane": "indic",
+      "lane": "general_web",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.860955,
+      "score": 0.980955,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 1505
+      "effective_tokens": 611
+    },
+    {
+      "candidate_id": "main:6:12",
+      "shard_ids": [
+        "reasoning-01"
+      ],
+      "lane": "reasoning",
+      "stage": "foundation",
+      "proxy_version": "proxy-v1@ckpt5",
+      "score": 0.715459,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 46
     },
     {
       "candidate_id": "main:7:1",
@@ -5203,7 +5287,7 @@
     {
       "candidate_id": "main:7:3",
       "shard_ids": [
-        "indic-02"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -5212,82 +5296,82 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 1505
+      "effective_tokens": 43
     },
     {
       "candidate_id": "main:7:4",
       "shard_ids": [
-        "general_web-01"
+        "code-02"
       ],
-      "lane": "general_web",
+      "lane": "code",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
       "score": 0.834609,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 543
+      "effective_tokens": 52
     },
     {
       "candidate_id": "main:7:5",
       "shard_ids": [
-        "general_web-02"
+        "indic-00"
       ],
-      "lane": "general_web",
+      "lane": "indic",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.645353,
+      "score": 0.525353,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 674
+      "effective_tokens": 32
     },
     {
       "candidate_id": "main:7:6",
-      "shard_ids": [
-        "agentic-00"
-      ],
-      "lane": "agentic",
-      "stage": "foundation",
-      "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.0,
-      "status": "protected_override",
-      "reason": "protected_floor_rescue",
-      "protected_floor_override": true,
-      "effective_tokens": 53
-    },
-    {
-      "candidate_id": "main:7:7",
       "shard_ids": [
         "general_web-01"
       ],
       "lane": "general_web",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.525535,
+      "score": 0.127359,
+      "status": "rejected",
+      "reason": "low_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 570
+    },
+    {
+      "candidate_id": "main:7:7",
+      "shard_ids": [
+        "indic-01"
+      ],
+      "lane": "indic",
+      "stage": "foundation",
+      "proxy_version": "proxy-v1@ckpt5",
+      "score": 0.405535,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 606
+      "effective_tokens": 43
     },
     {
       "candidate_id": "main:7:8",
       "shard_ids": [
-        "general_web-02"
+        "code-01"
       ],
-      "lane": "general_web",
+      "lane": "code",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
       "score": 0.48558,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 654
+      "effective_tokens": 52
     },
     {
       "candidate_id": "main:7:9",
       "shard_ids": [
-        "general_web-00"
+        "general_web-01"
       ],
       "lane": "general_web",
       "stage": "foundation",
@@ -5296,12 +5380,26 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 503
+      "effective_tokens": 577
+    },
+    {
+      "candidate_id": "main:7:10",
+      "shard_ids": [
+        "general_web-01"
+      ],
+      "lane": "general_web",
+      "stage": "foundation",
+      "proxy_version": "proxy-v1@ckpt5",
+      "score": 0.788192,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 634
     },
     {
       "candidate_id": "main:8:1",
       "shard_ids": [
-        "indic-02"
+        "indic-00"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -5310,35 +5408,35 @@
       "status": "protected_override",
       "reason": "protected_floor_rescue",
       "protected_floor_override": true,
-      "effective_tokens": 1505
+      "effective_tokens": 32
     },
     {
       "candidate_id": "main:8:2",
-      "shard_ids": [
-        "reasoning-01"
-      ],
-      "lane": "reasoning",
-      "stage": "foundation",
-      "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.352711,
-      "status": "protected_override",
-      "reason": "protected_floor_rescue",
-      "protected_floor_override": true,
-      "effective_tokens": 46
-    },
-    {
-      "candidate_id": "main:8:3",
       "shard_ids": [
         "general_web-00"
       ],
       "lane": "general_web",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.273216,
+      "score": 0.412711,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 556
+    },
+    {
+      "candidate_id": "main:8:3",
+      "shard_ids": [
+        "indic-01"
+      ],
+      "lane": "indic",
+      "stage": "foundation",
+      "proxy_version": "proxy-v1@ckpt5",
+      "score": 0.153216,
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 556
+      "effective_tokens": 43
     },
     {
       "candidate_id": "main:8:4",
@@ -5357,124 +5455,110 @@
     {
       "candidate_id": "main:8:5",
       "shard_ids": [
-        "indic-01"
-      ],
-      "lane": "indic",
-      "stage": "foundation",
-      "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.0,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 43
-    },
-    {
-      "candidate_id": "main:8:6",
-      "shard_ids": [
         "general_web-00"
       ],
       "lane": "general_web",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.826012,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
+      "score": 0.074223,
+      "status": "rejected",
+      "reason": "low_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 560
     },
     {
-      "candidate_id": "main:8:7",
+      "candidate_id": "main:8:6",
       "shard_ids": [
         "reasoning-02"
       ],
       "lane": "reasoning",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.522997,
+      "score": 0.766012,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 46
     },
     {
-      "candidate_id": "main:8:8",
+      "candidate_id": "main:8:7",
       "shard_ids": [
         "indic-00"
       ],
       "lane": "indic",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.852058,
+      "score": 0.462997,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 32
     },
     {
-      "candidate_id": "main:8:9",
+      "candidate_id": "main:8:8",
       "shard_ids": [
         "general_web-00"
       ],
       "lane": "general_web",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.265289,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
+      "score": 0.972058,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 613
     },
     {
-      "candidate_id": "main:8:10",
+      "candidate_id": "main:8:9",
       "shard_ids": [
         "agentic-00"
       ],
       "lane": "agentic",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.756769,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
-      "protected_floor_override": false,
+      "score": 0.115289,
+      "status": "protected_override",
+      "reason": "protected_floor_rescue",
+      "protected_floor_override": true,
       "effective_tokens": 53
     },
     {
-      "candidate_id": "main:8:11",
+      "candidate_id": "main:8:10",
       "shard_ids": [
         "indic-01"
       ],
       "lane": "indic",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.0,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
+      "score": 0.786769,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 43
     },
     {
-      "candidate_id": "main:8:12",
+      "candidate_id": "main:8:11",
       "shard_ids": [
         "general_web-01"
       ],
       "lane": "general_web",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.890575,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
+      "score": 0.005439,
+      "status": "rejected",
+      "reason": "low_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 578
     },
     {
-      "candidate_id": "main:8:13",
+      "candidate_id": "main:8:12",
       "shard_ids": [
         "indic-01"
       ],
       "lane": "indic",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.566485,
+      "score": 0.770575,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
@@ -5497,7 +5581,7 @@
     {
       "candidate_id": "main:10:2",
       "shard_ids": [
-        "indic-02"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "capability",
@@ -5506,12 +5590,12 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 1505
+      "effective_tokens": 43
     },
     {
       "candidate_id": "main:10:3",
       "shard_ids": [
-        "indic-01"
+        "indic-00"
       ],
       "lane": "indic",
       "stage": "capability",
@@ -5520,120 +5604,36 @@
       "status": "deferred",
       "reason": "borderline_utility_defer_to_later_phase",
       "protected_floor_override": false,
-      "effective_tokens": 43
-    },
-    {
-      "candidate_id": "main:10:4",
-      "shard_ids": [
-        "indic-00"
-      ],
-      "lane": "indic",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@fork",
-      "score": 0.005555,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
-      "protected_floor_override": false,
       "effective_tokens": 32
     },
     {
-      "candidate_id": "main:10:5",
+      "candidate_id": "main:10:4",
       "shard_ids": [
         "agentic-01"
       ],
       "lane": "agentic",
       "stage": "capability",
       "proxy_version": "proxy-v1@fork",
-      "score": 0.148704,
+      "score": 0.0,
       "status": "protected_override",
       "reason": "protected_floor_rescue",
       "protected_floor_override": true,
       "effective_tokens": 56
     },
     {
-      "candidate_id": "main:10:6",
+      "candidate_id": "main:10:5",
       "shard_ids": [
         "general_web-02"
       ],
       "lane": "general_web",
       "stage": "capability",
       "proxy_version": "proxy-v1@fork",
-      "score": 0.09559,
+      "score": 0.298704,
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 654
-    },
-    {
-      "candidate_id": "main:10:7",
-      "shard_ids": [
-        "code-02"
-      ],
-      "lane": "code",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@fork",
-      "score": 0.006495,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 62
-    },
-    {
-      "candidate_id": "main:10:8",
-      "shard_ids": [
-        "general_web-01"
-      ],
-      "lane": "general_web",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@fork",
-      "score": 0.339575,
-      "status": "deferred",
-      "reason": "borderline_utility_defer_to_later_phase",
-      "protected_floor_override": false,
-      "effective_tokens": 650
-    },
-    {
-      "candidate_id": "main:10:9",
-      "shard_ids": [
-        "general_web-02"
-      ],
-      "lane": "general_web",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@fork",
-      "score": 0.575005,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 636
-    },
-    {
-      "candidate_id": "main:10:10",
-      "shard_ids": [
-        "general_web-02"
-      ],
-      "lane": "general_web",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@fork",
-      "score": 0.04874,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 655
-    },
-    {
-      "candidate_id": "main:10:11",
-      "shard_ids": [
-        "indic-01"
-      ],
-      "lane": "indic",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@fork",
-      "score": 0.0,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 43
     }
   ],
-  "total_decisions": 427
+  "total_decisions": 718
 }

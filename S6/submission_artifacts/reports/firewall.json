@@ -14,7 +14,9 @@
       "content_hash": "c7bf13f3ec835b73db4084905254b20f0d51b7354a0f173cd9f03e8b560a336a",
       "benchmark_id": "TDES-VALID-v1",
       "never_train": true,
-      "access_log": []
+      "access_log": [
+        "validation_eval"
+      ]
     }
   },
   "events": [

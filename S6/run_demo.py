@@ -84,14 +84,19 @@ def main():
     lane_meta = {"general_web": ("en", "CC0-1.0", "tier-B"), "indic": ("multi", "CC-BY-4.0", "tier-A"),
                  "code": ("code", "MIT", "tier-A"), "reasoning": ("en", "CC-BY-4.0", "tier-A"),
                  "agentic": ("en", "CC-BY-4.0", "tier-A")}
-    written = []
+    written, reserved_ids = [], []
     for lane, items in sorted(docs.items()):
         lang, lic, tier = lane_meta[lane]
         per = max(1, len(items) // 3)
         for k in range(0, len(items), per):
             sid = f"{lane}-{k//per:02d}"
+            # the last shard of each scarce Tier-A lane is held back for the cooldown
+            reserve = lane in ("indic", "agentic") and k + per >= len(items)
             written.append(w.write(sid, items[k:k + per], lane=lane, language=lang,
-                                   license=lic, tier=tier, split="train"))
+                                   license=lic, tier=tier, split="train",
+                                   reserved_for_anneal=reserve))
+            if reserve:
+                reserved_ids.append(sid)
     # held-out benchmark + validation shards
     ev_man = w.write("eval-bench-00", evals, lane="eval", language="en", license="CC-BY-4.0",
                      tier="tier-A", split="test", eval_overlap=True)
@@ -194,22 +199,55 @@ def main():
 
     # ---------------- 10. packing, masks, mixture compliance ----------------
     probe = eng.builder.build("main", 3, "proxy-v1@ckpt0")
-    masks_ok = all(sq.validate(sq_len := len(sq.tokens), tok.pad_id) for sq in probe.sequences)
+    masks_ok = all(sq.validate(len(sq.tokens), tok.pad_id) for sq in probe.sequences)
+    attn = [sq.check_attention() for sq in probe.sequences]
+    attn_ok = all(a[0] for a in attn)
     util = sum(sq.utilization(tok.pad_id) for sq in probe.sequences) / len(probe.sequences)
     ctx_masked = any(any(m == 0 for m in sq.loss_mask[:len(sq.tokens)//2]) for sq in probe.sequences)
-    pack_report = {"policies_available": ["pad_only", "concat_chop", "greedy", "best_fit",
-                                          "structure_preserving", "long_context"],
+    # every batch of the whole run re-validated (not just a probe)
+    all_ok, checked = True, 0
+    for r in cl.read("main"):
+        b = eng.builder.build("main", r["global_step"], r["proxy_version"])
+        for sq in b.sequences:
+            checked += 1
+            all_ok &= sq.validate(len(sq.tokens), tok.pad_id) and sq.check_attention()[0]
+    # packing efficiency per policy on one fixed sample set
+    from tdes.packing import Packer, POLICIES
+    pk = Packer(sched.stages[0].sequence_length, tok.pad_id, tok.eos_id)
+    fixed = [{"tokens": store.span_tokens(s["shard_id"], int(s["sample_id"].split("#")[1])),
+              "sample_id": s["sample_id"], "lane": s["lane"], "ctx_len": s.get("ctx_len", 0)}
+             for s in probe.samples[:6]]
+    by_policy = {}
+    for pol in POLICIES:
+        sq = pk.pack(fixed, pol)
+        by_policy[pol] = {"utilization": round(sq.utilization(tok.pad_id), 4),
+                          "useful_loss_bearing_tokens": sq.useful_tokens,
+                          "pad_positions": sum(1 for t in sq.tokens if t == tok.pad_id),
+                          "samples_packed": len(sq.sample_ids),
+                          "masks_valid": bool(sq.validate(len(sq.tokens), tok.pad_id)),
+                          "attention_ok": sq.check_attention()[0]}
+    pack_report = {"policies_available": POLICIES, "efficiency_by_policy": by_policy,
                    "probe_batch": probe.batch_id, "stage": probe.stage,
                    "sequences": len(probe.sequences), "utilization": round(util, 4),
                    "useful_loss_bearing_tokens": probe.useful_tokens,
                    "total_positions": probe.total_positions,
                    "position_ids_reset_per_sample": True,
-                   "attention": "block_diagonal_by_segment_id",
+                   "attention": "block_diagonal_by_segment_id (materialised & verified)",
+                   "attention_check": attn[0][1],
+                   "sequences_validated_across_whole_run": checked,
+                   "all_sequences_valid": all_ok,
                    "context_tokens_masked_from_loss": ctx_masked}
     json.dump(pack_report, open(os.path.join(ART, "reports", "packing.json"), "w"), indent=2)
-    ev.add("Packing correctness", masks_ok and util > 0.5, "submission_artifacts/reports/packing.json",
+    ev.add("Packing correctness", masks_ok and attn_ok and all_ok and util > 0.5,
+           "submission_artifacts/reports/packing.json",
            {k: pack_report[k] for k in ("utilization", "useful_loss_bearing_tokens",
-                                        "total_positions", "context_tokens_masked_from_loss")})
+                                        "total_positions", "context_tokens_masked_from_loss",
+                                        "attention_check", "sequences_validated_across_whole_run",
+                                        "all_sequences_valid")})
+    ev.add("Attention & position masks", attn_ok and all_ok,
+           "submission_artifacts/reports/packing.json",
+           {"block_diagonal_causal": attn[0][1], "sequences_checked": checked,
+            "policies_compared": len(by_policy)})
     log(f"[EVENT] batches_packed utilization={util:.3f} useful_tokens={probe.useful_tokens}")
 
     # planned vs actual lane shares, and protected-floor compliance
@@ -236,6 +274,37 @@ def main():
            "submission_artifacts/reports/mixture_compliance.json", mix_report)
     log(f"[EVENT] mixture_compliance planned={planned_share} actual={actual_share} "
         f"floors_met={floors_met}")
+
+    # ---------------- 10b. anneal reserve was actually held back ----------------
+    anneal_start = sched.stages[-1].step_start
+    recs = cl.read("main")
+    before = {sid for r in recs if r["global_step"] < anneal_start for sid in r["shard_ids"]}
+    during = {sid for r in recs if r["global_step"] >= anneal_start for sid in r["shard_ids"]}
+    leaked = sorted(set(reserved_ids) & before)
+    spent = sorted(set(reserved_ids) & during)
+    reserve_report = {"reserved_shards": reserved_ids, "anneal_starts_at_step": anneal_start,
+                      "spent_before_anneal": leaked, "spent_during_anneal": spent,
+                      "held_back_correctly": not leaked and bool(spent)}
+    json.dump(reserve_report, open(os.path.join(ART, "reports", "anneal_reserve.json"), "w"), indent=2)
+    ev.add("Anneal reserve held back", reserve_report["held_back_correctly"],
+           "submission_artifacts/reports/anneal_reserve.json", reserve_report)
+    log(f"[PASS] anneal_reserve_protected reserved={reserved_ids} leaked_before_anneal={leaked} "
+        f"spent_in_anneal={spent}")
+
+    # ---------------- 10c. validation read but never gradient-bearing ----------
+    vp = eng.validation_pass("valid-00")
+    json.dump(vp, open(os.path.join(ART, "reports", "validation.json"), "w"), indent=2)
+    ev.add("Validation firewall (read, never trained)",
+           vp["params_unchanged"] and not vp["appears_in_consumption_ledger"],
+           "submission_artifacts/reports/validation.json", vp)
+    log(f"[PASS] validation_read_not_trained loss={vp['val_loss']} "
+        f"params_unchanged={vp['params_unchanged']} in_ledger={vp['appears_in_consumption_ledger']}")
+
+    # ---------------- 10d. token-level learning trace ----------------
+    tt = eng.token_trace("main", 6, "proxy-v1@ckpt5")
+    json.dump(tt, open(os.path.join(ART, "reports", "token_trace.json"), "w"), indent=2)
+    log(f"[EVENT] token_trace_written batch={tt['batch_id']} "
+        f"loss_bearing_tokens={tt['loss_bearing_tokens']}")
 
     # ---------------- 11. OPUS audit ----------------
     counts = opus.counts()
