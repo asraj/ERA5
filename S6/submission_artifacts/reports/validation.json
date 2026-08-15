@@ -1,6 +1,6 @@
 {
   "shard_id": "valid-00",
-  "val_loss": 8.214162,
+  "val_loss": 6.562878,
   "params_unchanged": true,
   "gradient_bearing": false,
   "appears_in_consumption_ledger": false

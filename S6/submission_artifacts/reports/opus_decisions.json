@@ -1,35 +1,35 @@
 {
   "counts": {
-    "rejected": 184,
-    "protected_override": 76,
-    "accepted": 428,
+    "rejected": 187,
+    "protected_override": 70,
+    "accepted": 434,
     "deferred": 30
   },
   "by_lane": {
     "general_web": {
-      "rejected": 76,
+      "rejected": 74,
       "accepted": 175,
       "deferred": 10
     },
     "indic": {
       "protected_override": 34,
-      "accepted": 93,
-      "rejected": 54,
+      "accepted": 97,
+      "rejected": 56,
       "deferred": 9
     },
     "code": {
-      "rejected": 31,
-      "accepted": 80,
+      "rejected": 38,
+      "accepted": 84,
       "deferred": 11
     },
     "agentic": {
-      "accepted": 23,
-      "protected_override": 22,
-      "rejected": 12
+      "accepted": 22,
+      "protected_override": 21,
+      "rejected": 8
     },
     "reasoning": {
-      "protected_override": 20,
-      "accepted": 57,
+      "protected_override": 15,
+      "accepted": 56,
       "rejected": 11
     }
   },
@@ -46,7 +46,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 681
+      "effective_tokens": 114
     },
     {
       "candidate_id": "main:0:2",
@@ -60,7 +60,7 @@
       "status": "protected_override",
       "reason": "protected_floor_rescue",
       "protected_floor_override": true,
-      "effective_tokens": 32
+      "effective_tokens": 25
     },
     {
       "candidate_id": "main:0:3",
@@ -74,7 +74,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 611
+      "effective_tokens": 119
     },
     {
       "candidate_id": "main:0:4",
@@ -88,7 +88,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 62
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:0:5",
@@ -102,7 +102,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 626
+      "effective_tokens": 123
     },
     {
       "candidate_id": "main:0:6",
@@ -116,7 +116,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 693
+      "effective_tokens": 112
     },
     {
       "candidate_id": "main:0:7",
@@ -130,7 +130,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 612
+      "effective_tokens": 127
     },
     {
       "candidate_id": "main:0:8",
@@ -144,7 +144,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 284
+      "effective_tokens": 98
     },
     {
       "candidate_id": "main:0:9",
@@ -172,7 +172,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 675
+      "effective_tokens": 81
     },
     {
       "candidate_id": "main:0:11",
@@ -186,7 +186,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 696
+      "effective_tokens": 102
     },
     {
       "candidate_id": "main:1:1",
@@ -228,7 +228,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:1:4",
@@ -242,7 +242,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 472
+      "effective_tokens": 116
     },
     {
       "candidate_id": "main:1:5",
@@ -256,7 +256,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 671
+      "effective_tokens": 74
     },
     {
       "candidate_id": "main:1:6",
@@ -270,7 +270,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 612
+      "effective_tokens": 127
     },
     {
       "candidate_id": "main:1:7",
@@ -284,7 +284,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 503
+      "effective_tokens": 124
     },
     {
       "candidate_id": "main:1:8",
@@ -298,7 +298,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 590
+      "effective_tokens": 74
     },
     {
       "candidate_id": "main:2:1",
@@ -312,7 +312,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 548
+      "effective_tokens": 72
     },
     {
       "candidate_id": "main:2:2",
@@ -326,12 +326,12 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 11
     },
     {
       "candidate_id": "main:2:3",
       "shard_ids": [
-        "indic-01"
+        "indic-02"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -340,96 +340,82 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:2:4",
+      "shard_ids": [
+        "general_web-01"
+      ],
+      "lane": "general_web",
+      "stage": "foundation",
+      "proxy_version": "proxy-v1@ckpt0",
+      "score": 0.794109,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 123
+    },
+    {
+      "candidate_id": "main:2:5",
       "shard_ids": [
         "agentic-00"
       ],
       "lane": "agentic",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.644109,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 56
+      "score": 0.0,
+      "status": "protected_override",
+      "reason": "protected_floor_rescue",
+      "protected_floor_override": true,
+      "effective_tokens": 53
     },
     {
-      "candidate_id": "main:2:5",
+      "candidate_id": "main:2:6",
       "shard_ids": [
         "indic-00"
       ],
       "lane": "indic",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.0,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
+      "score": 0.499408,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 11
     },
     {
-      "candidate_id": "main:2:6",
+      "candidate_id": "main:2:7",
       "shard_ids": [
         "code-01"
       ],
       "lane": "code",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.619408,
+      "score": 0.754475,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
-      "candidate_id": "main:2:7",
+      "candidate_id": "main:2:8",
       "shard_ids": [
         "general_web-02"
       ],
       "lane": "general_web",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.754475,
+      "score": 0.413529,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 524
-    },
-    {
-      "candidate_id": "main:2:8",
-      "shard_ids": [
-        "reasoning-00"
-      ],
-      "lane": "reasoning",
-      "stage": "foundation",
-      "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.353529,
-      "status": "protected_override",
-      "reason": "protected_floor_rescue",
-      "protected_floor_override": true,
-      "effective_tokens": 46
-    },
-    {
-      "candidate_id": "main:2:9",
-      "shard_ids": [
-        "reasoning-01"
-      ],
-      "lane": "reasoning",
-      "stage": "foundation",
-      "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.623295,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 46
+      "effective_tokens": 88
     },
     {
       "candidate_id": "main:3:1",
       "shard_ids": [
-        "indic-00"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -438,7 +424,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 18
     },
     {
       "candidate_id": "main:3:2",
@@ -452,7 +438,7 @@
       "status": "deferred",
       "reason": "borderline_utility_defer_to_later_phase",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:3:3",
@@ -466,7 +452,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:3:4",
@@ -485,7 +471,7 @@
     {
       "candidate_id": "main:3:5",
       "shard_ids": [
-        "indic-00"
+        "indic-02"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -494,21 +480,21 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 11
     },
     {
       "candidate_id": "main:3:6",
       "shard_ids": [
-        "general_web-00"
+        "code-00"
       ],
-      "lane": "general_web",
+      "lane": "code",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt0",
       "score": 0.49437,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 548
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:3:7",
@@ -522,12 +508,12 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 578
+      "effective_tokens": 123
     },
     {
       "candidate_id": "main:3:8",
       "shard_ids": [
-        "indic-01"
+        "indic-02"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -536,7 +522,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:3:9",
@@ -550,7 +536,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 634
+      "effective_tokens": 126
     },
     {
       "candidate_id": "main:4:1",
@@ -564,7 +550,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 563
+      "effective_tokens": 139
     },
     {
       "candidate_id": "main:4:2",
@@ -592,7 +578,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:4:4",
@@ -606,7 +592,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 668
+      "effective_tokens": 114
     },
     {
       "candidate_id": "main:4:5",
@@ -620,7 +606,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 25
     },
     {
       "candidate_id": "main:4:6",
@@ -648,7 +634,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 564
+      "effective_tokens": 72
     },
     {
       "candidate_id": "main:4:8",
@@ -662,7 +648,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 18
     },
     {
       "candidate_id": "main:4:9",
@@ -676,7 +662,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 626
+      "effective_tokens": 123
     },
     {
       "candidate_id": "main:5:1",
@@ -690,7 +676,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 577
+      "effective_tokens": 106
     },
     {
       "candidate_id": "main:5:2",
@@ -704,7 +690,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 671
+      "effective_tokens": 74
     },
     {
       "candidate_id": "main:5:3",
@@ -718,7 +704,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 674
+      "effective_tokens": 90
     },
     {
       "candidate_id": "main:5:4",
@@ -732,7 +718,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 579
+      "effective_tokens": 100
     },
     {
       "candidate_id": "main:5:5",
@@ -760,12 +746,12 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 62
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:5:7",
       "shard_ids": [
-        "indic-00"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -774,7 +760,7 @@
       "status": "protected_override",
       "reason": "protected_floor_rescue",
       "protected_floor_override": true,
-      "effective_tokens": 32
+      "effective_tokens": 11
     },
     {
       "candidate_id": "main:5:8",
@@ -788,7 +774,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 51
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:5:9",
@@ -802,7 +788,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 654
+      "effective_tokens": 86
     },
     {
       "candidate_id": "main:6:1",
@@ -816,12 +802,12 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 673
+      "effective_tokens": 126
     },
     {
       "candidate_id": "main:6:2",
       "shard_ids": [
-        "indic-01"
+        "indic-02"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -830,7 +816,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 25
     },
     {
       "candidate_id": "main:6:3",
@@ -844,7 +830,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:6:4",
@@ -858,7 +844,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:6:5",
@@ -872,7 +858,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 612
+      "effective_tokens": 127
     },
     {
       "candidate_id": "main:6:6",
@@ -886,7 +872,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 523
+      "effective_tokens": 122
     },
     {
       "candidate_id": "main:6:7",
@@ -900,12 +886,12 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 655
+      "effective_tokens": 75
     },
     {
       "candidate_id": "main:6:8",
       "shard_ids": [
-        "indic-01"
+        "indic-02"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -914,7 +900,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:6:9",
@@ -928,7 +914,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 25
     },
     {
       "candidate_id": "main:6:10",
@@ -942,7 +928,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 674
+      "effective_tokens": 90
     },
     {
       "candidate_id": "main:6:11",
@@ -956,7 +942,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 611
+      "effective_tokens": 116
     },
     {
       "candidate_id": "main:6:12",
@@ -998,7 +984,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 533
+      "effective_tokens": 126
     },
     {
       "candidate_id": "main:7:3",
@@ -1012,7 +998,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:7:4",
@@ -1026,7 +1012,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:7:5",
@@ -1040,7 +1026,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 25
     },
     {
       "candidate_id": "main:7:6",
@@ -1054,7 +1040,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 570
+      "effective_tokens": 112
     },
     {
       "candidate_id": "main:7:7",
@@ -1068,7 +1054,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 18
     },
     {
       "candidate_id": "main:7:8",
@@ -1082,7 +1068,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:7:9",
@@ -1096,7 +1082,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 577
+      "effective_tokens": 106
     },
     {
       "candidate_id": "main:7:10",
@@ -1110,12 +1096,12 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 634
+      "effective_tokens": 84
     },
     {
       "candidate_id": "main:8:1",
       "shard_ids": [
-        "indic-00"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -1124,7 +1110,7 @@
       "status": "protected_override",
       "reason": "protected_floor_rescue",
       "protected_floor_override": true,
-      "effective_tokens": 32
+      "effective_tokens": 11
     },
     {
       "candidate_id": "main:8:2",
@@ -1138,12 +1124,12 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 556
+      "effective_tokens": 90
     },
     {
       "candidate_id": "main:8:3",
       "shard_ids": [
-        "indic-01"
+        "indic-02"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -1152,7 +1138,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:8:4",
@@ -1166,7 +1152,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:8:5",
@@ -1180,7 +1166,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 560
+      "effective_tokens": 116
     },
     {
       "candidate_id": "main:8:6",
@@ -1208,7 +1194,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 18
     },
     {
       "candidate_id": "main:8:8",
@@ -1222,7 +1208,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 613
+      "effective_tokens": 72
     },
     {
       "candidate_id": "main:8:9",
@@ -1250,7 +1236,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 25
     },
     {
       "candidate_id": "main:8:11",
@@ -1264,7 +1250,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 578
+      "effective_tokens": 123
     },
     {
       "candidate_id": "main:8:12",
@@ -1278,7 +1264,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 11
     },
     {
       "candidate_id": "main:9:1",
@@ -1306,7 +1292,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:9:3",
@@ -1320,7 +1306,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 62
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:9:4",
@@ -1334,7 +1320,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 598
+      "effective_tokens": 111
     },
     {
       "candidate_id": "main:9:5",
@@ -1348,7 +1334,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:9:6",
@@ -1376,7 +1362,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 533
+      "effective_tokens": 126
     },
     {
       "candidate_id": "main:9:8",
@@ -1390,7 +1376,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 674
+      "effective_tokens": 129
     },
     {
       "candidate_id": "main:9:9",
@@ -1418,12 +1404,12 @@
       "status": "protected_override",
       "reason": "protected_floor_rescue",
       "protected_floor_override": true,
-      "effective_tokens": 32
+      "effective_tokens": 18
     },
     {
       "candidate_id": "main:9:11",
       "shard_ids": [
-        "indic-00"
+        "indic-02"
       ],
       "lane": "indic",
       "stage": "capability",
@@ -1432,54 +1418,54 @@
       "status": "deferred",
       "reason": "borderline_utility_defer_to_later_phase",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 11
     },
     {
       "candidate_id": "main:9:12",
       "shard_ids": [
-        "reasoning-02"
+        "indic-01"
       ],
-      "lane": "reasoning",
+      "lane": "indic",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.609602,
+      "score": 0.549602,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 46
+      "effective_tokens": 11
     },
     {
       "candidate_id": "main:9:13",
       "shard_ids": [
-        "reasoning-01"
+        "general_web-01"
       ],
-      "lane": "reasoning",
+      "lane": "general_web",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.698987,
+      "score": 0.758987,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 46
+      "effective_tokens": 114
     },
     {
       "candidate_id": "main:9:14",
       "shard_ids": [
-        "general_web-00"
+        "reasoning-01"
       ],
-      "lane": "general_web",
+      "lane": "reasoning",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt5",
-      "score": 0.882424,
+      "score": 0.822424,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 569
+      "effective_tokens": 46
     },
     {
       "candidate_id": "main:10:1",
       "shard_ids": [
-        "indic-00"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "capability",
@@ -1488,7 +1474,7 @@
       "status": "protected_override",
       "reason": "protected_floor_rescue",
       "protected_floor_override": true,
-      "effective_tokens": 32
+      "effective_tokens": 11
     },
     {
       "candidate_id": "main:10:2",
@@ -1502,7 +1488,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 18
     },
     {
       "candidate_id": "main:10:3",
@@ -1516,7 +1502,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 25
     },
     {
       "candidate_id": "main:10:4",
@@ -1544,7 +1530,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 654
+      "effective_tokens": 86
     },
     {
       "candidate_id": "main:10:6",
@@ -1558,7 +1544,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 62
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:10:7",
@@ -1572,7 +1558,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 650
+      "effective_tokens": 87
     },
     {
       "candidate_id": "main:10:8",
@@ -1586,7 +1572,7 @@
       "status": "deferred",
       "reason": "borderline_utility_defer_to_later_phase",
       "protected_floor_override": false,
-      "effective_tokens": 636
+      "effective_tokens": 138
     },
     {
       "candidate_id": "main:10:9",
@@ -1600,7 +1586,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 655
+      "effective_tokens": 75
     },
     {
       "candidate_id": "main:10:10",
@@ -1614,7 +1600,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 25
     },
     {
       "candidate_id": "main:10:11",
@@ -1628,7 +1614,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:10:12",
@@ -1642,12 +1628,12 @@
       "status": "deferred",
       "reason": "borderline_utility_defer_to_later_phase",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 25
     },
     {
       "candidate_id": "main:10:13",
       "shard_ids": [
-        "indic-01"
+        "indic-02"
       ],
       "lane": "indic",
       "stage": "capability",
@@ -1656,26 +1642,26 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:10:14",
       "shard_ids": [
-        "general_web-01"
+        "indic-02"
       ],
-      "lane": "general_web",
+      "lane": "indic",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.151787,
+      "score": 0.031787,
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 684
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:10:15",
       "shard_ids": [
-        "general_web-00"
+        "general_web-01"
       ],
       "lane": "general_web",
       "stage": "capability",
@@ -1684,35 +1670,35 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 545
+      "effective_tokens": 132
     },
     {
       "candidate_id": "main:10:16",
       "shard_ids": [
-        "code-02"
+        "general_web-00"
       ],
-      "lane": "code",
+      "lane": "general_web",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt10",
       "score": 0.995542,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 62
+      "effective_tokens": 111
     },
     {
       "candidate_id": "main:10:17",
       "shard_ids": [
-        "reasoning-01"
+        "code-02"
       ],
-      "lane": "reasoning",
+      "lane": "code",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.731293,
+      "score": 0.791293,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 46
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:11:1",
@@ -1726,7 +1712,7 @@
       "status": "deferred",
       "reason": "borderline_utility_defer_to_later_phase",
       "protected_floor_override": false,
-      "effective_tokens": 475
+      "effective_tokens": 134
     },
     {
       "candidate_id": "main:11:2",
@@ -1740,7 +1726,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 605
+      "effective_tokens": 100
     },
     {
       "candidate_id": "main:11:3",
@@ -1754,7 +1740,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 636
+      "effective_tokens": 76
     },
     {
       "candidate_id": "main:11:4",
@@ -1782,7 +1768,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:11:6",
@@ -1796,7 +1782,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 726
+      "effective_tokens": 86
     },
     {
       "candidate_id": "main:11:7",
@@ -1824,7 +1810,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 543
+      "effective_tokens": 89
     },
     {
       "candidate_id": "main:11:9",
@@ -1838,7 +1824,7 @@
       "status": "protected_override",
       "reason": "protected_floor_rescue",
       "protected_floor_override": true,
-      "effective_tokens": 43
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:11:10",
@@ -1852,7 +1838,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:12:1",
@@ -1880,7 +1866,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 456
+      "effective_tokens": 82
     },
     {
       "candidate_id": "main:12:3",
@@ -1908,7 +1894,7 @@
       "status": "deferred",
       "reason": "borderline_utility_defer_to_later_phase",
       "protected_floor_override": false,
-      "effective_tokens": 51
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:12:5",
@@ -1922,7 +1908,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 51
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:12:6",
@@ -1950,7 +1936,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 546
+      "effective_tokens": 110
     },
     {
       "candidate_id": "main:12:8",
@@ -1964,12 +1950,12 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:12:9",
       "shard_ids": [
-        "indic-01"
+        "indic-02"
       ],
       "lane": "indic",
       "stage": "capability",
@@ -1978,26 +1964,26 @@
       "status": "protected_override",
       "reason": "protected_floor_rescue",
       "protected_floor_override": true,
-      "effective_tokens": 43
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:12:10",
       "shard_ids": [
-        "code-01"
+        "reasoning-00"
       ],
-      "lane": "code",
+      "lane": "reasoning",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.728035,
+      "score": 0.668035,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 61
+      "effective_tokens": 46
     },
     {
       "candidate_id": "main:10:1",
       "shard_ids": [
-        "indic-00"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "capability",
@@ -2006,7 +1992,7 @@
       "status": "protected_override",
       "reason": "protected_floor_rescue",
       "protected_floor_override": true,
-      "effective_tokens": 32
+      "effective_tokens": 11
     },
     {
       "candidate_id": "main:10:2",
@@ -2020,7 +2006,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 18
     },
     {
       "candidate_id": "main:10:3",
@@ -2034,7 +2020,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 25
     },
     {
       "candidate_id": "main:10:4",
@@ -2062,7 +2048,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 654
+      "effective_tokens": 86
     },
     {
       "candidate_id": "main:10:6",
@@ -2076,7 +2062,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 62
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:10:7",
@@ -2090,7 +2076,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 650
+      "effective_tokens": 87
     },
     {
       "candidate_id": "main:10:8",
@@ -2104,7 +2090,7 @@
       "status": "deferred",
       "reason": "borderline_utility_defer_to_later_phase",
       "protected_floor_override": false,
-      "effective_tokens": 636
+      "effective_tokens": 138
     },
     {
       "candidate_id": "main:10:9",
@@ -2118,7 +2104,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 655
+      "effective_tokens": 75
     },
     {
       "candidate_id": "main:10:10",
@@ -2132,7 +2118,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 25
     },
     {
       "candidate_id": "main:10:11",
@@ -2146,7 +2132,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:10:12",
@@ -2160,12 +2146,12 @@
       "status": "deferred",
       "reason": "borderline_utility_defer_to_later_phase",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 25
     },
     {
       "candidate_id": "main:10:13",
       "shard_ids": [
-        "indic-01"
+        "indic-02"
       ],
       "lane": "indic",
       "stage": "capability",
@@ -2174,26 +2160,26 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:10:14",
       "shard_ids": [
-        "general_web-01"
+        "indic-02"
       ],
-      "lane": "general_web",
+      "lane": "indic",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.151787,
+      "score": 0.031787,
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 684
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:10:15",
       "shard_ids": [
-        "general_web-00"
+        "general_web-01"
       ],
       "lane": "general_web",
       "stage": "capability",
@@ -2202,40 +2188,40 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 545
+      "effective_tokens": 132
     },
     {
       "candidate_id": "main:10:16",
       "shard_ids": [
-        "code-02"
+        "general_web-00"
       ],
-      "lane": "code",
+      "lane": "general_web",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt10",
       "score": 0.995542,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 62
+      "effective_tokens": 111
     },
     {
       "candidate_id": "main:10:17",
       "shard_ids": [
-        "reasoning-01"
+        "code-02"
       ],
-      "lane": "reasoning",
+      "lane": "code",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.731293,
+      "score": 0.791293,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 46
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:10:1",
       "shard_ids": [
-        "indic-00"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "capability",
@@ -2244,7 +2230,7 @@
       "status": "protected_override",
       "reason": "protected_floor_rescue",
       "protected_floor_override": true,
-      "effective_tokens": 32
+      "effective_tokens": 11
     },
     {
       "candidate_id": "main:10:2",
@@ -2258,7 +2244,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 18
     },
     {
       "candidate_id": "main:10:3",
@@ -2272,7 +2258,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 25
     },
     {
       "candidate_id": "main:10:4",
@@ -2300,7 +2286,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 654
+      "effective_tokens": 86
     },
     {
       "candidate_id": "main:10:6",
@@ -2314,7 +2300,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 62
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:10:7",
@@ -2328,7 +2314,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 650
+      "effective_tokens": 87
     },
     {
       "candidate_id": "main:10:8",
@@ -2342,7 +2328,7 @@
       "status": "deferred",
       "reason": "borderline_utility_defer_to_later_phase",
       "protected_floor_override": false,
-      "effective_tokens": 636
+      "effective_tokens": 138
     },
     {
       "candidate_id": "main:10:9",
@@ -2356,7 +2342,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 655
+      "effective_tokens": 75
     },
     {
       "candidate_id": "main:10:10",
@@ -2370,7 +2356,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 25
     },
     {
       "candidate_id": "main:10:11",
@@ -2384,7 +2370,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:10:12",
@@ -2398,12 +2384,12 @@
       "status": "deferred",
       "reason": "borderline_utility_defer_to_later_phase",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 25
     },
     {
       "candidate_id": "main:10:13",
       "shard_ids": [
-        "indic-01"
+        "indic-02"
       ],
       "lane": "indic",
       "stage": "capability",
@@ -2412,26 +2398,26 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:10:14",
       "shard_ids": [
-        "general_web-01"
+        "indic-02"
       ],
-      "lane": "general_web",
+      "lane": "indic",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.151787,
+      "score": 0.031787,
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 684
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:10:15",
       "shard_ids": [
-        "general_web-00"
+        "general_web-01"
       ],
       "lane": "general_web",
       "stage": "capability",
@@ -2440,35 +2426,35 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 545
+      "effective_tokens": 132
     },
     {
       "candidate_id": "main:10:16",
       "shard_ids": [
-        "code-02"
+        "general_web-00"
       ],
-      "lane": "code",
+      "lane": "general_web",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt10",
       "score": 0.995542,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 62
+      "effective_tokens": 111
     },
     {
       "candidate_id": "main:10:17",
       "shard_ids": [
-        "reasoning-01"
+        "code-02"
       ],
-      "lane": "reasoning",
+      "lane": "code",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.731293,
+      "score": 0.791293,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 46
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:11:1",
@@ -2482,7 +2468,7 @@
       "status": "deferred",
       "reason": "borderline_utility_defer_to_later_phase",
       "protected_floor_override": false,
-      "effective_tokens": 475
+      "effective_tokens": 134
     },
     {
       "candidate_id": "main:11:2",
@@ -2496,7 +2482,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 605
+      "effective_tokens": 100
     },
     {
       "candidate_id": "main:11:3",
@@ -2510,7 +2496,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 636
+      "effective_tokens": 76
     },
     {
       "candidate_id": "main:11:4",
@@ -2538,7 +2524,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:11:6",
@@ -2552,7 +2538,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 726
+      "effective_tokens": 86
     },
     {
       "candidate_id": "main:11:7",
@@ -2580,7 +2566,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 543
+      "effective_tokens": 89
     },
     {
       "candidate_id": "main:11:9",
@@ -2594,7 +2580,7 @@
       "status": "protected_override",
       "reason": "protected_floor_rescue",
       "protected_floor_override": true,
-      "effective_tokens": 43
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:11:10",
@@ -2608,7 +2594,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:12:1",
@@ -2636,7 +2622,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 456
+      "effective_tokens": 82
     },
     {
       "candidate_id": "main:12:3",
@@ -2664,7 +2650,7 @@
       "status": "deferred",
       "reason": "borderline_utility_defer_to_later_phase",
       "protected_floor_override": false,
-      "effective_tokens": 51
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:12:5",
@@ -2678,7 +2664,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 51
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:12:6",
@@ -2706,7 +2692,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 546
+      "effective_tokens": 110
     },
     {
       "candidate_id": "main:12:8",
@@ -2720,12 +2706,12 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:12:9",
       "shard_ids": [
-        "indic-01"
+        "indic-02"
       ],
       "lane": "indic",
       "stage": "capability",
@@ -2734,21 +2720,21 @@
       "status": "protected_override",
       "reason": "protected_floor_rescue",
       "protected_floor_override": true,
-      "effective_tokens": 43
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:12:10",
       "shard_ids": [
-        "code-01"
+        "reasoning-00"
       ],
-      "lane": "code",
+      "lane": "reasoning",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt10",
-      "score": 0.728035,
+      "score": 0.668035,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 61
+      "effective_tokens": 46
     },
     {
       "candidate_id": "main:13:1",
@@ -2790,7 +2776,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:13:4",
@@ -2804,7 +2790,7 @@
       "status": "protected_override",
       "reason": "protected_floor_rescue",
       "protected_floor_override": true,
-      "effective_tokens": 32
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:13:5",
@@ -2818,7 +2804,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 51
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:13:6",
@@ -2846,7 +2832,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 60
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:13:8",
@@ -2860,7 +2846,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 60
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:13:9",
@@ -2874,7 +2860,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 385
+      "effective_tokens": 125
     },
     {
       "candidate_id": "main:13:10",
@@ -2888,7 +2874,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 548
+      "effective_tokens": 72
     },
     {
       "candidate_id": "main:13:11",
@@ -2902,7 +2888,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 51
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:13:12",
@@ -2916,7 +2902,7 @@
       "status": "deferred",
       "reason": "borderline_utility_defer_to_later_phase",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:13:13",
@@ -2930,7 +2916,7 @@
       "status": "deferred",
       "reason": "borderline_utility_defer_to_later_phase",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 11
     },
     {
       "candidate_id": "main:13:14",
@@ -2944,7 +2930,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:14:1",
@@ -2958,7 +2944,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 636
+      "effective_tokens": 76
     },
     {
       "candidate_id": "main:14:2",
@@ -2972,7 +2958,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:14:3",
@@ -2986,7 +2972,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 675
+      "effective_tokens": 81
     },
     {
       "candidate_id": "main:14:4",
@@ -3014,7 +3000,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 62
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:14:6",
@@ -3028,12 +3014,12 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 626
+      "effective_tokens": 123
     },
     {
       "candidate_id": "main:14:7",
       "shard_ids": [
-        "indic-00"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "capability",
@@ -3042,7 +3028,7 @@
       "status": "protected_override",
       "reason": "protected_floor_rescue",
       "protected_floor_override": true,
-      "effective_tokens": 32
+      "effective_tokens": 11
     },
     {
       "candidate_id": "main:14:8",
@@ -3056,7 +3042,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 25
     },
     {
       "candidate_id": "main:14:9",
@@ -3070,7 +3056,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:14:10",
@@ -3084,12 +3070,12 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 578
+      "effective_tokens": 108
     },
     {
       "candidate_id": "main:15:1",
       "shard_ids": [
-        "indic-01"
+        "indic-02"
       ],
       "lane": "indic",
       "stage": "capability",
@@ -3098,12 +3084,12 @@
       "status": "protected_override",
       "reason": "protected_floor_rescue",
       "protected_floor_override": true,
-      "effective_tokens": 43
+      "effective_tokens": 11
     },
     {
       "candidate_id": "main:15:2",
       "shard_ids": [
-        "indic-01"
+        "indic-02"
       ],
       "lane": "indic",
       "stage": "capability",
@@ -3112,26 +3098,26 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:15:3",
       "shard_ids": [
-        "indic-00"
+        "general_web-00"
       ],
-      "lane": "indic",
+      "lane": "general_web",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt15",
-      "score": 0.868458,
+      "score": 0.988458,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 125
     },
     {
       "candidate_id": "main:15:4",
       "shard_ids": [
-        "indic-00"
+        "indic-02"
       ],
       "lane": "indic",
       "stage": "capability",
@@ -3140,7 +3126,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 25
     },
     {
       "candidate_id": "main:15:5",
@@ -3154,77 +3140,105 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 575
+      "effective_tokens": 100
     },
     {
       "candidate_id": "main:15:6",
       "shard_ids": [
-        "agentic-01"
+        "general_web-01"
       ],
-      "lane": "agentic",
+      "lane": "general_web",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt15",
-      "score": 0.0,
-      "status": "protected_override",
-      "reason": "protected_floor_rescue",
-      "protected_floor_override": true,
-      "effective_tokens": 53
+      "score": 0.037922,
+      "status": "rejected",
+      "reason": "low_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 75
     },
     {
       "candidate_id": "main:15:7",
+      "shard_ids": [
+        "code-00"
+      ],
+      "lane": "code",
+      "stage": "capability",
+      "proxy_version": "proxy-v1@ckpt15",
+      "score": 0.287378,
+      "status": "rejected",
+      "reason": "low_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 41
+    },
+    {
+      "candidate_id": "main:15:8",
+      "shard_ids": [
+        "code-02"
+      ],
+      "lane": "code",
+      "stage": "capability",
+      "proxy_version": "proxy-v1@ckpt15",
+      "score": 0.386182,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 41
+    },
+    {
+      "candidate_id": "main:15:9",
       "shard_ids": [
         "indic-00"
       ],
       "lane": "indic",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt15",
-      "score": 0.167378,
+      "score": 0.044559,
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 17
     },
     {
-      "candidate_id": "main:15:8",
+      "candidate_id": "main:15:10",
       "shard_ids": [
         "reasoning-01"
       ],
       "lane": "reasoning",
       "stage": "capability",
       "proxy_version": "proxy-v1@ckpt15",
-      "score": 0.326182,
-      "status": "protected_override",
-      "reason": "protected_floor_rescue",
-      "protected_floor_override": true,
-      "effective_tokens": 46
-    },
-    {
-      "candidate_id": "main:15:9",
-      "shard_ids": [
-        "code-02"
-      ],
-      "lane": "code",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@ckpt15",
-      "score": 0.164559,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 52
-    },
-    {
-      "candidate_id": "main:15:10",
-      "shard_ids": [
-        "code-02"
-      ],
-      "lane": "code",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@ckpt15",
-      "score": 0.613155,
+      "score": 0.553155,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 46
+    },
+    {
+      "candidate_id": "main:15:11",
+      "shard_ids": [
+        "code-02"
+      ],
+      "lane": "code",
+      "stage": "capability",
+      "proxy_version": "proxy-v1@ckpt15",
+      "score": 0.160754,
+      "status": "rejected",
+      "reason": "low_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 41
+    },
+    {
+      "candidate_id": "main:15:12",
+      "shard_ids": [
+        "code-02"
+      ],
+      "lane": "code",
+      "stage": "capability",
+      "proxy_version": "proxy-v1@ckpt15",
+      "score": 0.477088,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:16:1",
@@ -3238,7 +3252,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:16:2",
@@ -3252,7 +3266,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 719
+      "effective_tokens": 82
     },
     {
       "candidate_id": "main:16:3",
@@ -3266,7 +3280,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 51
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:16:4",
@@ -3294,7 +3308,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 598
+      "effective_tokens": 111
     },
     {
       "candidate_id": "main:16:6",
@@ -3308,7 +3322,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 635
+      "effective_tokens": 100
     },
     {
       "candidate_id": "main:16:7",
@@ -3322,7 +3336,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 639
+      "effective_tokens": 89
     },
     {
       "candidate_id": "main:16:8",
@@ -3336,7 +3350,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 551
+      "effective_tokens": 138
     },
     {
       "candidate_id": "main:16:9",
@@ -3378,7 +3392,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:17:1",
@@ -3392,7 +3406,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 726
+      "effective_tokens": 86
     },
     {
       "candidate_id": "main:17:2",
@@ -3420,7 +3434,7 @@
       "status": "deferred",
       "reason": "borderline_utility_defer_to_later_phase",
       "protected_floor_override": false,
-      "effective_tokens": 51
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:17:4",
@@ -3448,7 +3462,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 569
+      "effective_tokens": 103
     },
     {
       "candidate_id": "main:17:6",
@@ -3462,12 +3476,12 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:17:7",
       "shard_ids": [
-        "indic-01"
+        "indic-02"
       ],
       "lane": "indic",
       "stage": "capability",
@@ -3476,7 +3490,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 25
     },
     {
       "candidate_id": "main:17:8",
@@ -3490,7 +3504,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 539
+      "effective_tokens": 103
     },
     {
       "candidate_id": "main:17:9",
@@ -3518,7 +3532,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 62
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:17:11",
@@ -3560,7 +3574,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 635
+      "effective_tokens": 100
     },
     {
       "candidate_id": "main:18:2",
@@ -3574,12 +3588,12 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:18:3",
       "shard_ids": [
-        "indic-01"
+        "indic-02"
       ],
       "lane": "indic",
       "stage": "long_context",
@@ -3588,7 +3602,7 @@
       "status": "protected_override",
       "reason": "protected_floor_rescue",
       "protected_floor_override": true,
-      "effective_tokens": 43
+      "effective_tokens": 25
     },
     {
       "candidate_id": "main:18:4",
@@ -3602,7 +3616,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 670
+      "effective_tokens": 138
     },
     {
       "candidate_id": "main:18:5",
@@ -3616,7 +3630,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 11
     },
     {
       "candidate_id": "main:18:6",
@@ -3630,7 +3644,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:18:7",
@@ -3644,7 +3658,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 564
+      "effective_tokens": 72
     },
     {
       "candidate_id": "main:18:8",
@@ -3658,7 +3672,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 637
+      "effective_tokens": 94
     },
     {
       "candidate_id": "main:18:9",
@@ -3672,12 +3686,12 @@
       "status": "deferred",
       "reason": "borderline_utility_defer_to_later_phase",
       "protected_floor_override": false,
-      "effective_tokens": 637
+      "effective_tokens": 94
     },
     {
       "candidate_id": "main:18:10",
       "shard_ids": [
-        "indic-01"
+        "indic-02"
       ],
       "lane": "indic",
       "stage": "long_context",
@@ -3686,7 +3700,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:18:11",
@@ -3700,7 +3714,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:19:1",
@@ -3714,7 +3728,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 11
     },
     {
       "candidate_id": "main:19:2",
@@ -3756,7 +3770,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 673
+      "effective_tokens": 138
     },
     {
       "candidate_id": "main:19:5",
@@ -3784,7 +3798,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 556
+      "effective_tokens": 90
     },
     {
       "candidate_id": "main:19:7",
@@ -3812,12 +3826,12 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 356
+      "effective_tokens": 134
     },
     {
       "candidate_id": "main:19:9",
       "shard_ids": [
-        "indic-01"
+        "indic-02"
       ],
       "lane": "indic",
       "stage": "long_context",
@@ -3826,7 +3840,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 11
     },
     {
       "candidate_id": "main:20:1",
@@ -3840,7 +3854,7 @@
       "status": "protected_override",
       "reason": "protected_floor_rescue",
       "protected_floor_override": true,
-      "effective_tokens": 32
+      "effective_tokens": 11
     },
     {
       "candidate_id": "main:20:2",
@@ -3854,7 +3868,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:20:3",
@@ -3868,12 +3882,12 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 533
+      "effective_tokens": 126
     },
     {
       "candidate_id": "main:20:4",
       "shard_ids": [
-        "indic-01"
+        "indic-02"
       ],
       "lane": "indic",
       "stage": "long_context",
@@ -3882,26 +3896,26 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:20:5",
       "shard_ids": [
-        "general_web-02"
+        "reasoning-01"
       ],
-      "lane": "general_web",
+      "lane": "reasoning",
       "stage": "long_context",
       "proxy_version": "proxy-v1@ckpt20",
-      "score": 0.73131,
+      "score": 0.67131,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 356
+      "effective_tokens": 46
     },
     {
       "candidate_id": "main:20:6",
       "shard_ids": [
-        "general_web-01"
+        "general_web-02"
       ],
       "lane": "general_web",
       "stage": "long_context",
@@ -3910,12 +3924,12 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 713
+      "effective_tokens": 134
     },
     {
       "candidate_id": "main:20:7",
       "shard_ids": [
-        "general_web-02"
+        "general_web-01"
       ],
       "lane": "general_web",
       "stage": "long_context",
@@ -3924,68 +3938,68 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 645
+      "effective_tokens": 75
     },
     {
       "candidate_id": "main:20:8",
-      "shard_ids": [
-        "indic-00"
-      ],
-      "lane": "indic",
-      "stage": "long_context",
-      "proxy_version": "proxy-v1@ckpt20",
-      "score": 0.0,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 32
-    },
-    {
-      "candidate_id": "main:20:9",
-      "shard_ids": [
-        "agentic-01"
-      ],
-      "lane": "agentic",
-      "stage": "long_context",
-      "proxy_version": "proxy-v1@ckpt20",
-      "score": 0.79476,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 56
-    },
-    {
-      "candidate_id": "main:20:10",
-      "shard_ids": [
-        "indic-01"
-      ],
-      "lane": "indic",
-      "stage": "long_context",
-      "proxy_version": "proxy-v1@ckpt20",
-      "score": 0.713785,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 43
-    },
-    {
-      "candidate_id": "main:20:11",
       "shard_ids": [
         "general_web-02"
       ],
       "lane": "general_web",
       "stage": "long_context",
       "proxy_version": "proxy-v1@ckpt20",
-      "score": 0.154085,
+      "score": 0.103842,
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 605
+      "effective_tokens": 133
+    },
+    {
+      "candidate_id": "main:20:9",
+      "shard_ids": [
+        "indic-00"
+      ],
+      "lane": "indic",
+      "stage": "long_context",
+      "proxy_version": "proxy-v1@ckpt20",
+      "score": 0.82476,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 18
+    },
+    {
+      "candidate_id": "main:20:10",
+      "shard_ids": [
+        "agentic-01"
+      ],
+      "lane": "agentic",
+      "stage": "long_context",
+      "proxy_version": "proxy-v1@ckpt20",
+      "score": 0.683785,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 56
+    },
+    {
+      "candidate_id": "main:20:11",
+      "shard_ids": [
+        "indic-01"
+      ],
+      "lane": "indic",
+      "stage": "long_context",
+      "proxy_version": "proxy-v1@ckpt20",
+      "score": 0.034085,
+      "status": "rejected",
+      "reason": "low_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 11
     },
     {
       "candidate_id": "main:20:12",
       "shard_ids": [
-        "general_web-01"
+        "general_web-02"
       ],
       "lane": "general_web",
       "stage": "long_context",
@@ -3994,35 +4008,35 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 528
+      "effective_tokens": 100
     },
     {
       "candidate_id": "main:20:13",
-      "shard_ids": [
-        "code-00"
-      ],
-      "lane": "code",
-      "stage": "long_context",
-      "proxy_version": "proxy-v1@ckpt20",
-      "score": 0.503192,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 51
-    },
-    {
-      "candidate_id": "main:20:14",
       "shard_ids": [
         "general_web-01"
       ],
       "lane": "general_web",
       "stage": "long_context",
       "proxy_version": "proxy-v1@ckpt20",
+      "score": 0.503192,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 104
+    },
+    {
+      "candidate_id": "main:20:14",
+      "shard_ids": [
+        "code-00"
+      ],
+      "lane": "code",
+      "stage": "long_context",
+      "proxy_version": "proxy-v1@ckpt20",
       "score": 0.805335,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 584
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:21:1",
@@ -4036,7 +4050,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 570
+      "effective_tokens": 112
     },
     {
       "candidate_id": "main:21:2",
@@ -4078,7 +4092,7 @@
       "status": "protected_override",
       "reason": "protected_floor_rescue",
       "protected_floor_override": true,
-      "effective_tokens": 32
+      "effective_tokens": 25
     },
     {
       "candidate_id": "main:21:5",
@@ -4092,7 +4106,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 634
+      "effective_tokens": 126
     },
     {
       "candidate_id": "main:21:6",
@@ -4120,7 +4134,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 655
+      "effective_tokens": 75
     },
     {
       "candidate_id": "main:21:8",
@@ -4134,7 +4148,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 312
+      "effective_tokens": 119
     },
     {
       "candidate_id": "main:21:9",
@@ -4162,7 +4176,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 51
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:22:1",
@@ -4190,12 +4204,12 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 11
     },
     {
       "candidate_id": "main:22:3",
       "shard_ids": [
-        "indic-00"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "anneal",
@@ -4204,7 +4218,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 11
     },
     {
       "candidate_id": "main:22:4",
@@ -4223,7 +4237,7 @@
     {
       "candidate_id": "main:22:5",
       "shard_ids": [
-        "indic-01"
+        "indic-02"
       ],
       "lane": "indic",
       "stage": "anneal",
@@ -4232,7 +4246,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 11
     },
     {
       "candidate_id": "main:22:6",
@@ -4260,7 +4274,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:22:8",
@@ -4274,12 +4288,12 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 456
+      "effective_tokens": 82
     },
     {
       "candidate_id": "main:22:9",
       "shard_ids": [
-        "indic-02"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "anneal",
@@ -4288,35 +4302,35 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 1505
+      "effective_tokens": 11
     },
     {
       "candidate_id": "main:22:10",
       "shard_ids": [
-        "general_web-01"
+        "code-01"
       ],
-      "lane": "general_web",
+      "lane": "code",
       "stage": "anneal",
       "proxy_version": "proxy-v1@ckpt20",
       "score": 0.003242,
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 606
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:22:11",
       "shard_ids": [
-        "general_web-01"
+        "indic-02"
       ],
-      "lane": "general_web",
+      "lane": "indic",
       "stage": "anneal",
       "proxy_version": "proxy-v1@ckpt20",
-      "score": 0.07066,
+      "score": 0.0,
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 564
+      "effective_tokens": 11
     },
     {
       "candidate_id": "main:22:12",
@@ -4330,7 +4344,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 533
+      "effective_tokens": 126
     },
     {
       "candidate_id": "main:22:13",
@@ -4344,7 +4358,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 1505
+      "effective_tokens": 11
     },
     {
       "candidate_id": "main:22:14",
@@ -4358,7 +4372,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 1505
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:22:15",
@@ -4372,21 +4386,21 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 1505
+      "effective_tokens": 18
     },
     {
       "candidate_id": "main:22:16",
       "shard_ids": [
-        "agentic-02"
+        "general_web-01"
       ],
-      "lane": "agentic",
+      "lane": "general_web",
       "stage": "anneal",
       "proxy_version": "proxy-v1@ckpt20",
-      "score": 0.020848,
+      "score": 0.170848,
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 53
+      "effective_tokens": 73
     },
     {
       "candidate_id": "main:22:17",
@@ -4400,40 +4414,40 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:22:18",
       "shard_ids": [
-        "agentic-01"
+        "indic-00"
       ],
-      "lane": "agentic",
+      "lane": "indic",
       "stage": "anneal",
       "proxy_version": "proxy-v1@ckpt20",
-      "score": 0.0,
+      "score": 0.021277,
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 53
+      "effective_tokens": 18
     },
     {
       "candidate_id": "main:22:19",
       "shard_ids": [
-        "reasoning-01"
+        "code-02"
       ],
-      "lane": "reasoning",
+      "lane": "code",
       "stage": "anneal",
       "proxy_version": "proxy-v1@ckpt20",
-      "score": 0.857497,
+      "score": 0.917497,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 46
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:23:1",
       "shard_ids": [
-        "indic-01"
+        "indic-02"
       ],
       "lane": "indic",
       "stage": "anneal",
@@ -4442,7 +4456,7 @@
       "status": "protected_override",
       "reason": "protected_floor_rescue",
       "protected_floor_override": true,
-      "effective_tokens": 43
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:23:2",
@@ -4456,12 +4470,12 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 487
+      "effective_tokens": 115
     },
     {
       "candidate_id": "main:23:3",
       "shard_ids": [
-        "indic-00"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "anneal",
@@ -4470,7 +4484,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 11
     },
     {
       "candidate_id": "main:23:4",
@@ -4489,7 +4503,7 @@
     {
       "candidate_id": "main:23:5",
       "shard_ids": [
-        "indic-02"
+        "indic-00"
       ],
       "lane": "indic",
       "stage": "anneal",
@@ -4498,77 +4512,77 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 1505
+      "effective_tokens": 11
     },
     {
       "candidate_id": "main:23:6",
+      "shard_ids": [
+        "agentic-00"
+      ],
+      "lane": "agentic",
+      "stage": "anneal",
+      "proxy_version": "proxy-v1@ckpt20",
+      "score": 0.605781,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 53
+    },
+    {
+      "candidate_id": "main:23:7",
       "shard_ids": [
         "reasoning-00"
       ],
       "lane": "reasoning",
       "stage": "anneal",
       "proxy_version": "proxy-v1@ckpt20",
-      "score": 0.695781,
+      "score": 0.776812,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
       "effective_tokens": 46
     },
     {
-      "candidate_id": "main:23:7",
-      "shard_ids": [
-        "general_web-00"
-      ],
-      "lane": "general_web",
-      "stage": "anneal",
-      "proxy_version": "proxy-v1@ckpt20",
-      "score": 0.836812,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 645
-    },
-    {
       "candidate_id": "main:23:8",
-      "shard_ids": [
-        "agentic-01"
-      ],
-      "lane": "agentic",
-      "stage": "anneal",
-      "proxy_version": "proxy-v1@ckpt20",
-      "score": 0.0,
-      "status": "protected_override",
-      "reason": "protected_floor_rescue",
-      "protected_floor_override": true,
-      "effective_tokens": 53
-    },
-    {
-      "candidate_id": "main:23:9",
       "shard_ids": [
         "indic-02"
       ],
       "lane": "indic",
       "stage": "anneal",
       "proxy_version": "proxy-v1@ckpt20",
-      "score": 0.0,
+      "score": 0.02977,
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 1505
+      "effective_tokens": 17
+    },
+    {
+      "candidate_id": "main:23:9",
+      "shard_ids": [
+        "code-02"
+      ],
+      "lane": "code",
+      "stage": "anneal",
+      "proxy_version": "proxy-v1@ckpt20",
+      "score": 0.101944,
+      "status": "rejected",
+      "reason": "low_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:23:10",
       "shard_ids": [
-        "indic-00"
+        "code-00"
       ],
-      "lane": "indic",
+      "lane": "code",
       "stage": "anneal",
       "proxy_version": "proxy-v1@ckpt20",
-      "score": 0.0,
+      "score": 0.092601,
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:23:11",
@@ -4582,7 +4596,21 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 56
+      "effective_tokens": 53
+    },
+    {
+      "candidate_id": "main:23:12",
+      "shard_ids": [
+        "reasoning-02"
+      ],
+      "lane": "reasoning",
+      "stage": "anneal",
+      "proxy_version": "proxy-v1@ckpt20",
+      "score": 0.857677,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 46
     },
     {
       "candidate_id": "main:2:1",
@@ -4596,7 +4624,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 548
+      "effective_tokens": 72
     },
     {
       "candidate_id": "main:2:2",
@@ -4610,12 +4638,12 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 11
     },
     {
       "candidate_id": "main:2:3",
       "shard_ids": [
-        "indic-01"
+        "indic-02"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -4624,96 +4652,82 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:2:4",
+      "shard_ids": [
+        "general_web-01"
+      ],
+      "lane": "general_web",
+      "stage": "foundation",
+      "proxy_version": "proxy-v1@ckpt0",
+      "score": 0.794109,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
+      "protected_floor_override": false,
+      "effective_tokens": 123
+    },
+    {
+      "candidate_id": "main:2:5",
       "shard_ids": [
         "agentic-00"
       ],
       "lane": "agentic",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.644109,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 56
+      "score": 0.0,
+      "status": "protected_override",
+      "reason": "protected_floor_rescue",
+      "protected_floor_override": true,
+      "effective_tokens": 53
     },
     {
-      "candidate_id": "main:2:5",
+      "candidate_id": "main:2:6",
       "shard_ids": [
         "indic-00"
       ],
       "lane": "indic",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.0,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
+      "score": 0.499408,
+      "status": "accepted",
+      "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 11
     },
     {
-      "candidate_id": "main:2:6",
+      "candidate_id": "main:2:7",
       "shard_ids": [
         "code-01"
       ],
       "lane": "code",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.619408,
+      "score": 0.754475,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
-      "candidate_id": "main:2:7",
+      "candidate_id": "main:2:8",
       "shard_ids": [
         "general_web-02"
       ],
       "lane": "general_web",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.754475,
+      "score": 0.413529,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 524
-    },
-    {
-      "candidate_id": "main:2:8",
-      "shard_ids": [
-        "reasoning-00"
-      ],
-      "lane": "reasoning",
-      "stage": "foundation",
-      "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.353529,
-      "status": "protected_override",
-      "reason": "protected_floor_rescue",
-      "protected_floor_override": true,
-      "effective_tokens": 46
-    },
-    {
-      "candidate_id": "main:2:9",
-      "shard_ids": [
-        "reasoning-01"
-      ],
-      "lane": "reasoning",
-      "stage": "foundation",
-      "proxy_version": "proxy-v1@ckpt0",
-      "score": 0.623295,
-      "status": "accepted",
-      "reason": "high_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 46
+      "effective_tokens": 88
     },
     {
       "candidate_id": "main:3:1",
       "shard_ids": [
-        "indic-00"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -4722,7 +4736,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 18
     },
     {
       "candidate_id": "main:3:2",
@@ -4736,7 +4750,7 @@
       "status": "deferred",
       "reason": "borderline_utility_defer_to_later_phase",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:3:3",
@@ -4750,7 +4764,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:3:4",
@@ -4769,7 +4783,7 @@
     {
       "candidate_id": "main:3:5",
       "shard_ids": [
-        "indic-00"
+        "indic-02"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -4778,21 +4792,21 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 11
     },
     {
       "candidate_id": "main:3:6",
       "shard_ids": [
-        "general_web-00"
+        "code-00"
       ],
-      "lane": "general_web",
+      "lane": "code",
       "stage": "foundation",
       "proxy_version": "proxy-v1@ckpt0",
       "score": 0.49437,
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 548
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:3:7",
@@ -4806,12 +4820,12 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 578
+      "effective_tokens": 123
     },
     {
       "candidate_id": "main:3:8",
       "shard_ids": [
-        "indic-01"
+        "indic-02"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -4820,7 +4834,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:3:9",
@@ -4834,7 +4848,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 634
+      "effective_tokens": 126
     },
     {
       "candidate_id": "main:4:1",
@@ -4848,7 +4862,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 563
+      "effective_tokens": 139
     },
     {
       "candidate_id": "main:4:2",
@@ -4876,7 +4890,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:4:4",
@@ -4890,7 +4904,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 668
+      "effective_tokens": 114
     },
     {
       "candidate_id": "main:4:5",
@@ -4904,7 +4918,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 25
     },
     {
       "candidate_id": "main:4:6",
@@ -4932,7 +4946,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 564
+      "effective_tokens": 72
     },
     {
       "candidate_id": "main:4:8",
@@ -4946,7 +4960,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 18
     },
     {
       "candidate_id": "main:4:9",
@@ -4960,7 +4974,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 626
+      "effective_tokens": 123
     },
     {
       "candidate_id": "main:5:1",
@@ -4974,7 +4988,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 577
+      "effective_tokens": 106
     },
     {
       "candidate_id": "main:5:2",
@@ -4988,7 +5002,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 671
+      "effective_tokens": 74
     },
     {
       "candidate_id": "main:5:3",
@@ -5002,7 +5016,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 674
+      "effective_tokens": 90
     },
     {
       "candidate_id": "main:5:4",
@@ -5016,7 +5030,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 579
+      "effective_tokens": 100
     },
     {
       "candidate_id": "main:5:5",
@@ -5044,12 +5058,12 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 62
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:5:7",
       "shard_ids": [
-        "indic-00"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -5058,7 +5072,7 @@
       "status": "protected_override",
       "reason": "protected_floor_rescue",
       "protected_floor_override": true,
-      "effective_tokens": 32
+      "effective_tokens": 11
     },
     {
       "candidate_id": "main:5:8",
@@ -5072,7 +5086,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 51
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:5:9",
@@ -5086,7 +5100,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 654
+      "effective_tokens": 86
     },
     {
       "candidate_id": "main:6:1",
@@ -5100,12 +5114,12 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 673
+      "effective_tokens": 126
     },
     {
       "candidate_id": "main:6:2",
       "shard_ids": [
-        "indic-01"
+        "indic-02"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -5114,7 +5128,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 25
     },
     {
       "candidate_id": "main:6:3",
@@ -5128,7 +5142,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:6:4",
@@ -5142,7 +5156,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:6:5",
@@ -5156,7 +5170,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 612
+      "effective_tokens": 127
     },
     {
       "candidate_id": "main:6:6",
@@ -5170,7 +5184,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 523
+      "effective_tokens": 122
     },
     {
       "candidate_id": "main:6:7",
@@ -5184,12 +5198,12 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 655
+      "effective_tokens": 75
     },
     {
       "candidate_id": "main:6:8",
       "shard_ids": [
-        "indic-01"
+        "indic-02"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -5198,7 +5212,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:6:9",
@@ -5212,7 +5226,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 25
     },
     {
       "candidate_id": "main:6:10",
@@ -5226,7 +5240,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 674
+      "effective_tokens": 90
     },
     {
       "candidate_id": "main:6:11",
@@ -5240,7 +5254,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 611
+      "effective_tokens": 116
     },
     {
       "candidate_id": "main:6:12",
@@ -5282,7 +5296,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 533
+      "effective_tokens": 126
     },
     {
       "candidate_id": "main:7:3",
@@ -5296,7 +5310,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:7:4",
@@ -5310,7 +5324,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:7:5",
@@ -5324,7 +5338,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 25
     },
     {
       "candidate_id": "main:7:6",
@@ -5338,7 +5352,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 570
+      "effective_tokens": 112
     },
     {
       "candidate_id": "main:7:7",
@@ -5352,7 +5366,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 18
     },
     {
       "candidate_id": "main:7:8",
@@ -5366,7 +5380,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 52
+      "effective_tokens": 41
     },
     {
       "candidate_id": "main:7:9",
@@ -5380,7 +5394,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 577
+      "effective_tokens": 106
     },
     {
       "candidate_id": "main:7:10",
@@ -5394,12 +5408,12 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 634
+      "effective_tokens": 84
     },
     {
       "candidate_id": "main:8:1",
       "shard_ids": [
-        "indic-00"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -5408,7 +5422,7 @@
       "status": "protected_override",
       "reason": "protected_floor_rescue",
       "protected_floor_override": true,
-      "effective_tokens": 32
+      "effective_tokens": 11
     },
     {
       "candidate_id": "main:8:2",
@@ -5422,12 +5436,12 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 556
+      "effective_tokens": 90
     },
     {
       "candidate_id": "main:8:3",
       "shard_ids": [
-        "indic-01"
+        "indic-02"
       ],
       "lane": "indic",
       "stage": "foundation",
@@ -5436,7 +5450,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:8:4",
@@ -5450,7 +5464,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 17
     },
     {
       "candidate_id": "main:8:5",
@@ -5464,7 +5478,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 560
+      "effective_tokens": 116
     },
     {
       "candidate_id": "main:8:6",
@@ -5492,7 +5506,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 18
     },
     {
       "candidate_id": "main:8:8",
@@ -5506,7 +5520,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 613
+      "effective_tokens": 72
     },
     {
       "candidate_id": "main:8:9",
@@ -5534,7 +5548,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 25
     },
     {
       "candidate_id": "main:8:11",
@@ -5548,7 +5562,7 @@
       "status": "rejected",
       "reason": "low_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 578
+      "effective_tokens": 123
     },
     {
       "candidate_id": "main:8:12",
@@ -5562,12 +5576,12 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 11
     },
     {
       "candidate_id": "main:10:1",
       "shard_ids": [
-        "indic-00"
+        "indic-01"
       ],
       "lane": "indic",
       "stage": "capability",
@@ -5576,7 +5590,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 11
     },
     {
       "candidate_id": "main:10:2",
@@ -5590,7 +5604,7 @@
       "status": "accepted",
       "reason": "high_proxy_utility",
       "protected_floor_override": false,
-      "effective_tokens": 43
+      "effective_tokens": 18
     },
     {
       "candidate_id": "main:10:3",
@@ -5604,7 +5618,7 @@
       "status": "deferred",
       "reason": "borderline_utility_defer_to_later_phase",
       "protected_floor_override": false,
-      "effective_tokens": 32
+      "effective_tokens": 25
     },
     {
       "candidate_id": "main:10:4",
@@ -5619,21 +5633,7 @@
       "reason": "protected_floor_rescue",
       "protected_floor_override": true,
       "effective_tokens": 56
-    },
-    {
-      "candidate_id": "main:10:5",
-      "shard_ids": [
-        "general_web-02"
-      ],
-      "lane": "general_web",
-      "stage": "capability",
-      "proxy_version": "proxy-v1@fork",
-      "score": 0.298704,
-      "status": "rejected",
-      "reason": "low_proxy_utility",
-      "protected_floor_override": false,
-      "effective_tokens": 654
     }
   ],
-  "total_decisions": 718
+  "total_decisions": 721
 }

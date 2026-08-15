@@ -1,29 +1,29 @@
-[18:44:25] === V5 Training Data Execution System ===
-[18:44:25] [EVENT] documents_loaded source=real:openwebtext+india-wikipedia lanes=['agentic', 'code', 'general_web', 'indic', 'reasoning'] docs=233 eval_docs=12
-[18:44:25] [EVENT] tokenizer_frozen vocab=4096 hash=03c3294cb3e76833 roundtrip_ok=True
-[18:44:25] [EVENT] shards_created train=17 test=1 validation=1
-[18:44:25] [PASS] tokenizer_hash_verified shards=19 failures=0
-[18:44:25] [PASS] manifests_validated required_fields_present=True
-[18:44:25] [PASS] eval_shard_blocked reason=never_train_flag admission=split_not_trainable:test content_probe=contamination:eval-bench-00
-[18:44:25] [EVENT] mixture_compiled stages=['foundation', 'capability', 'long_context', 'anneal'] hash=a134a1cf86f3b63c
-[18:44:25] [PASS] checkpoint_saved id=main-step0004 step=4 ledger_offset=6651
-[18:44:26] [PASS] checkpoint_saved id=main-step0009 step=9 ledger_offset=13165
-[18:44:26] [EVENT] crash_simulated at step=12 (uncommitted since checkpoint main-step0009)
-[18:44:26] [PASS] crash_simulated at_step=12
-[18:44:26] [EVENT] run_resumed from=main-step0009 ledger_offset=13165 uncommitted_bytes_discarded=3950 expected_next_batch=main:10
-[18:44:26] [PASS] checkpoint_saved id=main-step0014 step=14 ledger_offset=19678
-[18:44:26] [PASS] checkpoint_saved id=main-step0019 step=19 ledger_offset=26241
-[18:44:26] [PASS] resume_next_batch_matched expected=main:10 actual=main:10 hash_match=True
-[18:44:26] [PASS] ledger_contiguous contiguous steps=24
-[18:44:26] [PASS] replay_hash_matched interval=[2, 8] batches=7 mismatches=0
-[18:44:26] [PASS] branch_forked branch-b from main-step0009 diverging at step 10 (streams_differ=True)
-[18:44:26] [EVENT] batches_packed utilization=0.922 useful_tokens=354
-[18:44:26] [EVENT] mixture_compliance planned={'agentic': 0.0875, 'code': 0.1875, 'general_web': 0.3937, 'indic': 0.2125, 'reasoning': 0.1188} actual={'agentic': 0.0938, 'code': 0.1615, 'general_web': 0.3438, 'indic': 0.2396, 'reasoning': 0.1615} floors_met={'indic': True, 'agentic': True, 'reasoning': True}
-[18:44:26] [PASS] anneal_reserve_protected reserved=['agentic-02', 'indic-02'] leaked_before_anneal=[] spent_in_anneal=['agentic-02', 'indic-02']
-[18:44:26] [PASS] validation_read_not_trained loss=8.214162 params_unchanged=True in_ledger=False
-[18:44:26] [EVENT] token_trace_written batch=main:6 loss_bearing_tokens=189
-[18:44:26] [EVENT] opus_decisions_recorded {'rejected': 184, 'protected_override': 76, 'accepted': 428, 'deferred': 30}
-[18:44:26] [EVENT] learning_ledger_written shards=16 loss 8.3161 -> 8.1872
-[18:44:26] [EVENT] audit_completed interval=[5,15] shards=14 stages=['capability', 'foundation']
-[18:44:26] [EVENT] performance_measured useful_tok/s=13091.5 packing_utilization=0.7788
-[18:44:26] [PASS] evidence_bundle_written checks=15
+[19:18:44] === V5 Training Data Execution System ===
+[19:18:44] [EVENT] documents_loaded source=bundled_sample lanes=['agentic', 'code', 'general_web', 'indic', 'reasoning'] docs=310 eval_docs=12
+[19:18:44] [EVENT] tokenizer_frozen vocab=828 hash=859ab002083519f1 roundtrip_ok=True
+[19:18:44] [EVENT] shards_created train=18 test=1 validation=1
+[19:18:44] [PASS] tokenizer_hash_verified shards=20 failures=0
+[19:18:44] [PASS] manifests_validated required_fields_present=True
+[19:18:44] [PASS] eval_shard_blocked reason=never_train_flag admission=split_not_trainable:test content_probe=contamination:eval-bench-00
+[19:18:44] [EVENT] mixture_compiled stages=['foundation', 'capability', 'long_context', 'anneal'] hash=a134a1cf86f3b63c
+[19:18:46] [PASS] checkpoint_saved id=main-step0004 step=4 ledger_offset=6601
+[19:18:46] [PASS] checkpoint_saved id=main-step0009 step=9 ledger_offset=13105
+[19:18:46] [EVENT] crash_simulated at step=12 (uncommitted since checkpoint main-step0009)
+[19:18:46] [PASS] crash_simulated at_step=12
+[19:18:46] [EVENT] run_resumed from=main-step0009 ledger_offset=13105 uncommitted_bytes_discarded=4005 expected_next_batch=main:10
+[19:18:46] [PASS] checkpoint_saved id=main-step0014 step=14 ledger_offset=19685
+[19:18:46] [PASS] checkpoint_saved id=main-step0019 step=19 ledger_offset=26299
+[19:18:46] [PASS] resume_next_batch_matched expected=main:10 actual=main:10 hash_match=True
+[19:18:46] [PASS] ledger_contiguous contiguous steps=24
+[19:18:46] [PASS] replay_hash_matched interval=[2, 8] batches=7 mismatches=0
+[19:18:46] [PASS] branch_forked branch-b from main-step0009 diverging at step 10 (streams_differ=True)
+[19:18:46] [EVENT] batches_packed utilization=0.802 useful_tokens=293
+[19:18:46] [EVENT] mixture_compliance planned={'agentic': 0.0875, 'code': 0.1875, 'general_web': 0.3937, 'indic': 0.2125, 'reasoning': 0.1188} actual={'agentic': 0.0885, 'code': 0.1719, 'general_web': 0.3438, 'indic': 0.2448, 'reasoning': 0.151} floors_met={'indic': True, 'agentic': True, 'reasoning': True}
+[19:18:46] [PASS] anneal_reserve_protected reserved=['agentic-02', 'indic-03'] leaked_before_anneal=[] spent_in_anneal=['agentic-02']
+[19:18:46] [PASS] validation_read_not_trained loss=6.562878 params_unchanged=True in_ledger=False
+[19:18:46] [EVENT] token_trace_written batch=main:6 loss_bearing_tokens=188
+[19:18:46] [EVENT] opus_decisions_recorded {'rejected': 187, 'protected_override': 70, 'accepted': 434, 'deferred': 30}
+[19:18:46] [EVENT] learning_ledger_written shards=16 loss 6.7148 -> 6.6320
+[19:18:46] [EVENT] audit_completed interval=[5,15] shards=15 stages=['capability', 'foundation']
+[19:18:46] [EVENT] performance_measured useful_tok/s=48163.1 packing_utilization=0.885
+[19:18:46] [PASS] evidence_bundle_written checks=15

@@ -3,794 +3,815 @@
     {
       "shard_id": "agentic-00",
       "lane": "indic",
-      "exposures": 7,
-      "useful_tokens": 2364,
-      "first_loss": 8.316078571804255,
-      "last_loss": 8.20724919335656,
-      "loss_sum": 57.91053705257251,
-      "max_grad_norm": 0.19890727764844252,
-      "opus_score_sum": 4.165948875000001,
+      "exposures": 8,
+      "useful_tokens": 2449,
+      "first_loss": 6.714750941895016,
+      "last_loss": 6.631990897541039,
+      "loss_sum": 53.12509465939018,
+      "max_grad_norm": 0.20827387228856936,
+      "opus_score_sum": 4.7313181250000005,
       "high_ppl_examples": [
         {
           "step": 0,
-          "position": 123,
-          "token_id": 107,
-          "loss": 8.34174,
-          "perplexity": 4195.366
+          "position": 43,
+          "token_id": 266,
+          "loss": 6.74229,
+          "perplexity": 847.496
         },
         {
           "step": 1,
-          "position": 36,
-          "token_id": 357,
-          "loss": 8.3362,
-          "perplexity": 4172.188
+          "position": 34,
+          "token_id": 349,
+          "loss": 6.74253,
+          "perplexity": 847.701
         },
         {
           "step": 2,
-          "position": 36,
-          "token_id": 71,
-          "loss": 8.3366,
-          "perplexity": 4173.855
+          "position": 78,
+          "token_id": 477,
+          "loss": 6.74064,
+          "perplexity": 846.105
         },
         {
           "step": 4,
-          "position": 72,
-          "token_id": 467,
-          "loss": 8.33488,
-          "perplexity": 4166.689
+          "position": 157,
+          "token_id": 643,
+          "loss": 6.73513,
+          "perplexity": 841.454
         },
         {
           "step": 8,
-          "position": 99,
-          "token_id": 849,
-          "loss": 8.34038,
-          "perplexity": 4189.661
+          "position": 151,
+          "token_id": 449,
+          "loss": 6.73917,
+          "perplexity": 844.862
         }
       ],
-      "mean_loss": 8.272933864653215,
-      "loss_delta": 0.10882937844769458,
-      "mean_opus_score": 0.5951355535714287,
+      "mean_loss": 6.640636832423772,
+      "loss_delta": 0.08276004435397688,
+      "mean_opus_score": 0.5914147656250001,
       "classification": "useful"
     },
     {
       "shard_id": "agentic-01",
       "lane": "agentic",
-      "exposures": 10,
-      "useful_tokens": 2174,
-      "first_loss": 8.289864385693834,
-      "last_loss": 8.187206667130278,
-      "loss_sum": 82.46379133304065,
-      "max_grad_norm": 0.3117305013937156,
-      "opus_score_sum": 5.6799275,
+      "exposures": 8,
+      "useful_tokens": 2666,
+      "first_loss": 6.605022287875795,
+      "last_loss": 6.452513080384813,
+      "loss_sum": 52.43042198020778,
+      "max_grad_norm": 0.21091465320512556,
+      "opus_score_sum": 4.639750125,
       "high_ppl_examples": [
         {
           "step": 9,
-          "position": 20,
-          "token_id": 316,
-          "loss": 8.33167,
-          "perplexity": 4153.351
+          "position": 4,
+          "token_id": 416,
+          "loss": 6.73523,
+          "perplexity": 841.536
         },
         {
           "step": 10,
-          "position": 31,
-          "token_id": 395,
-          "loss": 8.32888,
-          "perplexity": 4141.777
+          "position": 106,
+          "token_id": 516,
+          "loss": 6.73684,
+          "perplexity": 842.896
         },
         {
           "step": 11,
-          "position": 29,
-          "token_id": 395,
-          "loss": 8.32585,
-          "perplexity": 4129.263
+          "position": 4,
+          "token_id": 416,
+          "loss": 6.73489,
+          "perplexity": 841.251
         },
         {
           "step": 10,
-          "position": 31,
-          "token_id": 395,
-          "loss": 8.32888,
-          "perplexity": 4141.777
+          "position": 106,
+          "token_id": 516,
+          "loss": 6.73684,
+          "perplexity": 842.896
         },
         {
           "step": 11,
-          "position": 29,
-          "token_id": 395,
-          "loss": 8.32585,
-          "perplexity": 4129.263
+          "position": 4,
+          "token_id": 416,
+          "loss": 6.73489,
+          "perplexity": 841.251
         }
       ],
-      "mean_loss": 8.246379133304064,
-      "loss_delta": 0.10265771856355599,
-      "mean_opus_score": 0.5679927499999999,
+      "mean_loss": 6.553802747525973,
+      "loss_delta": 0.15250920749098196,
+      "mean_opus_score": 0.579968765625,
       "classification": "useful"
     },
     {
       "shard_id": "agentic-02",
       "lane": "agentic",
       "exposures": 2,
-      "useful_tokens": 467,
-      "first_loss": 8.190444949369667,
-      "last_loss": 8.187206667130278,
-      "loss_sum": 16.377651616499946,
-      "max_grad_norm": 0.20072901525058046,
-      "opus_score_sum": 1.1190395,
+      "useful_tokens": 392,
+      "first_loss": 6.638970898161387,
+      "last_loss": 6.631990897541039,
+      "loss_sum": 13.270961795702426,
+      "max_grad_norm": 0.1524110476265081,
+      "opus_score_sum": 1.2149991249999998,
       "high_ppl_examples": [
         {
           "step": 22,
-          "position": 103,
-          "token_id": 3790,
-          "loss": 8.3241,
-          "perplexity": 4122.03
+          "position": 116,
+          "token_id": 477,
+          "loss": 6.7472,
+          "perplexity": 851.667
         },
         {
           "step": 23,
-          "position": 118,
-          "token_id": 1426,
-          "loss": 8.32552,
-          "perplexity": 4127.871
+          "position": 46,
+          "token_id": 643,
+          "loss": 6.75027,
+          "perplexity": 854.291
         }
       ],
-      "mean_loss": 8.188825808249973,
-      "loss_delta": 0.0032382822393888233,
-      "mean_opus_score": 0.55951975,
+      "mean_loss": 6.635480897851213,
+      "loss_delta": 0.006980000620347759,
+      "mean_opus_score": 0.6074995624999999,
       "classification": "neutral"
     },
     {
       "shard_id": "code-00",
-      "lane": "general_web",
-      "exposures": 7,
-      "useful_tokens": 1830,
-      "first_loss": 8.270329782071597,
-      "last_loss": 8.206875805424204,
-      "loss_sum": 57.67339520674231,
-      "max_grad_norm": 0.3117305013937156,
-      "opus_score_sum": 4.02557325,
+      "lane": "indic",
+      "exposures": 8,
+      "useful_tokens": 2451,
+      "first_loss": 6.694458965155555,
+      "last_loss": 6.538686111058441,
+      "loss_sum": 52.59342306971052,
+      "max_grad_norm": 0.21007265295044042,
+      "opus_score_sum": 4.652719125000001,
       "high_ppl_examples": [
         {
+          "step": 3,
+          "position": 4,
+          "token_id": 449,
+          "loss": 6.74032,
+          "perplexity": 845.828
+        },
+        {
           "step": 5,
-          "position": 114,
-          "token_id": 52,
-          "loss": 8.33618,
-          "perplexity": 4172.104
+          "position": 162,
+          "token_id": 397,
+          "loss": 6.71887,
+          "perplexity": 827.885
         },
         {
           "step": 12,
-          "position": 49,
-          "token_id": 3026,
-          "loss": 8.32399,
-          "perplexity": 4121.562
+          "position": 146,
+          "token_id": 675,
+          "loss": 6.73767,
+          "perplexity": 843.589
         },
         {
           "step": 12,
-          "position": 49,
-          "token_id": 3026,
-          "loss": 8.32399,
-          "perplexity": 4121.562
+          "position": 146,
+          "token_id": 675,
+          "loss": 6.73767,
+          "perplexity": 843.589
         },
         {
           "step": 13,
-          "position": 109,
-          "token_id": 3026,
-          "loss": 8.32131,
-          "perplexity": 4110.533
-        },
-        {
-          "step": 16,
-          "position": 38,
-          "token_id": 453,
-          "loss": 8.32431,
-          "perplexity": 4122.908
+          "position": 88,
+          "token_id": 820,
+          "loss": 6.7557,
+          "perplexity": 858.942
         }
       ],
-      "mean_loss": 8.239056458106045,
-      "loss_delta": 0.06345397664739316,
-      "mean_opus_score": 0.5750818928571428,
+      "mean_loss": 6.574177883713815,
+      "loss_delta": 0.15577285409711372,
+      "mean_opus_score": 0.5815898906250001,
       "classification": "useful"
     },
     {
       "shard_id": "code-01",
       "lane": "general_web",
       "exposures": 9,
-      "useful_tokens": 2686,
-      "first_loss": 8.294368486213203,
-      "last_loss": 8.190444949369667,
-      "loss_sum": 74.25379039077872,
-      "max_grad_norm": 0.17236023224511648,
-      "opus_score_sum": 5.454588125,
+      "useful_tokens": 2871,
+      "first_loss": 6.6911780550324025,
+      "last_loss": 6.638970898161387,
+      "loss_sum": 59.35605893213448,
+      "max_grad_norm": 0.2172216853033835,
+      "opus_score_sum": 5.38042625,
       "high_ppl_examples": [
         {
           "step": 2,
-          "position": 36,
-          "token_id": 71,
-          "loss": 8.3366,
-          "perplexity": 4173.855
+          "position": 78,
+          "token_id": 477,
+          "loss": 6.74064,
+          "perplexity": 846.105
         },
         {
           "step": 6,
-          "position": 101,
-          "token_id": 1430,
-          "loss": 8.33319,
-          "perplexity": 4159.647
+          "position": 186,
+          "token_id": 395,
+          "loss": 6.73504,
+          "perplexity": 841.377
         },
         {
           "step": 7,
-          "position": 43,
-          "token_id": 1123,
-          "loss": 8.33701,
-          "perplexity": 4175.589
+          "position": 64,
+          "token_id": 805,
+          "loss": 6.74512,
+          "perplexity": 849.903
         },
         {
           "step": 12,
-          "position": 49,
-          "token_id": 3026,
-          "loss": 8.32399,
-          "perplexity": 4121.562
+          "position": 146,
+          "token_id": 675,
+          "loss": 6.73767,
+          "perplexity": 843.589
         },
         {
           "step": 12,
-          "position": 49,
-          "token_id": 3026,
-          "loss": 8.32399,
-          "perplexity": 4121.562
+          "position": 146,
+          "token_id": 675,
+          "loss": 6.73767,
+          "perplexity": 843.589
         }
       ],
-      "mean_loss": 8.250421154530969,
-      "loss_delta": 0.10392353684353672,
-      "mean_opus_score": 0.6060653472222222,
+      "mean_loss": 6.595117659126053,
+      "loss_delta": 0.05220715687101585,
+      "mean_opus_score": 0.5978251388888889,
       "classification": "useful"
     },
     {
       "shard_id": "code-02",
       "lane": "reasoning",
-      "exposures": 13,
-      "useful_tokens": 3567,
-      "first_loss": 8.308099666680832,
-      "last_loss": 8.23182755624303,
-      "loss_sum": 107.5304706582219,
-      "max_grad_norm": 0.3082932772645228,
-      "opus_score_sum": 7.35557675,
+      "exposures": 14,
+      "useful_tokens": 4562,
+      "first_loss": 6.702677339376765,
+      "last_loss": 6.638970898161387,
+      "loss_sum": 92.51319426465325,
+      "max_grad_norm": 0.21091465320512556,
+      "opus_score_sum": 8.020680749999999,
       "high_ppl_examples": [
         {
           "step": 1,
-          "position": 36,
-          "token_id": 357,
-          "loss": 8.3362,
-          "perplexity": 4172.188
+          "position": 34,
+          "token_id": 349,
+          "loss": 6.74253,
+          "perplexity": 847.701
         },
         {
           "step": 3,
-          "position": 15,
-          "token_id": 1414,
-          "loss": 8.34001,
-          "perplexity": 4188.146
+          "position": 4,
+          "token_id": 449,
+          "loss": 6.74032,
+          "perplexity": 845.828
         },
         {
           "step": 4,
-          "position": 72,
-          "token_id": 467,
-          "loss": 8.33488,
-          "perplexity": 4166.689
+          "position": 157,
+          "token_id": 643,
+          "loss": 6.73513,
+          "perplexity": 841.454
         },
         {
           "step": 5,
-          "position": 114,
-          "token_id": 52,
-          "loss": 8.33618,
-          "perplexity": 4172.104
+          "position": 162,
+          "token_id": 397,
+          "loss": 6.71887,
+          "perplexity": 827.885
         },
         {
           "step": 7,
-          "position": 43,
-          "token_id": 1123,
-          "loss": 8.33701,
-          "perplexity": 4175.589
+          "position": 64,
+          "token_id": 805,
+          "loss": 6.74512,
+          "perplexity": 849.903
         }
       ],
-      "mean_loss": 8.27157466601707,
-      "loss_delta": 0.07627211043780235,
-      "mean_opus_score": 0.5658135961538462,
+      "mean_loss": 6.608085304618089,
+      "loss_delta": 0.06370644121537872,
+      "mean_opus_score": 0.5729057678571428,
       "classification": "useful"
     },
     {
       "shard_id": "code-03",
       "lane": "agentic",
       "exposures": 1,
-      "useful_tokens": 234,
-      "first_loss": 8.289864385693834,
-      "last_loss": 8.289864385693834,
-      "loss_sum": 8.289864385693834,
-      "max_grad_norm": 0.17989300460871735,
-      "opus_score_sum": 0.605399,
+      "useful_tokens": 336,
+      "first_loss": 6.605022287875795,
+      "last_loss": 6.605022287875795,
+      "loss_sum": 6.605022287875795,
+      "max_grad_norm": 0.18873485951497396,
+      "opus_score_sum": 0.597899,
       "high_ppl_examples": [
         {
           "step": 9,
-          "position": 20,
-          "token_id": 316,
-          "loss": 8.33167,
-          "perplexity": 4153.351
+          "position": 4,
+          "token_id": 416,
+          "loss": 6.73523,
+          "perplexity": 841.536
         }
       ],
-      "mean_loss": 8.289864385693834,
+      "mean_loss": 6.605022287875795,
       "loss_delta": 0.0,
-      "mean_opus_score": 0.605399,
+      "mean_opus_score": 0.597899,
       "classification": "neutral"
     },
     {
       "shard_id": "general_web-00",
       "lane": "indic",
       "exposures": 15,
-      "useful_tokens": 4432,
-      "first_loss": 8.316078571804255,
-      "last_loss": 8.187206667130278,
-      "loss_sum": 123.92528606436038,
-      "max_grad_norm": 0.20072901525058046,
-      "opus_score_sum": 8.9107575,
+      "useful_tokens": 4998,
+      "first_loss": 6.714750941895016,
+      "last_loss": 6.55123673966972,
+      "loss_sum": 99.06406709441555,
+      "max_grad_norm": 0.2172216853033835,
+      "opus_score_sum": 8.888553374999999,
       "high_ppl_examples": [
         {
           "step": 0,
-          "position": 123,
-          "token_id": 107,
-          "loss": 8.34174,
-          "perplexity": 4195.366
+          "position": 43,
+          "token_id": 266,
+          "loss": 6.74229,
+          "perplexity": 847.496
         },
         {
           "step": 1,
-          "position": 36,
-          "token_id": 357,
-          "loss": 8.3362,
-          "perplexity": 4172.188
+          "position": 34,
+          "token_id": 349,
+          "loss": 6.74253,
+          "perplexity": 847.701
         },
         {
           "step": 2,
-          "position": 36,
-          "token_id": 71,
-          "loss": 8.3366,
-          "perplexity": 4173.855
-        },
-        {
-          "step": 3,
-          "position": 15,
-          "token_id": 1414,
-          "loss": 8.34001,
-          "perplexity": 4188.146
+          "position": 78,
+          "token_id": 477,
+          "loss": 6.74064,
+          "perplexity": 846.105
         },
         {
           "step": 4,
-          "position": 72,
-          "token_id": 467,
-          "loss": 8.33488,
-          "perplexity": 4166.689
+          "position": 157,
+          "token_id": 643,
+          "loss": 6.73513,
+          "perplexity": 841.454
+        },
+        {
+          "step": 6,
+          "position": 186,
+          "token_id": 395,
+          "loss": 6.73504,
+          "perplexity": 841.377
         }
       ],
-      "mean_loss": 8.261685737624026,
-      "loss_delta": 0.1288719046739768,
-      "mean_opus_score": 0.5940505,
+      "mean_loss": 6.604271139627703,
+      "loss_delta": 0.16351420222529534,
+      "mean_opus_score": 0.5925702249999999,
       "classification": "useful"
     },
     {
       "shard_id": "general_web-01",
       "lane": "indic",
-      "exposures": 17,
-      "useful_tokens": 4455,
-      "first_loss": 8.316078571804255,
-      "last_loss": 8.206875805424204,
-      "loss_sum": 140.39706972284185,
-      "max_grad_norm": 0.3117305013937156,
-      "opus_score_sum": 9.754652875000001,
+      "exposures": 19,
+      "useful_tokens": 6206,
+      "first_loss": 6.714750941895016,
+      "last_loss": 6.538686111058441,
+      "loss_sum": 125.20375704920957,
+      "max_grad_norm": 0.2172216853033835,
+      "opus_score_sum": 10.900360124999999,
       "high_ppl_examples": [
         {
           "step": 0,
-          "position": 123,
-          "token_id": 107,
-          "loss": 8.34174,
-          "perplexity": 4195.366
+          "position": 43,
+          "token_id": 266,
+          "loss": 6.74229,
+          "perplexity": 847.496
         },
         {
           "step": 1,
-          "position": 36,
-          "token_id": 357,
-          "loss": 8.3362,
-          "perplexity": 4172.188
+          "position": 34,
+          "token_id": 349,
+          "loss": 6.74253,
+          "perplexity": 847.701
+        },
+        {
+          "step": 2,
+          "position": 78,
+          "token_id": 477,
+          "loss": 6.74064,
+          "perplexity": 846.105
         },
         {
           "step": 3,
-          "position": 15,
-          "token_id": 1414,
-          "loss": 8.34001,
-          "perplexity": 4188.146
+          "position": 4,
+          "token_id": 449,
+          "loss": 6.74032,
+          "perplexity": 845.828
         },
         {
           "step": 4,
-          "position": 72,
-          "token_id": 467,
-          "loss": 8.33488,
-          "perplexity": 4166.689
-        },
-        {
-          "step": 7,
-          "position": 43,
-          "token_id": 1123,
-          "loss": 8.33701,
-          "perplexity": 4175.589
+          "position": 157,
+          "token_id": 643,
+          "loss": 6.73513,
+          "perplexity": 841.454
         }
       ],
-      "mean_loss": 8.258651160167167,
-      "loss_delta": 0.10920276638005078,
-      "mean_opus_score": 0.5738031102941177,
+      "mean_loss": 6.589671423642609,
+      "loss_delta": 0.17606483083657487,
+      "mean_opus_score": 0.5737031644736842,
       "classification": "useful"
     },
     {
       "shard_id": "general_web-02",
       "lane": "indic",
       "exposures": 19,
-      "useful_tokens": 5206,
-      "first_loss": 8.316078571804255,
-      "last_loss": 8.206875805424204,
-      "loss_sum": 156.84963716890098,
-      "max_grad_norm": 0.3117305013937156,
-      "opus_score_sum": 11.316969500000003,
+      "useful_tokens": 6243,
+      "first_loss": 6.714750941895016,
+      "last_loss": 6.538686111058441,
+      "loss_sum": 125.16321981847275,
+      "max_grad_norm": 0.2172216853033835,
+      "opus_score_sum": 11.309943625,
       "high_ppl_examples": [
         {
           "step": 0,
-          "position": 123,
-          "token_id": 107,
-          "loss": 8.34174,
-          "perplexity": 4195.366
+          "position": 43,
+          "token_id": 266,
+          "loss": 6.74229,
+          "perplexity": 847.496
         },
         {
           "step": 1,
-          "position": 36,
-          "token_id": 357,
-          "loss": 8.3362,
-          "perplexity": 4172.188
+          "position": 34,
+          "token_id": 349,
+          "loss": 6.74253,
+          "perplexity": 847.701
         },
         {
           "step": 2,
-          "position": 36,
-          "token_id": 71,
-          "loss": 8.3366,
-          "perplexity": 4173.855
+          "position": 78,
+          "token_id": 477,
+          "loss": 6.74064,
+          "perplexity": 846.105
         },
         {
           "step": 4,
-          "position": 72,
-          "token_id": 467,
-          "loss": 8.33488,
-          "perplexity": 4166.689
+          "position": 157,
+          "token_id": 643,
+          "loss": 6.73513,
+          "perplexity": 841.454
         },
         {
           "step": 5,
-          "position": 114,
-          "token_id": 52,
-          "loss": 8.33618,
-          "perplexity": 4172.104
+          "position": 162,
+          "token_id": 397,
+          "loss": 6.71887,
+          "perplexity": 827.885
         }
       ],
-      "mean_loss": 8.255244061521104,
-      "loss_delta": 0.10920276638005078,
-      "mean_opus_score": 0.5956299736842107,
+      "mean_loss": 6.587537885182776,
+      "loss_delta": 0.17606483083657487,
+      "mean_opus_score": 0.5952601907894737,
       "classification": "useful"
     },
     {
       "shard_id": "indic-00",
       "lane": "indic",
-      "exposures": 21,
-      "useful_tokens": 5808,
-      "first_loss": 8.316078571804255,
-      "last_loss": 8.187206667130278,
-      "loss_sum": 173.299249329475,
-      "max_grad_norm": 0.3117305013937156,
-      "opus_score_sum": 12.386334375000002,
+      "exposures": 18,
+      "useful_tokens": 5655,
+      "first_loss": 6.714750941895016,
+      "last_loss": 6.631990897541039,
+      "loss_sum": 118.79574518983888,
+      "max_grad_norm": 0.2172216853033835,
+      "opus_score_sum": 10.719317999999998,
       "high_ppl_examples": [
         {
           "step": 0,
-          "position": 123,
-          "token_id": 107,
-          "loss": 8.34174,
-          "perplexity": 4195.366
+          "position": 43,
+          "token_id": 266,
+          "loss": 6.74229,
+          "perplexity": 847.496
         },
         {
           "step": 2,
-          "position": 36,
-          "token_id": 71,
-          "loss": 8.3366,
-          "perplexity": 4173.855
-        },
-        {
-          "step": 3,
-          "position": 15,
-          "token_id": 1414,
-          "loss": 8.34001,
-          "perplexity": 4188.146
+          "position": 78,
+          "token_id": 477,
+          "loss": 6.74064,
+          "perplexity": 846.105
         },
         {
           "step": 4,
-          "position": 72,
-          "token_id": 467,
-          "loss": 8.33488,
-          "perplexity": 4166.689
+          "position": 157,
+          "token_id": 643,
+          "loss": 6.73513,
+          "perplexity": 841.454
         },
         {
-          "step": 5,
-          "position": 114,
-          "token_id": 52,
-          "loss": 8.33618,
-          "perplexity": 4172.104
+          "step": 6,
+          "position": 186,
+          "token_id": 395,
+          "loss": 6.73504,
+          "perplexity": 841.377
+        },
+        {
+          "step": 7,
+          "position": 64,
+          "token_id": 805,
+          "loss": 6.74512,
+          "perplexity": 849.903
         }
       ],
-      "mean_loss": 8.252345206165476,
-      "loss_delta": 0.1288719046739768,
-      "mean_opus_score": 0.5898254464285715,
+      "mean_loss": 6.599763621657716,
+      "loss_delta": 0.08276004435397688,
+      "mean_opus_score": 0.5955176666666665,
       "classification": "useful"
     },
     {
       "shard_id": "indic-01",
-      "lane": "general_web",
-      "exposures": 16,
-      "useful_tokens": 4361,
-      "first_loss": 8.294368486213203,
-      "last_loss": 8.187206667130278,
-      "loss_sum": 131.86785440321714,
-      "max_grad_norm": 0.3117305013937156,
-      "opus_score_sum": 9.253036875000001,
+      "lane": "indic",
+      "exposures": 13,
+      "useful_tokens": 3966,
+      "first_loss": 6.694458965155555,
+      "last_loss": 6.631990897541039,
+      "loss_sum": 85.79511900171718,
+      "max_grad_norm": 0.21091465320512556,
+      "opus_score_sum": 7.509921375,
       "high_ppl_examples": [
         {
-          "step": 2,
-          "position": 36,
-          "token_id": 71,
-          "loss": 8.3366,
-          "perplexity": 4173.855
-        },
-        {
           "step": 3,
-          "position": 15,
-          "token_id": 1414,
-          "loss": 8.34001,
-          "perplexity": 4188.146
+          "position": 4,
+          "token_id": 449,
+          "loss": 6.74032,
+          "perplexity": 845.828
         },
         {
-          "step": 6,
-          "position": 101,
-          "token_id": 1430,
-          "loss": 8.33319,
-          "perplexity": 4159.647
+          "step": 5,
+          "position": 162,
+          "token_id": 397,
+          "loss": 6.71887,
+          "perplexity": 827.885
         },
         {
           "step": 7,
-          "position": 43,
-          "token_id": 1123,
-          "loss": 8.33701,
-          "perplexity": 4175.589
+          "position": 64,
+          "token_id": 805,
+          "loss": 6.74512,
+          "perplexity": 849.903
         },
         {
           "step": 8,
-          "position": 99,
-          "token_id": 849,
-          "loss": 8.34038,
-          "perplexity": 4189.661
+          "position": 151,
+          "token_id": 449,
+          "loss": 6.73917,
+          "perplexity": 844.862
+        },
+        {
+          "step": 9,
+          "position": 4,
+          "token_id": 416,
+          "loss": 6.73523,
+          "perplexity": 841.536
         }
       ],
-      "mean_loss": 8.241740900201071,
-      "loss_delta": 0.10716181908292555,
-      "mean_opus_score": 0.5783148046875001,
+      "mean_loss": 6.59962453859363,
+      "loss_delta": 0.06246806761451573,
+      "mean_opus_score": 0.5776862596153847,
       "classification": "useful"
     },
     {
       "shard_id": "indic-02",
-      "lane": "agentic",
-      "exposures": 2,
-      "useful_tokens": 467,
-      "first_loss": 8.190444949369667,
-      "last_loss": 8.187206667130278,
-      "loss_sum": 16.377651616499946,
-      "max_grad_norm": 0.20072901525058046,
-      "opus_score_sum": 1.1190395,
+      "lane": "general_web",
+      "exposures": 11,
+      "useful_tokens": 3293,
+      "first_loss": 6.6911780550324025,
+      "last_loss": 6.631990897541039,
+      "loss_sum": 72.488918554403,
+      "max_grad_norm": 0.2172216853033835,
+      "opus_score_sum": 6.5013125,
       "high_ppl_examples": [
         {
-          "step": 22,
-          "position": 103,
-          "token_id": 3790,
-          "loss": 8.3241,
-          "perplexity": 4122.03
+          "step": 2,
+          "position": 78,
+          "token_id": 477,
+          "loss": 6.74064,
+          "perplexity": 846.105
         },
         {
-          "step": 23,
-          "position": 118,
-          "token_id": 1426,
-          "loss": 8.32552,
-          "perplexity": 4127.871
+          "step": 3,
+          "position": 4,
+          "token_id": 449,
+          "loss": 6.74032,
+          "perplexity": 845.828
+        },
+        {
+          "step": 6,
+          "position": 186,
+          "token_id": 395,
+          "loss": 6.73504,
+          "perplexity": 841.377
+        },
+        {
+          "step": 12,
+          "position": 146,
+          "token_id": 675,
+          "loss": 6.73767,
+          "perplexity": 843.589
+        },
+        {
+          "step": 12,
+          "position": 146,
+          "token_id": 675,
+          "loss": 6.73767,
+          "perplexity": 843.589
         }
       ],
-      "mean_loss": 8.188825808249973,
-      "loss_delta": 0.0032382822393888233,
-      "mean_opus_score": 0.55951975,
-      "classification": "neutral"
+      "mean_loss": 6.589901686763909,
+      "loss_delta": 0.05918715749136361,
+      "mean_opus_score": 0.5910284090909091,
+      "classification": "useful"
     },
     {
       "shard_id": "reasoning-00",
       "lane": "reasoning",
-      "exposures": 8,
-      "useful_tokens": 2386,
-      "first_loss": 8.308099666680832,
-      "last_loss": 8.187206667130278,
-      "loss_sum": 65.99124038840931,
-      "max_grad_norm": 0.20072901525058046,
-      "opus_score_sum": 4.4177735,
+      "exposures": 9,
+      "useful_tokens": 2619,
+      "first_loss": 6.702677339376765,
+      "last_loss": 6.631990897541039,
+      "loss_sum": 59.38110101910071,
+      "max_grad_norm": 0.21007265295044042,
+      "opus_score_sum": 4.98298175,
       "high_ppl_examples": [
         {
           "step": 1,
-          "position": 36,
-          "token_id": 357,
-          "loss": 8.3362,
-          "perplexity": 4172.188
-        },
-        {
-          "step": 2,
-          "position": 36,
-          "token_id": 71,
-          "loss": 8.3366,
-          "perplexity": 4173.855
+          "position": 34,
+          "token_id": 349,
+          "loss": 6.74253,
+          "perplexity": 847.701
         },
         {
           "step": 4,
-          "position": 72,
-          "token_id": 467,
-          "loss": 8.33488,
-          "perplexity": 4166.689
+          "position": 157,
+          "token_id": 643,
+          "loss": 6.73513,
+          "perplexity": 841.454
         },
         {
           "step": 5,
-          "position": 114,
-          "token_id": 52,
-          "loss": 8.33618,
-          "perplexity": 4172.104
+          "position": 162,
+          "token_id": 397,
+          "loss": 6.71887,
+          "perplexity": 827.885
         },
         {
-          "step": 17,
-          "position": 38,
-          "token_id": 453,
-          "loss": 8.32221,
-          "perplexity": 4114.249
+          "step": 12,
+          "position": 146,
+          "token_id": 675,
+          "loss": 6.73767,
+          "perplexity": 843.589
+        },
+        {
+          "step": 12,
+          "position": 146,
+          "token_id": 675,
+          "loss": 6.73767,
+          "perplexity": 843.589
         }
       ],
-      "mean_loss": 8.248905048551164,
-      "loss_delta": 0.12089299955055388,
-      "mean_opus_score": 0.5522216875,
+      "mean_loss": 6.597900113233412,
+      "loss_delta": 0.07068644183572648,
+      "mean_opus_score": 0.553664638888889,
       "classification": "useful"
     },
     {
       "shard_id": "reasoning-01",
-      "lane": "general_web",
-      "exposures": 15,
-      "useful_tokens": 4116,
-      "first_loss": 8.294368486213203,
-      "last_loss": 8.190444949369667,
-      "loss_sum": 123.8970309991422,
-      "max_grad_norm": 0.3082932772645228,
-      "opus_score_sum": 8.836986250000002,
+      "lane": "indic",
+      "exposures": 13,
+      "useful_tokens": 4100,
+      "first_loss": 6.694458965155555,
+      "last_loss": 6.638970898161387,
+      "loss_sum": 85.51175260351759,
+      "max_grad_norm": 0.2099846713465036,
+      "opus_score_sum": 7.638161375,
       "high_ppl_examples": [
         {
-          "step": 2,
-          "position": 36,
-          "token_id": 71,
-          "loss": 8.3366,
-          "perplexity": 4173.855
-        },
-        {
           "step": 3,
-          "position": 15,
-          "token_id": 1414,
-          "loss": 8.34001,
-          "perplexity": 4188.146
+          "position": 4,
+          "token_id": 449,
+          "loss": 6.74032,
+          "perplexity": 845.828
         },
         {
           "step": 6,
-          "position": 101,
-          "token_id": 1430,
-          "loss": 8.33319,
-          "perplexity": 4159.647
+          "position": 186,
+          "token_id": 395,
+          "loss": 6.73504,
+          "perplexity": 841.377
         },
         {
           "step": 7,
-          "position": 43,
-          "token_id": 1123,
-          "loss": 8.33701,
-          "perplexity": 4175.589
+          "position": 64,
+          "token_id": 805,
+          "loss": 6.74512,
+          "perplexity": 849.903
         },
         {
           "step": 9,
-          "position": 20,
-          "token_id": 316,
-          "loss": 8.33167,
-          "perplexity": 4153.351
+          "position": 4,
+          "token_id": 416,
+          "loss": 6.73523,
+          "perplexity": 841.536
+        },
+        {
+          "step": 12,
+          "position": 146,
+          "token_id": 675,
+          "loss": 6.73767,
+          "perplexity": 843.589
         }
       ],
-      "mean_loss": 8.25980206660948,
-      "loss_delta": 0.10392353684353672,
-      "mean_opus_score": 0.5891324166666668,
+      "mean_loss": 6.577827123347507,
+      "loss_delta": 0.05548806699416797,
+      "mean_opus_score": 0.587550875,
       "classification": "useful"
     },
     {
       "shard_id": "reasoning-02",
       "lane": "indic",
       "exposures": 4,
-      "useful_tokens": 1081,
-      "first_loss": 8.244911670639798,
-      "last_loss": 8.190444949369667,
-      "loss_sum": 32.93209681112751,
-      "max_grad_norm": 0.1818088351319342,
-      "opus_score_sum": 2.2228357499999998,
+      "useful_tokens": 910,
+      "first_loss": 6.6400050153797565,
+      "last_loss": 6.631990897541039,
+      "loss_sum": 26.449652922140622,
+      "max_grad_norm": 0.16987540266738602,
+      "opus_score_sum": 2.256967875,
       "high_ppl_examples": [
         {
           "step": 8,
-          "position": 99,
-          "token_id": 849,
-          "loss": 8.34038,
-          "perplexity": 4189.661
-        },
-        {
-          "step": 9,
-          "position": 20,
-          "token_id": 316,
-          "loss": 8.33167,
-          "perplexity": 4153.351
+          "position": 151,
+          "token_id": 449,
+          "loss": 6.73917,
+          "perplexity": 844.862
         },
         {
           "step": 21,
-          "position": 26,
-          "token_id": 623,
-          "loss": 8.32884,
-          "perplexity": 4141.614
+          "position": 64,
+          "token_id": 585,
+          "loss": 6.74329,
+          "perplexity": 848.347
         },
         {
           "step": 22,
-          "position": 103,
-          "token_id": 3790,
-          "loss": 8.3241,
-          "perplexity": 4122.03
+          "position": 116,
+          "token_id": 477,
+          "loss": 6.7472,
+          "perplexity": 851.667
+        },
+        {
+          "step": 23,
+          "position": 46,
+          "token_id": 643,
+          "loss": 6.75027,
+          "perplexity": 854.291
         }
       ],
-      "mean_loss": 8.233024202781877,
-      "loss_delta": 0.0544667212701313,
-      "mean_opus_score": 0.5557089374999999,
-      "classification": "useful"
+      "mean_loss": 6.6124132305351555,
+      "loss_delta": 0.008014117838717638,
+      "mean_opus_score": 0.56424196875,
+      "classification": "neutral"
     }
   ],
   "lanes": [
     {
       "lane": "agentic",
       "exposures": 3,
-      "loss_sum": 24.712136891306532,
-      "useful_tokens": 738,
-      "mean_loss": 8.237378963768844
+      "loss_sum": 19.766511039361575,
+      "useful_tokens": 888,
+      "mean_loss": 6.588837013120525
     },
     {
       "lane": "code",
       "exposures": 1,
-      "loss_sum": 8.254546232588252,
-      "useful_tokens": 260,
-      "mean_loss": 8.254546232588252
+      "loss_sum": 6.527793649324732,
+      "useful_tokens": 335,
+      "mean_loss": 6.527793649324732
     },
     {
       "lane": "general_web",
       "exposures": 7,
-      "loss_sum": 57.82947038211567,
-      "useful_tokens": 1929,
-      "mean_loss": 8.26135291173081
+      "loss_sum": 46.1399858365783,
+      "useful_tokens": 2408,
+      "mean_loss": 6.591426548082614
     },
     {
       "lane": "indic",
       "exposures": 10,
-      "loss_sum": 82.46360218599244,
-      "useful_tokens": 2724,
-      "mean_loss": 8.246360218599245
+      "loss_sum": 66.03141230077526,
+      "useful_tokens": 3090,
+      "mean_loss": 6.603141230077526
     },
     {
       "lane": "reasoning",
       "exposures": 6,
-      "loss_sum": 49.57172306205807,
-      "useful_tokens": 1771,
-      "mean_loss": 8.261953843676345
+      "loss_sum": 39.63145462442748,
+      "useful_tokens": 1782,
+      "mean_loss": 6.60524243740458
     }
   ]
 }

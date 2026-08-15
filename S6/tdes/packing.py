@@ -120,14 +120,21 @@ class Packer:
 
     def _concat_chop(self, samples):
         """Documents joined with EOS boundaries; fixed window cut from the stream.
-        Safe for plain text: the EOS + segment id tell the model one text ended."""
+        Safe for plain text: the EOS + segment id tell the model one text ended.
+
+        NOTE: ctx_len is honoured here too. A sample that declares leading context
+        (an SFT prompt, or a tool observation in an agentic trajectory) must never
+        have those positions bear loss, whatever packing policy happens to be
+        active for the stage - otherwise the model learns to invent tool output."""
         toks, segs, pos, loss, ids, lanes = [], [], [], [], [], []
         for seg, s in enumerate(samples):
+            ctx = s.get("ctx_len", 0)
             j = 0
             for t in s["tokens"]:
                 if len(toks) >= self.seq_len:
                     break
-                toks.append(t); loss.append(1); segs.append(seg); pos.append(j); j += 1
+                toks.append(t); loss.append(0 if j < ctx else 1)
+                segs.append(seg); pos.append(j); j += 1
             ids.append(s["sample_id"]); lanes.append(s["lane"])
             if len(toks) >= self.seq_len:
                 break

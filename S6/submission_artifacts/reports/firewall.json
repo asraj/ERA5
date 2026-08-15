@@ -3,7 +3,7 @@
     "eval-bench-00": {
       "shard_id": "eval-bench-00",
       "split": "test",
-      "content_hash": "4b5a76121901baa2eedb2aef89a6731d904958739263dc9474604c8ed6ec1b60",
+      "content_hash": "a396503d8316a8a57b049c9ef4762e69518f87ea6306d0c085533533e60940fb",
       "benchmark_id": "TDES-BENCH-v1",
       "never_train": true,
       "access_log": []
@@ -11,7 +11,7 @@
     "valid-00": {
       "shard_id": "valid-00",
       "split": "validation",
-      "content_hash": "c7bf13f3ec835b73db4084905254b20f0d51b7354a0f173cd9f03e8b560a336a",
+      "content_hash": "10c9d3ab00f5e3237ffca32ac3c3fe4cd166972c294079d6bece9118eb626e38",
       "benchmark_id": "TDES-VALID-v1",
       "never_train": true,
       "access_log": [
@@ -33,5 +33,5 @@
       "reason": "29_fingerprint_hits"
     }
   ],
-  "fingerprint_count": 107
+  "fingerprint_count": 41
 }

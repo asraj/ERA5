@@ -3,7 +3,7 @@
   "origin_checkpoint": "main-step0009",
   "divergence_step": 10,
   "new_branch": "branch-b",
-  "origin_next_hash": "09570b2bbc3f98eecb6557273729996ea09f7d7f3e066e4956e211901f2a16b9",
-  "fork_next_hash": "3a6a911822906c4b7eb03bc839a6c03a8ea8faa61c0bee249893993d520c8b2e",
+  "origin_next_hash": "d363fa1f60abc4d0342c2814029411039425c063762c0c968a391277e0598c5c",
+  "fork_next_hash": "83a18ea349f13dd9bb475c20fda2dd7b82d42cdcc5a7dcf9a4e632cb406e7a53",
   "streams_differ": true
 }

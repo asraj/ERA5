@@ -1,10 +1,11 @@
 {
-  "batches": 27,
-  "wall_seconds": 0.5669,
-  "total_positions": 10368,
-  "useful_loss_bearing_tokens": 7422,
-  "pad_positions": 2293,
-  "packing_utilization": 0.7788,
-  "raw_tokens_per_sec": 18287.8,
-  "useful_loss_bearing_tokens_per_sec": 13091.5
+  "batches": 24,
+  "batches_discarded_by_crash": 0,
+  "wall_seconds": 0.1564,
+  "total_positions": 9216,
+  "useful_loss_bearing_tokens": 7534,
+  "pad_positions": 1060,
+  "packing_utilization": 0.885,
+  "raw_tokens_per_sec": 58915.7,
+  "useful_loss_bearing_tokens_per_sec": 48163.1
 }

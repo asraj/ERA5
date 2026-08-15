@@ -1,0 +1,3 @@
+# Only one third-party dependency: the tiny numpy model.
+# Everything else (tokenizer, shards, ledgers, packing, evidence) is stdlib.
+numpy>=1.21

@@ -24,8 +24,8 @@
       "result": "PASS",
       "evidence": "submission_artifacts/manifests/*.manifest.json",
       "detail": {
-        "tokenizer_hash": "03c3294cb3e7683378a694726727eb0a",
-        "shards_verified": 19,
+        "tokenizer_hash": "859ab002083519f11653509c26ba2e06",
+        "shards_verified": 20,
         "content_hash_failures": 0,
         "roundtrip_faithful": true
       }
@@ -35,8 +35,8 @@
       "result": "PASS",
       "evidence": "content hash recomputed over mutated bytes",
       "detail": {
-        "original": "95dd000fee267b81",
-        "mutated": "213dcda0da1bd408"
+        "original": "999441b6a81877a9",
+        "mutated": "02becc71e3db6684"
       }
     },
     {
@@ -47,7 +47,7 @@
         "shard_blocked_reason": "never_train_flag",
         "admission_gate": "split_not_trainable:test",
         "content_probe": "contamination:eval-bench-00",
-        "fingerprints": 107
+        "fingerprints": 41
       }
     },
     {
@@ -87,8 +87,8 @@
         "origin_checkpoint": "main-step0009",
         "divergence_step": 10,
         "new_branch": "branch-b",
-        "origin_next_hash": "09570b2bbc3f98eecb6557273729996ea09f7d7f3e066e4956e211901f2a16b9",
-        "fork_next_hash": "3a6a911822906c4b7eb03bc839a6c03a8ea8faa61c0bee249893993d520c8b2e",
+        "origin_next_hash": "d363fa1f60abc4d0342c2814029411039425c063762c0c968a391277e0598c5c",
+        "fork_next_hash": "83a18ea349f13dd9bb475c20fda2dd7b82d42cdcc5a7dcf9a4e632cb406e7a53",
         "streams_differ": true
       }
     },
@@ -97,10 +97,10 @@
       "result": "PASS",
       "evidence": "submission_artifacts/reports/packing.json",
       "detail": {
-        "utilization": 0.9219,
-        "useful_loss_bearing_tokens": 354,
+        "utilization": 0.8021,
+        "useful_loss_bearing_tokens": 293,
         "total_positions": 384,
-        "context_tokens_masked_from_loss": false,
+        "context_tokens_masked_from_loss": true,
         "attention_check": "block_diagonal_causal_ok",
         "sequences_validated_across_whole_run": 48,
         "all_sequences_valid": true
@@ -129,11 +129,11 @@
           "reasoning": 0.1188
         },
         "actual_share": {
-          "agentic": 0.0938,
-          "code": 0.1615,
+          "agentic": 0.0885,
+          "code": 0.1719,
           "general_web": 0.3438,
-          "indic": 0.2396,
-          "reasoning": 0.1615
+          "indic": 0.2448,
+          "reasoning": 0.151
         },
         "protected_floors": {
           "indic": 0.08,
@@ -155,13 +155,12 @@
       "detail": {
         "reserved_shards": [
           "agentic-02",
-          "indic-02"
+          "indic-03"
         ],
         "anneal_starts_at_step": 21,
         "spent_before_anneal": [],
         "spent_during_anneal": [
-          "agentic-02",
-          "indic-02"
+          "agentic-02"
         ],
         "held_back_correctly": true
       }
@@ -172,7 +171,7 @@
       "evidence": "submission_artifacts/reports/validation.json",
       "detail": {
         "shard_id": "valid-00",
-        "val_loss": 8.214162,
+        "val_loss": 6.562878,
         "params_unchanged": true,
         "gradient_bearing": false,
         "appears_in_consumption_ledger": false
@@ -183,11 +182,11 @@
       "result": "PASS",
       "evidence": "submission_artifacts/reports/opus_decisions.json",
       "detail": {
-        "rejected": 184,
-        "protected_override": 76,
-        "accepted": 428,
+        "rejected": 187,
+        "protected_override": 70,
+        "accepted": 434,
         "deferred": 30,
-        "total": 718
+        "total": 721
       }
     },
     {
@@ -195,8 +194,8 @@
       "result": "PASS",
       "evidence": "submission_artifacts/ledgers/learning.json",
       "detail": {
-        "first_loss": 8.3161,
-        "last_loss": 8.1872,
+        "first_loss": 6.7148,
+        "last_loss": 6.632,
         "shards_with_token_level_trace": 16,
         "shards_scored": 16,
         "classifications": [
@@ -210,14 +209,15 @@
       "result": "PASS",
       "evidence": "submission_artifacts/performance.json",
       "detail": {
-        "batches": 27,
-        "wall_seconds": 0.5669,
-        "total_positions": 10368,
-        "useful_loss_bearing_tokens": 7422,
-        "pad_positions": 2293,
-        "packing_utilization": 0.7788,
-        "raw_tokens_per_sec": 18287.8,
-        "useful_loss_bearing_tokens_per_sec": 13091.5
+        "batches": 24,
+        "batches_discarded_by_crash": 0,
+        "wall_seconds": 0.1564,
+        "total_positions": 9216,
+        "useful_loss_bearing_tokens": 7534,
+        "pad_positions": 1060,
+        "packing_utilization": 0.885,
+        "raw_tokens_per_sec": 58915.7,
+        "useful_loss_bearing_tokens_per_sec": 48163.1
       }
     },
     {
@@ -231,15 +231,15 @@
     }
   ],
   "headline": {
-    "corpus_source": "real:openwebtext+india-wikipedia",
-    "documents": 233,
-    "vocab": 4096,
-    "tokenizer_hash": "03c3294cb3e7683378a694726727eb0a",
+    "corpus_source": "bundled_sample",
+    "documents": 310,
+    "vocab": 828,
+    "tokenizer_hash": "859ab002083519f11653509c26ba2e06",
     "schedule_hash": "a134a1cf86f3b63c",
     "steps": 24,
     "crash_at": 12,
     "resumed_from": "main-step0009",
-    "useful_loss_bearing_tokens_per_sec": 13091.5,
-    "packing_utilization": 0.7788
+    "useful_loss_bearing_tokens_per_sec": 48163.1,
+    "packing_utilization": 0.885
   }
 }

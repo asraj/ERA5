@@ -1,0 +1,78 @@
+========================================================================
+Kronecker V2 - Problem 3: the 32-position budget
+corpus: real:india-wikipedia | distinct words: 19,122
+========================================================================
+
+[V0] FIDELITY vs Kronecker Embeddings V1 (Shravan, 2026) spec
+  coordinate_layout_b*dp+p=PASS  at_most_L_nonzeros=PASS  nonzeros_equal_1_over_sqrt_L=PASS  unit_squared_norm_any_length=PASS  z_norm_matches_reference_code=PASS
+  all spec properties reproduced: True
+
+[V1] PAPER CLAIM TEST - 'truncated tokens still receive distinct embeddings'
+  pair अंतर्राष्ट्रीयकरण / अंतर्राष्ट्रीयता  bytes=[51, 48]
+  share 32-byte prefix: True  ->  v1 codes identical: True  (elastic identical: False)
+  VERDICT: claim REFUTED
+  on 19122 wikipedia words: 306 collision groups, 851 tokens share a vector (elastic: 0)
+  truncation coverage (paper Table 4.2 metric): {'d_p=16': 58.72, 'd_p=32': 88.29, 'd_p=64': 99.85, 'paper_reference_at_32': 99.82, 'vocab_size': 19122}
+
+[A1] BYTE BUDGET - what 32 bytes actually buys, per script
+  script        words  B/char  chars fit   >32B      %
+  latin          8622     1.0       31.9      6   0.07
+  devanagari     2942     3.0       10.7    118   4.01
+  telugu         1890     3.0       10.7    256  13.54
+  tamil          5661     3.0       10.7   1860  32.86
+
+[A2] COLLISION AUDIT - words the codec maps to ONE vector, permanently
+  kronecker-v1         groups=  306  words_affected=  851  (4.45%)  per_script={'devanagari': 12, 'tamil': 790, 'telugu': 49}
+  elastic-kronecker    groups=    0  words_affected=    0  (0.0%)  per_script={}
+      v1 collides: இந்தியாவில்  ==  இந்தியாவிலேயே  ==  இந்தியாவிலும்
+      v1 collides: பல்கலைக்கழகப்  ==  பல்கலைக்கழகங்கள்  ==  பல்கலைக்கழகம்
+      v1 collides: பிரதேசத்தின்  ==  பிரதேசத்தில்  ==  பிரதேசத்திலிருந்து
+      v1 collides: அதிகரித்து  ==  அதிகரித்துள்ளது  ==  அதிகரித்துள்ளன
+  adversarial transpositions (2893 genuine): v1=168  elastic=0
+
+[A3] OCCUPANCY / TRUNCATION
+  kronecker-v1         dim= 8192 cells_used=0.14%  bytes_dropped=1266  words_truncated=177
+  elastic-kronecker    dim= 6432 cells_used=0.192%  bytes_dropped=0  words_truncated=0
+
+[A4] GEOMETRY - is 'similar spelling => similar vector' preserved?
+  kronecker-v1         related=0.8087  unrelated=0.2904  separation=0.5183
+  elastic-kronecker    related=0.7427  unrelated=0.3049  separation=0.4378
+
+[A5] PARAMETERS at the V5 reference shape (131072x8096)
+  dense table         1,061,158,912
+  kronecker-v1           66,322,432   (93.75% vs dense)
+  elastic (ours)         52,073,472   (95.093% vs dense, 21.48% vs v1)
+
+[P0] GRADCHECK (backprop correctness): dense: 1.11e-08 PASS  codec: 4.26e-08 PASS
+
+[E1] DISCRIMINATION PROBE - train a transformer to tell colliding words apart
+  pair (tamil): இந்தியாவில்  vs  இந்தியாவிலேயே
+  pair (tamil): இந்தியாவிலேயே  vs  இந்தியாவிலும்
+  pair (tamil): பல்கலைக்கழகப்  vs  பல்கலைக்கழகங்கள்
+  input path        mean val acc   (chance = 0.500)
+  dense                    1.000   per_pair=[1.0, 1.0, 1.0]
+  kronecker_v1             0.500   per_pair=[0.4917, 0.5417, 0.4667]
+  elastic                  1.000   per_pair=[1.0, 1.0, 1.0]
+
+[E2] LANGUAGE MODEL on real multilingual text (no-regression check)
+  input path        val_loss  val_acc
+  dense               2.9733    0.240
+  kronecker_v1        2.9896    0.200
+  elastic             3.0216    0.203
+
+========================================================================
+  problem                      3 - dynamic length / 32-position waste
+  v1_collisions_removed        851
+  elastic_collisions           0
+  elastic_truncation           0
+  code_dim_saving_pct          21.48
+  probe_v1_acc                 0.5
+  probe_elastic_acc            1.0
+  geometry_preserved           True
+  lm_no_regression             True
+  gradcheck_passed             True
+  v1_reimplementation_faithful True
+  v1_uniqueness_claim_refuted  True
+  all_claims_hold              True
+========================================================================
+  completed in 112s

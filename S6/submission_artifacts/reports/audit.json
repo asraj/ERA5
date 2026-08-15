@@ -6,26 +6,27 @@
   "batches": 11,
   "shards_influencing": {
     "agentic-00": 1,
-    "agentic-01": 4,
+    "agentic-01": 3,
     "code-00": 3,
     "code-01": 4,
     "code-02": 7,
     "code-03": 1,
-    "general_web-00": 5,
-    "general_web-01": 5,
+    "general_web-00": 6,
+    "general_web-01": 6,
     "general_web-02": 8,
-    "indic-00": 10,
-    "indic-01": 6,
-    "reasoning-00": 1,
-    "reasoning-01": 8,
-    "reasoning-02": 2
+    "indic-00": 8,
+    "indic-01": 7,
+    "indic-02": 3,
+    "reasoning-00": 2,
+    "reasoning-01": 7,
+    "reasoning-02": 1
   },
   "lane_exposure": {
-    "agentic": 6,
+    "agentic": 5,
     "code": 18,
-    "general_web": 29,
+    "general_web": 31,
     "indic": 23,
-    "reasoning": 12
+    "reasoning": 11
   },
   "stages": [
     "capability",

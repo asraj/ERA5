@@ -9,50 +9,50 @@
   ],
   "efficiency_by_policy": {
     "pad_only": {
-      "utilization": 0.1667,
-      "useful_loss_bearing_tokens": 32,
-      "pad_positions": 160,
+      "utilization": 0.0938,
+      "useful_loss_bearing_tokens": 18,
+      "pad_positions": 174,
       "samples_packed": 1,
       "masks_valid": true,
       "attention_ok": true
     },
     "concat_chop": {
       "utilization": 1.0,
-      "useful_loss_bearing_tokens": 192,
+      "useful_loss_bearing_tokens": 177,
       "pad_positions": 0,
-      "samples_packed": 5,
+      "samples_packed": 6,
       "masks_valid": true,
       "attention_ok": true
     },
     "greedy": {
-      "utilization": 0.8438,
-      "useful_loss_bearing_tokens": 147,
-      "pad_positions": 30,
-      "samples_packed": 4,
+      "utilization": 0.8177,
+      "useful_loss_bearing_tokens": 142,
+      "pad_positions": 35,
+      "samples_packed": 5,
       "masks_valid": true,
       "attention_ok": true
     },
     "best_fit": {
-      "utilization": 0.8438,
-      "useful_loss_bearing_tokens": 147,
-      "pad_positions": 30,
-      "samples_packed": 4,
+      "utilization": 0.974,
+      "useful_loss_bearing_tokens": 172,
+      "pad_positions": 5,
+      "samples_packed": 3,
       "masks_valid": true,
       "attention_ok": true
     },
     "structure_preserving": {
-      "utilization": 0.8438,
-      "useful_loss_bearing_tokens": 147,
-      "pad_positions": 30,
-      "samples_packed": 4,
+      "utilization": 0.8177,
+      "useful_loss_bearing_tokens": 142,
+      "pad_positions": 35,
+      "samples_packed": 5,
       "masks_valid": true,
       "attention_ok": true
     },
     "long_context": {
-      "utilization": 0.8438,
-      "useful_loss_bearing_tokens": 147,
-      "pad_positions": 30,
-      "samples_packed": 4,
+      "utilization": 0.8177,
+      "useful_loss_bearing_tokens": 142,
+      "pad_positions": 35,
+      "samples_packed": 5,
       "masks_valid": true,
       "attention_ok": true
     }
@@ -60,13 +60,13 @@
   "probe_batch": "main:3",
   "stage": "foundation",
   "sequences": 2,
-  "utilization": 0.9219,
-  "useful_loss_bearing_tokens": 354,
+  "utilization": 0.8021,
+  "useful_loss_bearing_tokens": 293,
   "total_positions": 384,
   "position_ids_reset_per_sample": true,
   "attention": "block_diagonal_by_segment_id (materialised & verified)",
   "attention_check": "block_diagonal_causal_ok",
   "sequences_validated_across_whole_run": 48,
   "all_sequences_valid": true,
-  "context_tokens_masked_from_loss": false
+  "context_tokens_masked_from_loss": true
 }

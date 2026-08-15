@@ -11,10 +11,16 @@ bundled sample in corpus_sample/ so `python run_demo.py` always runs.
 from __future__ import annotations
 import os, glob, json, re, random
 
-OWT_DIR = "/sessions/serene-dazzling-volta/mnt/ERA/openwebtext"
-INDIC_DIR = "/sessions/serene-dazzling-volta/mnt/ERA/s2_submission/upload/corpus_md"
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SAMPLE = os.path.join(HERE, "corpus_sample")
+
+# Optional real corpora. Point these at a local copy if you have one:
+#   export TDES_OWT_DIR=/path/to/openwebtext        (HF arrow / parquet / jsonl)
+#   export TDES_INDIC_DIR=/path/to/corpus_md        (hi.md, te.md, ta.md)
+# If unset or absent, the bundled corpus_sample/ is used and the demo still runs
+# end to end - no network, no large download, no machine-specific paths.
+OWT_DIR = os.environ.get("TDES_OWT_DIR", os.path.join(HERE, "external", "openwebtext"))
+INDIC_DIR = os.environ.get("TDES_INDIC_DIR", os.path.join(HERE, "external", "corpus_md"))
 
 
 def _owt_docs(limit_docs: int, max_chars: int = 1400):

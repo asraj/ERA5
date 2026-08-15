@@ -1,0 +1,20 @@
+name: TDES demo + tests
+on: [push, pull_request]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -r S6/requirements.txt
+      - name: Run the full demonstration
+        run: cd S6 && python run_demo.py
+      - name: Invariant tests
+        run: cd S6 && python -m unittest discover -s tests -v
+      - name: Independent verification
+        run: cd S6 && python verify.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: submission_artifacts
+          path: S6/submission_artifacts/

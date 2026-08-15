@@ -159,8 +159,11 @@ class Engine:
         self.model = TinyLM(len(tokenizer), seed=seed)
         self.ckpt_dir = os.path.join(root, "checkpoints")
         os.makedirs(self.ckpt_dir, exist_ok=True)
-        self.perf = {"positions": 0, "useful_tokens": 0, "seconds": 0.0,
-                     "batches": 0, "pad_positions": 0}
+        # per-step accounting keyed by (branch, step). Batches consumed after the
+        # last checkpoint are rolled back on resume, so throughput must be summed
+        # over the COMMITTED ledger only - otherwise the report double-counts the
+        # work the crash threw away.
+        self.step_perf: dict = {}
 
     # ---------- checkpointing ----------
     def save_checkpoint(self, branch: str, step: int) -> dict:
@@ -210,11 +213,9 @@ class Engine:
             gnorm = float(np.max(grads)) if grads else 0.0
 
             pads = sum(1 for sq in batch.sequences for t in sq.tokens if t == self.tok.pad_id)
-            self.perf["positions"] += batch.total_positions
-            self.perf["useful_tokens"] += batch.useful_tokens
-            self.perf["pad_positions"] += pads
-            self.perf["seconds"] += dt
-            self.perf["batches"] += 1
+            self.step_perf[(branch, step)] = {
+                "positions": batch.total_positions, "useful_tokens": batch.useful_tokens,
+                "pad_positions": pads, "seconds": dt}
 
             acc = [d for d in batch.decisions if d.status in ("accepted", "protected_override")]
             rec = {
@@ -331,14 +332,25 @@ class Engine:
                 "stages": sorted({r["curriculum_stage"] for r in recs})}
 
     def performance(self) -> dict:
-        s = max(self.perf["seconds"], 1e-9)
+        """Throughput over the COMMITTED stream: summed only over batches that
+        survive in the consumption ledger, so the report reconciles exactly with
+        the ledger even after a crash rolled work back."""
+        committed = {(r["branch_id"], r["global_step"]) for r in self.cl.read()}
+        keys = [k for k in self.step_perf if k in committed]
+        pos = sum(self.step_perf[k]["positions"] for k in keys)
+        use = sum(self.step_perf[k]["useful_tokens"] for k in keys)
+        pad = sum(self.step_perf[k]["pad_positions"] for k in keys)
+        sec = sum(self.step_perf[k]["seconds"] for k in keys)
+        discarded = len(self.step_perf) - len(keys)
+        s = max(sec, 1e-9)
         return {
-            "batches": self.perf["batches"],
-            "wall_seconds": round(self.perf["seconds"], 4),
-            "total_positions": self.perf["positions"],
-            "useful_loss_bearing_tokens": self.perf["useful_tokens"],
-            "pad_positions": self.perf["pad_positions"],
-            "packing_utilization": round(1 - self.perf["pad_positions"] / max(self.perf["positions"], 1), 4),
-            "raw_tokens_per_sec": round(self.perf["positions"] / s, 1),
-            "useful_loss_bearing_tokens_per_sec": round(self.perf["useful_tokens"] / s, 1),
+            "batches": len(keys),
+            "batches_discarded_by_crash": discarded,
+            "wall_seconds": round(sec, 4),
+            "total_positions": pos,
+            "useful_loss_bearing_tokens": use,
+            "pad_positions": pad,
+            "packing_utilization": round(1 - pad / max(pos, 1), 4),
+            "raw_tokens_per_sec": round(pos / s, 1),
+            "useful_loss_bearing_tokens_per_sec": round(use / s, 1),
         }

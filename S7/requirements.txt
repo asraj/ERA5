@@ -1,0 +1,2 @@
+numpy>=1.21
+# optional: `regex` gives exact Unicode word segmentation for the audit
