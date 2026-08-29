@@ -1,0 +1,10 @@
+{
+  "file": "s9_owt_clean.jsonl.gz",
+  "sha256": "d2546ecd026f4e1f82a52961c98bf11680127b7d35b390cda3a9a94ea248a552",
+  "docs": 5009,
+  "whitespace_words": 2998828,
+  "bytes_gz": 7389206,
+  "source": "OpenWebText (Skylion007) local copy",
+  "cleaning": "Session-4 pipeline stages 2-7 (normalize, format, quality, dedup exact+MinHash, language-ID, PII scrub)",
+  "note": "stage 8 (decontamination) is a no-op: no eval set ships with this shard"
+}
