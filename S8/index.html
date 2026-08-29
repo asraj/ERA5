@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Chronological Narrative: 10 Years of Attention — How AI Kept Trying to Pay the Bill</title>
+<meta name="description" content="10 years of attention mechanisms in the order they actually shipped — what each one bought, what it cost, and why the answer kept changing."/>
+<meta name="author" content="Stephen Raj Arokiasamy"/>
+<style>
+:root{
+ --bg:#ffffff;--panel:#fafbfc;--panel2:#f2f4f7;--ink:#14181d;--dim:#5c6672;--line:#e3e7ec;
+ --accent:#1f5fd0;--warm:#b25c07;--good:#0d7a4a;--bad:#c0392b;--turn:#6d28d9;
+ --mono:"SFMono-Regular",ui-monospace,Menlo,Consolas,monospace;
+ --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.62;
+ -webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+a{color:var(--accent)}
+header{padding:56px 0 30px;border-bottom:1px solid var(--line);
+ background:radial-gradient(900px 320px at 20% -90px,#eaf1fd 0,transparent 72%)}
+h1{font-size:40px;line-height:1.08;margin:0 0 12px;letter-spacing:-.025em}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+ color:var(--accent);margin:0 0 12px}
+@media(max-width:600px){h1{font-size:31px}}
+.sub{font-size:17.5px;color:var(--dim);max-width:780px}
+.byline{font-size:13.5px;color:var(--dim);margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}
+.byline b{color:var(--ink);font-weight:600}
+section{padding:36px 0;border-bottom:1px solid var(--line)}
+h2{font-size:25px;margin:0 0 8px;letter-spacing:-.015em}
+h3{font-size:16px;margin:0 0 4px}
+.lead{color:var(--dim);max-width:840px;margin:0 0 18px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.mono{font-family:var(--mono)}
+/* A word used as an OBJECT of study, not as part of the sentence. Italic alone
+   was not distinguishable enough at reading size, so these get a chip. */
+.w{font-family:var(--mono);font-size:.88em;background:var(--panel2);border:1px solid var(--line);
+ border-radius:5px;padding:1px 6px;color:var(--accent);white-space:nowrap;font-style:normal}
+.sen{font-family:var(--mono);font-size:.9em;background:var(--panel2);border:1px solid var(--line);
+ border-radius:6px;padding:2px 8px;color:var(--ink);white-space:nowrap;font-style:normal}
+.prose{max-width:800px;font-size:16.5px}
+.prose p{margin:0 0 15px}
+.prose b{color:var(--ink)}
+.prose h3{font-size:19px;margin:26px 0 8px;letter-spacing:-.01em}
+ul.tight{margin:8px 0 15px;padding-left:20px}ul.tight li{margin:6px 0}
+/* the five beats of the story */
+.beat{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:16px 0;border-top:1px solid var(--line)}
+.beat:first-child{border-top:none}
+.beatn{font-family:var(--mono);font-size:26px;color:var(--accent);opacity:.55;line-height:1.1}
+.beat h3{font-size:18.5px;margin:0 0 6px;letter-spacing:-.01em}
+.beat p{margin:0 0 8px;font-size:15.5px}
+.beat p:last-child{margin-bottom:0}
+.beat .real{font-size:14px;color:#4a4034;background:#fdf6ec;border-left:2px solid var(--warm);
+ border-radius:0 8px 8px 0;padding:8px 12px;margin-top:10px}
+.beat .real b{color:var(--warm);font-weight:600}
+.pull{font-size:20px;line-height:1.45;color:var(--ink);border-left:3px solid var(--accent);
+ padding:2px 0 2px 18px;margin:22px 0;max-width:760px}
+/* the bill, in money */
+.bill{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0 16px}
+@media(max-width:820px){.bill{grid-template-columns:repeat(2,1fr)}}
+.stat{background:var(--panel2);border-radius:12px;padding:13px 15px}
+.stat .n{font-size:25px;font-weight:600;letter-spacing:-.02em;line-height:1.15;color:var(--ink)}
+.stat .n small{font-size:14px;font-weight:500;color:var(--dim);letter-spacing:0}
+.stat .t{font-size:12.5px;color:var(--dim);margin-top:4px;line-height:1.35}
+.stat .s{font-size:10.5px;font-family:var(--mono);color:#8b949e;margin-top:6px}
+.stat.hot{background:#fdf1ef}
+.stat.cool{background:#f0f9f4}
+/* ---------- live attention demo ---------- */
+.demo{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:880px){.demo{grid-template-columns:1fr}}
+.steps{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.steps button{font:inherit;font-size:13px;background:var(--panel2);color:var(--dim);border:1px solid var(--line);
+ padding:7px 12px;border-radius:8px;cursor:pointer}
+.steps button.on{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600}
+table.mat{border-collapse:collapse;font-family:var(--mono);font-size:12px}
+table.mat td,table.mat th{padding:5px 7px;text-align:center;border-radius:4px}
+table.mat th{color:var(--dim);font-weight:500;font-size:11px}
+input[type=range]{accent-color:var(--accent);width:150px}
+.ctl{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--dim);margin:10px 0;flex-wrap:wrap}
+.eq{font-family:var(--mono);font-size:13px;color:var(--dim);background:var(--panel2);
+ border-radius:8px;padding:9px 12px;margin-top:10px;overflow-x:auto;white-space:nowrap}
+/* Typeset maths without a CDN dependency: a real fraction bar and radical. */
+.formula{background:var(--panel2);border-radius:8px;padding:14px 16px;margin-top:10px;
+ font-family:Georgia,"Times New Roman",serif;font-size:17px;color:var(--ink);
+ display:flex;align-items:center;gap:5px;flex-wrap:wrap;line-height:1}
+.formula i{font-style:italic;padding:0 1px}
+.formula .fn{font-family:var(--sans);font-style:normal;font-size:15px;color:var(--dim)}
+.formula .paren{font-size:30px;color:var(--dim);font-weight:300}
+.formula .frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 3px}
+.formula .num{padding:0 6px 3px;border-bottom:1.5px solid var(--ink)}
+.formula .den{padding:3px 6px 0}
+.formula .radical{white-space:nowrap}
+.formula .rad-inner{border-top:1.5px solid var(--ink);padding:0 3px;margin-left:-1px}
+.tokens{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.tok{font-family:var(--mono);font-size:12px;background:var(--panel2);border:1px solid var(--line);
+ border-radius:6px;padding:3px 8px;cursor:pointer}
+.tok.sel{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600}
+/* the QKV analogy strip */
+.qkv{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}
+@media(max-width:760px){.qkv{grid-template-columns:1fr}}
+.qkv div{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:14px}
+.qkv b{display:block;margin-bottom:3px;font-size:13px;letter-spacing:.02em}
+.qkv .q b{color:var(--accent)}.qkv .k b{color:var(--warm)}.qkv .v b{color:var(--good)}
+/* ---------- lane chart ---------- */
+.lanes{position:relative;margin-top:6px}
+.lane{display:grid;grid-template-columns:200px 1fr;gap:14px;align-items:stretch;
+ border-top:1px solid var(--line)}
+.lane:first-child{border-top:none}
+.laneLbl{padding:14px 0 22px;font-size:13.5px;line-height:1.35}
+.laneLbl b{display:block;font-size:14px;margin-bottom:2px}
+.laneLbl span{color:var(--dim);font-size:12px}
+.plot{position:relative;min-height:88px}
+@media(max-width:720px){ /* narrow: give the plot the full width instead of squeezing it */
+ .lane{grid-template-columns:1fr;gap:0}.laneLbl{padding:14px 0 0}
+ .laneLbl b{display:inline}.laneLbl span{margin-left:6px}
+ .axis{grid-template-columns:1fr}}
+.pt{position:absolute;transform:translate(-50%,-50%);width:11px;height:11px;border-radius:50%;
+ cursor:default;border:2px solid var(--bg);box-shadow:0 0 0 .5px rgba(0,0,0,.06)}
+.pt.big{width:15px;height:15px}
+.ptl{position:absolute;transform:translate(-50%,0);font-size:10.5px;color:var(--dim);
+ white-space:nowrap;font-family:var(--mono);letter-spacing:-.01em}
+.axis{display:grid;grid-template-columns:200px 1fr;gap:14px;border-top:1px solid var(--line)}
+.axisIn{position:relative;height:26px}
+.yr{position:absolute;transform:translateX(-50%);font-size:11px;color:var(--dim);
+ font-family:var(--mono);top:6px}
+.flashline{position:absolute;top:0;bottom:0;width:1px;background:repeating-linear-gradient(
+ to bottom,#b25c07 0 4px,transparent 4px 8px);opacity:.7}
+.gapbar{position:absolute;height:0;border-top:1px dashed var(--good);opacity:.65}
+.gaplbl{position:absolute;font-size:10.5px;color:var(--good);white-space:nowrap;font-family:var(--mono)}
+.annot{font-size:12.5px;color:var(--dim);margin-top:14px;display:flex;gap:20px;flex-wrap:wrap}
+.annot span b{color:var(--ink);font-weight:600}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--dim);margin-top:10px}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px}
+/* ---------- timeline ---------- */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+.filters button{font:inherit;font-size:12.5px;background:var(--panel2);color:var(--dim);
+ border:1px solid var(--line);padding:6px 12px;border-radius:999px;cursor:pointer}
+.filters button.on{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600}
+.era{margin:26px 0 12px;padding:12px 16px;border-left:3px solid var(--warm);background:#fdf6ec;border-radius:0 10px 10px 0}
+.era h4{margin:0 0 4px;font-size:15px;color:var(--warm)}
+.era p{margin:0;font-size:13.5px;color:var(--dim)}
+.item{display:grid;grid-template-columns:104px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid var(--line)}
+@media(max-width:700px){.item{grid-template-columns:1fr}}
+.when{font-family:var(--mono);font-size:14px;color:var(--warm);padding-top:3px;font-weight:600}
+.head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.head h3{margin:0;font-size:18px;letter-spacing:-.01em}
+/* paper title + authors are the prominent citation; the arXiv id is for the grader */
+.cite{margin:5px 0 10px;font-size:14.5px;line-height:1.45}
+.cite a{font-weight:600;text-decoration:none;border-bottom:1px solid rgba(31,95,208,.35)}
+.cite a:hover{border-bottom-color:var(--accent)}
+.cite .auth{color:var(--dim)}
+.srcid{margin-top:9px;font-family:var(--mono);font-size:10.5px;color:#8b949e;letter-spacing:.02em}
+.badge{font-family:var(--mono);font-size:10.5px;padding:2px 7px;border-radius:999px;background:var(--panel2);color:var(--dim);border:1px solid var(--line)}
+.badge.turn{background:#f3edfd;color:var(--turn);border-color:#ddd0fa}
+.badge.bonus{background:#eaf7f0;color:var(--good);border-color:#c6e8d6}
+.what{color:var(--dim);font-size:14px;margin:6px 0 10px}
+.tradeoff{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+@media(max-width:700px){.tradeoff{grid-template-columns:1fr}}
+.buys,.costs,.pickbox{border-radius:10px;padding:9px 12px;font-size:13.5px}
+.buys{background:#f0f9f4;border:1px solid #cbe9d9}
+.costs{background:#fdf1ef;border:1px solid #f5d5d0}
+.pickbox{background:var(--panel2);border:1px solid var(--line);margin-top:8px}
+.lbl{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:3px}
+.buys .lbl{color:var(--good)}.costs .lbl{color:var(--bad)}.pickbox .lbl{color:var(--accent)}
+.note{margin-top:8px;font-size:13px;color:var(--turn);border-left:2px solid var(--turn);padding-left:10px}
+footer{padding:34px 0 70px;color:var(--dim);font-size:14px}
+footer b{color:var(--ink)}
+.takeaway{background:#f2f7fe;border:1px solid #cfe0f7;border-radius:12px;padding:14px 18px;margin-top:14px}
+.takeaway b{color:var(--accent)}
+</style></head><body>
+
+<header><div class="wrap">
+<p class="eyebrow">The Chronological Narrative</p>
+<h1>10 Years of Attention: How AI Kept Trying to Pay the Bill</h1>
+<p class="sub"><b>10 years since <i>Attention Is All You Need</i>. 29 mechanisms. Not one of them free.</b><br>
+Vanilla attention was never wrong — it was <em>expensive</em>. Everything since is a payment plan for that
+bill, and every plan charges you something: recall, quality, generality, or your ability to extend context
+later. Sorted by launch date, you can watch the field change its mind four times.</p>
+<p class="byline">By <b>Stephen Raj Arokiasamy</b></p>
+</div></header>
+
+<!-- ============ 1. THE STORY ============ -->
+<section id="story"><div class="wrap">
+<h2>1 · The short story</h2>
+<p class="lead">Five beats. If you only read one section, read this one — no maths required.</p>
+
+<div class="prose" style="max-width:860px">
+
+<div class="beat">
+  <div class="beatn">1</div>
+  <div>
+    <h3>Attention is a meeting where everyone must listen to everyone</h3>
+    <p>When a model reads <span class="sen">the cat sat on the mat</span>, the word <span class="w">mat</span>
+    needs to know that <span class="w">sat</span> and <span class="w">cat</span> matter and
+    <span class="w">the</span> mostly doesn't. Attention is the machinery that works
+    that out: every word looks at every other word, scores how relevant each one is, and blends them
+    together in those proportions.</p>
+    <p>Six people in a room, all listening to each other: fine. Ten thousand people: impossible. Not
+    because listening is the wrong idea — because the <b>pairs</b> explode. Six words is 36 comparisons.
+    Ten thousand words is <b>a hundred million</b>.</p>
+    <div class="real"><b>Why you've felt this:</b> it is the reason a model's "context window" is a number
+    somebody has to decide, and the reason that number was 2,048 tokens in GPT-3 and is now measured in
+    millions. Every increase had to be paid for.</div>
+  </div>
+</div>
+
+<div class="beat">
+  <div class="beatn">2</div>
+  <div>
+    <h3>There are exactly two bills, and almost every idea since 2017 attacks one of them</h3>
+    <p><b>The reading bill.</b> Compare-everything-to-everything grows with the <i>square</i> of the
+    length. Double the document, quadruple the work.</p>
+    <p><b>The remembering bill.</b> While the model writes its reply, it keeps notes on every word so far
+    so it doesn't have to re-read them. Those notes grow with length — and they belong to
+    <b>your conversation alone</b>. The model's weights are shared across every user on the planet; your
+    notes are not. That is the real reason long chats and big documents cost more.</p>
+    <div class="real"><b>Why you've felt this:</b> long-context pricing. When DeepSeek shipped V3.2 in
+    late 2025 with a cheaper way to handle long inputs, it cut its API prices by more than half the same
+    day. <a href="#money">The next section puts real numbers on both bills</a> — they add up to the largest
+    capex programme in corporate history.</div>
+  </div>
+</div>
+
+<div class="beat">
+  <div class="beatn">3</div>
+  <div>
+    <h3>The field spent 2019 and 2020 fixing the wrong bill</h3>
+    <p>Six papers in eighteen months attacked the <i>reading</i> bill: read fewer words, read them in
+    clusters, read them through a sliding window, replace the comparison with a cheaper approximation.
+    Exactly one paper in that window attacked the <i>remembering</i> bill — and it was then ignored for
+    <b>three and a half years</b>.</p>
+    <p>The idea wasn't missing. The <b>pressure</b> was. In 2019 nobody was serving a chatbot to a hundred
+    million people, so nobody's per-user notes were the problem yet.</p>
+    <div class="real"><b>What changed:</b> ChatGPT, late 2022. The moment these models became a service
+    rather than a paper, the ignored 2019 idea was revived — and it is now in almost everything you use,
+    including the Llama family.</div>
+  </div>
+</div>
+
+<div class="beat">
+  <div class="beatn">4</div>
+  <div>
+    <h3>Then one paper ended an entire research wave without changing any maths</h3>
+    <p>May 2022. FlashAttention. It computes <b>exactly the same answer</b> as the 2017 design — not an
+    approximation, not a shortcut. It simply noticed that the slow part was never the arithmetic, it was
+    shuttling numbers back and forth between the GPU's big slow memory and its small fast memory. So it
+    reorganised the work to keep more of it in the fast memory.</p>
+    <p>Overnight, most of the clever approximations from 2019–2020 lost their reason to exist: they had all
+    been benchmarking against a badly-implemented version of the thing they were replacing.</p>
+    <div class="real"><b>Where it went:</b> straight into the standard toolkit. It is what runs when
+    PyTorch calls attention on an NVIDIA GPU today. The most consequential attention paper after 2017
+    changed the <i>implementation</i>, not the idea — which is not the shape of story anyone was expecting.</div>
+  </div>
+</div>
+
+<div class="beat">
+  <div class="beatn">5</div>
+  <div>
+    <h3>Nothing is ever really discarded — and the trend is from deleting to compressing</h3>
+    <p>Recurrence was declared obsolete in 2017, came back in 2020, failed, got a fix in 2021 nobody could
+    train, became trainable in 2024, and is now shipping inside hybrid models. Sparsity follows the same
+    arc: hand-drawn in 2019, abandoned, then trained properly from scratch in 2025. Ideas here aren't
+    rejected. They're <b>parked</b> until the hardware and the training recipes catch up.</p>
+    <p>And the direction of travel is unmistakable. Early savings worked by <b>throwing information
+    away</b> and paid for it in quality. Recent ones <b>summarise it instead</b> — and largely stop having
+    to make the trade at all.</p>
+    <div class="real"><b>Where it went:</b> DeepSeek-V2's compressed cache in 2024 was the turning point —
+    it kept everything and squeezed it, rather than dropping heads, and beat the older method on memory
+    <i>and</i> quality at once. That is why models with very long contexts stopped being exotic.</div>
+  </div>
+</div>
+
+<p class="pull">A list sorted A–Z shows you twenty-nine techniques. The same list sorted by date shows you a
+field arguing with itself, and changing its mind four times.</p>
+
+<p>That's the story. Everything below is the evidence: why this is a ~$725-billion-a-year engineering
+problem, what attention actually computes, a picture of what the field worried about each year, and all
+twenty-nine entries with what each one buys, what it costs, and when you'd pick it.</p>
+</div>
+</div></section>
+
+<!-- ============ 2. THE BILL, IN MONEY ============ -->
+<section id="money"><div class="wrap">
+<h2>2 · Why anyone funds this research</h2>
+<p class="lead">The two bills above are not an abstraction. They are the largest capital expenditure
+programme in the history of private industry, and attention is the line item.</p>
+
+<div class="bill">
+  <div class="stat"><div class="n">~$725B</div>
+    <div class="t">2026 capex from Amazon, Microsoft, Google and Meta — up about 77% in one year.
+    Tallies differ; the low estimates are ~$630B.</div>
+    <div class="s">company guidance, analyst tallies</div></div>
+  <div class="stat"><div class="n">$193.7B</div>
+    <div class="t">NVIDIA data-centre revenue for FY2026 alone, up 68%. Essentially all of it is
+    somebody buying the ability to run attention.</div>
+    <div class="s">NVIDIA FY26 Q4 results</div></div>
+  <div class="stat hot"><div class="n">96%<small> of latency</small></div>
+    <div class="t">Share of per-token generation time spent inside attention at a one-million-token
+    prompt. Not "a bottleneck" — <b>the</b> bottleneck.</div>
+    <div class="s">published systems measurements, 2025</div></div>
+  <div class="stat cool"><div class="n">50%+<small> price cut</small></div>
+    <div class="t">What DeepSeek took off its API prices in Sep 2025 on the back of one change to
+    attention. Same quality, half the invoice.</div>
+    <div class="s">DeepSeek V3.2-Exp release</div></div>
+</div>
+
+<div class="prose">
+<p><b>Follow the arithmetic and it stops being a research curiosity.</b> A GPU is, for this purpose,
+two things you are renting: arithmetic and memory bandwidth. The reading bill spends the arithmetic; the
+remembering bill spends the bandwidth and the memory itself. Published estimates put the notes for a single
+million-token conversation at <b>over 100 GB</b> — more than fits on one top-end accelerator, for
+<i>one user</i>. Meanwhile at 16K tokens attention already accounts for around 61% of the time it takes to
+produce each token, and by a million tokens it is 96%. Everything else the model does — all those billions
+of parameters people quote — is a rounding error next to it.</p>
+
+<p>That is the whole reason this timeline exists. <b>Attention is the term in the cost function that
+scales badly</b>, so it is where a research win converts directly into money. And the conversion rate is
+brutal in both directions:</p>
+
+<ul class="tight">
+<li><b>Down.</b> Halve the cache and you either halve the GPUs serving the same users, or serve twice as
+many on the ones you already bought. DeepSeek shipped exactly that trade and moved its public price list
+the same day.</li>
+<li><b>Up.</b> Leave it alone and the cost of a long context grows with the square of the length while
+your users cheerfully paste in entire codebases. Context windows did not grow from 2,048 tokens to millions
+because someone changed a config value — every order of magnitude had to be bought with a mechanism on
+this page.</li>
+</ul>
+
+<p>Which reframes the whole list below. These are not twenty-nine competing academic proposals. They are
+<b>twenty-nine cost-reduction proposals</b>, each one priced by the market, and the ones that got adopted
+are the ones whose saving was worth more than the accuracy they gave up. That is also why the honest
+"what it costs" box matters more than the "what it buys" box: at this capex, a mechanism that saves 40% of
+your memory and quietly loses long-range recall has not saved you anything — it has just moved the bill
+somewhere you cannot see it.</p>
+
+<p class="pull">The most valuable thing on this timeline changed no mathematics at all. FlashAttention just
+noticed the field had been optimising the wrong resource — counting arithmetic while the GPU was actually
+starved for bandwidth.</p>
+
+<p>Which is the uncomfortable lesson for anyone spending the $725B: <b>the biggest win of the last decade
+came from understanding the hardware, not from a cleverer equation.</b> Sources for every figure here are
+in the repository README.</p>
+</div>
+</div></section>
+
+<!-- ============ 3. WHAT ATTENTION ACTUALLY COMPUTES ============ -->
+<section><div class="wrap">
+<h2>3 · What attention actually computes</h2>
+<p class="lead">One idea, three names, and a division that looks arbitrary until you know what it prevents.
+Nothing after this section makes sense without it.</p>
+
+<div class="prose">
+<p>Every word gets turned into <b>three different things</b>, because it plays three roles at once. The
+easiest way in is to think of a room full of people holding up signs.</p>
+</div>
+
+<div class="qkv">
+  <div class="q"><b>QUERY — the question I'm asking</b>
+  <span class="w">mat</span> asks: "who here tells me what I am? what verb happened to me?"</div>
+  <div class="k"><b>KEY — the sign I'm holding up</b>
+  <span class="w">sat</span> holds up: "I'm a verb, and something did me."
+  <span class="w">the</span> holds up: "I'm grammar, ignore me."</div>
+  <div class="v"><b>VALUE — what I'd actually hand over</b>
+  The content <span class="w">sat</span> contributes if you decide to listen to it. Separate from its sign
+  on purpose: how findable you are and what you're worth are different things.</div>
+</div>
+
+<div class="prose">
+<p>Now the whole mechanism, in five steps:</p>
+<ul class="tight">
+<li><b>1. Match every question against every sign.</b> Multiply each query by each key. High number = this
+word is relevant to me. This single step is the entire T² bill — it's every pair, all at once, which is
+also exactly why it parallelises so beautifully on a GPU.</li>
+
+<li><b>2. Divide by √d<sub>k</sub>.</b> The famous "scaled" part, and the one that looks like a magic
+constant. It isn't. A match score is a sum over <i>d<sub>k</sub></i> dimensions, so as you make the model
+wider, the scores drift bigger purely from having more terms to add up — their spread grows like
+√d<sub>k</sub>. Feed huge numbers into the next step and it collapses into "100% that one word, 0% everything
+else", which kills learning: there's no gradient left to tell you the second-best word was nearly as good.
+Dividing by √d<sub>k</sub> cancels the width exactly, so a 64-wide model and a 4096-wide model start out
+equally undecided. <b>Try it below</b> — drag the slider and watch a soft blend snap into a hard spike.</li>
+
+<li><b>3. Cross out the future.</b> Set every score pointing forward to minus infinity, so it becomes
+exactly zero in the next step. This is the trick that lets a model train on a whole sentence in parallel
+while still only ever predicting the next word from words it has already seen.</li>
+
+<li><b>4. Softmax each row.</b> Turn the scores into percentages that add up to 100%. This is a
+<b>competition</b>: for one word to gain attention, another must lose it. Two consequences show up later in
+the timeline — approximations that drop the competition get faster but lose the ability to say "only this
+one"; and models under pressure to spend their 100% somewhere often dump it on the first token, which is
+the "attention sink" phenomenon.</li>
+
+<li><b>5. Blend the values.</b> Weighted average of what everyone would hand over, using those percentages.
+That's the output — a version of <span class="w">mat</span> that now contains some
+<span class="w">cat</span> and some <span class="w">sat</span>.</li>
+</ul>
+<p>That's it. Everything on the timeline below either approximates step 1, shrinks what step 5 has to keep
+around, or fixes the fact that none of these five steps knows what <i>order</i> the words came in.</p>
+</div>
+
+<div class="card" style="margin-top:18px">
+  <div class="tokens" id="tokens"></div>
+  <div class="ctl">
+    <span>query token:</span><span class="mono" id="qtok">—</span>
+    <span style="margin-left:14px">divide scores by:</span>
+    <input type="range" id="scale" min="1" max="40" value="8" aria-label="Scaling divisor applied to the match scores before softmax — small values make attention spike on one token, large values flatten it"><span class="mono" id="scaleV">8</span>
+    <label style="margin-left:14px"><input type="checkbox" id="causal" checked aria-label="Apply the causal mask so no token can read future tokens"> hide the future</label>
+  </div>
+  <div class="steps" id="steps"></div>
+  <div class="demo">
+    <div>
+      <h3 id="stepName">1 · Match: Q·Kᵀ</h3>
+      <p class="what" id="stepWhat"></p>
+      <div id="matrix"></div>
+    </div>
+    <div>
+      <h3>What the selected word ends up listening to</h3>
+      <p class="what">Percentages from step 4, for the word you picked above. They sum to 1.000.</p>
+      <div id="blend"></div>
+      <div class="formula" role="math" aria-label="Attention of Q, K, V equals softmax of, open bracket, Q times K transpose plus M, all over the square root of d k, close bracket, times V">
+        <span class="fn">Attention</span>(<i>Q</i>,<i>K</i>,<i>V</i>) =
+        <span class="fn">softmax</span>
+        <span class="paren">(</span>
+        <span class="frac"><span class="num"><i>QK</i><sup>T</sup> + <i>M</i></span><span class="den"><span class="radical">&radic;<span class="rad-inner"><i>d</i><sub>k</sub></span></span></span></span>
+        <span class="paren">)</span>
+        <i>V</i>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="takeaway">
+<b>The two bills, in the numbers above.</b> The grid in step 1 is T×T — six words is 36 cells, ten thousand
+words is 100 million. And when the model generates, it stores every earlier word's key and value so it
+doesn't recompute them, which is memory growing with length <em>for every user separately</em>. A third
+problem hides underneath: none of the five steps involves position at all, so attention genuinely cannot
+tell <span class="sen">dog bites man</span> from <span class="sen">man bites dog</span> until you bolt
+order on from outside. That's why a third of the
+timeline is about position.
+</div>
+</div></section>
+
+<!-- ============ 4. THE LANES ============ -->
+<section><div class="wrap">
+<h2>4 · What the field worried about, year by year</h2>
+<p class="lead">One dot per mechanism, placed on the bill it was trying to pay. Read across, not up — the
+<b>gaps</b> are the interesting part, and they are invisible in any alphabetical list.</p>
+<div id="lanesHost">
+  <div class="card">
+    <div class="lanes" id="lanes"></div>
+    <div class="annot">
+      <span><b style="color:var(--good)">The long empty stretch</b> in the memory lane is the story: one
+      paper in 2019, then nothing for three and a half years.</span>
+      <span><b style="color:var(--warm)">The dashed line</b> is FlashAttention, May 2022 — after it, the
+      compute lane goes quiet.</span>
+    </div>
+  </div>
+</div>
+</div></section>
+
+<!-- ============ 5. THE CHRONOLOGY ============ -->
+<section id="chronology"><div class="wrap">
+<h2>5 · All twenty-nine, in order</h2>
+<p class="lead">Ordered by first public appearance — the paper's first submission, or the release date where
+the thing shipped before it was written up. Titles link to the primary source.
+<span class="badge bonus">bonus</span> marks mechanisms beyond the required list;
+<span class="badge turn">turning point</span> marks where the field visibly changed direction.</p>
+<div class="filters" id="filters"></div>
+<div id="timeline"></div>
+</div></section>
+
+<!-- ============ 6. THE DEEPER READ ============ -->
+<section><div class="wrap">
+<h2>6 · What the order shows that a list cannot</h2>
+<p class="lead">The engineering version of section 1, with the specifics.</p>
+<div class="card">
+<ul class="tight">
+<li><b>The field solved the wrong bill first.</b> 2019–2020 is a stampede at T² compute — sparse patterns,
+LSH, windows, linear kernels — while exactly one paper (MQA, Nov 2019) attacks the KV cache. It is then
+ignored for <b>three and a half years</b> until GQA revives the same idea in May 2023. The gap is the story:
+the idea was not missing, the <em>pressure</em> was missing. Nobody was serving these models yet.</li>
+
+<li><b>FlashAttention (May 2022) is the plot twist.</b> It changed nothing about the mathematics and killed
+most of the preceding wave anyway — by showing the bottleneck was memory traffic, not FLOPs. Approximate
+methods had been competing against a strawman implementation. In a list this looks like one more entry; in
+date order you can see the 2020 approximation wave stop.</li>
+
+<li><b>Position gets repaired three times in one year.</b> PI (Jun), NTK-aware (Jun), YaRN (Aug), all 2023,
+all doing the same thing: patching a model that was already trained. That cluster is the field admitting
+pretraining is now too expensive to redo — a category that did not exist before 2023, and the reason DroPE
+later moves the fix back <em>inside</em> training.</li>
+
+<li><b>Then it changes its mind back.</b> Recurrence was declared dead by the Transformer in 2017, returns
+as linear attention in 2020, fails at recall, gets a working write rule in 2021 that nobody can train,
+becomes trainable in 2024 (DeltaNet), and gets forgetting in Dec 2024 (Gated DeltaNet). Sparsity follows the
+identical arc: 2019 hand-drawn → abandoned → 2025 native and trained end-to-end. <b>The field does not
+discard ideas; it parks them until the hardware and the training recipe catch up.</b></li>
+
+<li><b>The direction of travel: from dropping things to compressing them.</b> MQA/GQA save memory by
+<em>discarding</em> heads. MLA (2024) keeps every head and compresses the cache instead — and beats GQA on
+both axes at once. NSA/DSA do the same to sparsity: not "read fewer tokens" but "summarise, then choose".
+Deletion is what you do before you understand the structure; compression is what you do after.</li>
+
+<li><b>So what comes next?</b> Extrapolating the oscillation: the open frontier is <em>hybrid layer
+schedules</em> — not one attention mechanism per model but a per-layer mix of cheap linear state and a few
+exact-attention layers (V4's DDDGDDDG, Qwen3-Next, Gated DeltaNet hybrids), with the ratio itself becoming
+the tunable. Expect the next round to be about <b>learning that schedule</b> rather than inventing another
+single mechanism, plus cross-window state becoming standard, because it is the one bill nobody has really
+paid yet: every mechanism here still forgets completely at a chunk boundary unless something explicitly
+carries state across it.</li>
+</ul>
+</div>
+</div></section>
+
+<footer><div class="wrap">
+<b>Stephen Raj Arokiasamy</b>
+</div></footer>
+
+<script src="data.js"></script>
+<script>
+/* ================= live scaled dot-product attention ================= */
+const SENT = ["The","cat","sat","on","the","mat"];
+let qi = 5, step = 0;
+const STEPS = [
+  {n:"1 · Match: Q·Kᵀ", w:"Every word's question is matched against every word's sign. Bright = relevant. This grid is the whole T² bill in one picture."},
+  {n:"2 · Divide by √d_k", w:"Scores drift bigger as the model gets wider, purely from summing more terms. Dividing cancels that. Drag the slider: too small and one word takes everything, too large and the model can't decide."},
+  {n:"3 · Hide the future", w:"Forward-looking scores become minus infinity, so they get exactly zero share below. This is what lets the whole sentence train at once."},
+  {n:"4 · Softmax", w:"Each row becomes percentages adding to 1. It's a competition — for one word to gain, another must lose. Approximations that drop this competition get faster and lose the ability to say 'only this one'."},
+  {n:"5 · Blend the values", w:"Weighted average of what each word hands over. Note the shape changes: this is no longer word-by-word, it's word-by-feature. This is the actual output."}
+];
+// small fixed 'embeddings' so the demo is deterministic and meaningful
+const EMB = {The:[.9,.1,.2],cat:[.2,.9,.3],sat:[.3,.4,.9],on:[.8,.2,.1],the:[.9,.15,.25],mat:[.25,.85,.35]};
+const Wq=[[1,.2,0],[.1,1,.1],[0,.1,1]], Wk=[[1,.1,.1],[.2,1,0],[.1,0,1]], Wv=[[1,0,.2],[0,1,.1],[.2,.1,1]];
+const mul=(v,M)=>M[0].map((_,c)=>v.reduce((s,x,r)=>s+x*M[r][c],0));
+const dot=(a,b)=>a.reduce((s,x,i)=>s+x*b[i],0);
+
+function compute(){
+  const sc = +document.getElementById('scale').value/8*Math.sqrt(3);
+  const causal = document.getElementById('causal').checked;
+  const Q=SENT.map(t=>mul(EMB[t],Wq)), K=SENT.map(t=>mul(EMB[t],Wk)), V=SENT.map(t=>mul(EMB[t],Wv));
+  const raw=SENT.map((_,i)=>SENT.map((_,j)=>dot(Q[i],K[j])));
+  const scaled=raw.map(r=>r.map(x=>x/sc));
+  const masked=scaled.map((r,i)=>r.map((x,j)=>(causal&&j>i)?-Infinity:x));
+  const soft=masked.map(r=>{const m=Math.max(...r.filter(isFinite));
+    const e=r.map(x=>isFinite(x)?Math.exp(x-m):0);const s=e.reduce((a,b)=>a+b,0);return e.map(x=>x/s);});
+  const out=soft.map(r=>V[0].map((_,d)=>r.reduce((s,w,j)=>s+w*V[j][d],0)));
+  return {raw,scaled,masked,soft,out,V};
+}
+/* Light-theme heat ramp: pale blue -> warm amber. Magnitude is carried by HUE and
+   SATURATION rather than darkness, so dark cell text keeps >=8:1 contrast at every
+   step. A blue->deep-orange ramp looks better but bottoms out around 4.3:1 in the
+   middle, which is under AA for 12px numerals. */
+function heat(v,min,max){
+  if(!isFinite(v))return "#eef0f3";
+  const t=Math.max(0,Math.min(1,(v-min)/((max-min)||1)));
+  const r=Math.round(232+(240-232)*t), g=Math.round(240+(166-240)*t), b=Math.round(252+(74-252)*t);
+  return `rgb(${r},${g},${b})`;
+}
+/* Pick whichever of ink/white actually has more contrast against the cell, rather
+   than thresholding on a fixed luminance - a fixed threshold picked white text on
+   mid-ramp cells and dropped them to 2.3:1. */
+function readable(rgb){
+  const m=rgb.match(/\d+/g);
+  if(!m) return "#14181d";
+  const L=(()=>{const [r,g,b]=m.map(Number).map(c=>{const s=c/255;
+    return s<=0.03928 ? s/12.92 : Math.pow((s+0.055)/1.055,2.4);});
+    return 0.2126*r+0.7152*g+0.0722*b;})();
+  const vsInk=(L+0.05)/(0.0114+0.05), vsWhite=(1.05)/(L+0.05);
+  return vsInk>=vsWhite ? "#14181d" : "#ffffff";
+}
+
+function render(){
+  const S=compute();
+  const M=[S.raw,S.scaled,S.masked,S.soft,S.out][step];
+  const isOut = step===4;                     // step 5 is T x d_v, not T x T
+  const flat=M.flat().filter(isFinite);
+  const mn=Math.min(...flat), mx=Math.max(...flat);
+  // column headers follow the matrix: token positions for scores, feature dims for the output
+  const cols = isOut ? M[0].map((_,d)=>`d<sub>${d}</sub>`) : SENT;
+  let h=`<table class='mat' aria-label="${isOut?'output matrix, tokens by value dimensions':'attention score matrix, tokens by tokens'}"><tr><th></th>`
+        + cols.map(c=>`<th>${c}</th>`).join("")+"</tr>";
+  M.forEach((row,i)=>{
+    h+=`<tr><th>${SENT[i]}</th>`;
+    row.forEach((v,j)=>{
+      const em = i===qi ? "outline:2px solid #1f5fd0;" : "";
+      const bg = heat(v,mn,mx);
+      h+=`<td style="background:${bg};${em}color:${readable(bg)}">${isFinite(v)?v.toFixed(2):"&minus;&infin;"}</td>`;
+    });
+    h+="</tr>";
+  });
+  h+="</table>";
+  document.getElementById('matrix').innerHTML=h;
+  document.getElementById('stepName').textContent=STEPS[step].n;
+  document.getElementById('stepWhat').textContent=STEPS[step].w;
+  // blend for the selected query row
+  const w=S.soft[qi];
+  let b="<table class='mat'><tr><th>word</th><th>share</th><th></th></tr>";
+  w.forEach((x,j)=>{ b+=`<tr><th>${SENT[j]}</th><td>${x.toFixed(3)}</td>
+    <td style="text-align:left"><div style="height:11px;width:${Math.round(x*170)}px;background:#1f5fd0;border-radius:3px"></div></td></tr>`;});
+  b+="</table>";
+  b+=`<div class="eq" style="margin-top:10px">output(${SENT[qi]}) = [${S.out[qi].map(x=>x.toFixed(2)).join(", ")}]</div>`;
+  document.getElementById('blend').innerHTML=b;
+  document.getElementById('qtok').textContent=SENT[qi];
+}
+document.getElementById('tokens').innerHTML=SENT.map((t,i)=>`<span class="tok${i===qi?' sel':''}" data-i="${i}">${t}</span>`).join("");
+document.getElementById('tokens').onclick=e=>{const el=e.target.closest('.tok');if(!el)return;
+  qi=+el.dataset.i;document.querySelectorAll('.tok').forEach((x,i)=>x.classList.toggle('sel',i===qi));render();};
+document.getElementById('steps').innerHTML=STEPS.map((s,i)=>`<button data-s="${i}"${i===0?' class="on"':''}>${s.n}</button>`).join("");
+document.getElementById('steps').onclick=e=>{const b=e.target.closest('button');if(!b)return;
+  step=+b.dataset.s;document.querySelectorAll('#steps button').forEach((x,i)=>x.classList.toggle('on',i===step));render();};
+document.getElementById('scale').oninput=e=>{document.getElementById('scaleV').textContent=e.target.value;render();};
+document.getElementById('causal').onchange=render;
+render();
+
+/* ================= dependency guard =================
+   Sections 4 and 5 are driven entirely by data.js. If it fails to load, say so
+   instead of rendering two empty boxes. */
+const DATA_OK = (typeof MECHANISMS !== "undefined") && Array.isArray(MECHANISMS)
+                && MECHANISMS.length > 0 && typeof ERAS !== "undefined";
+if(!DATA_OK){
+  const msg = `<div class="card" style="border-color:#f5d5d0;background:#fdf1ef">
+    <h3 style="color:#c0392b;margin-bottom:6px">The chronology could not load</h3>
+    <p style="margin:0;color:#14181d;font-size:14px">
+    This page needs <code class="mono">data.js</code>, which holds the 29 mechanisms and their
+    sources. It is missing or failed to parse, so the chart and the chronology have nothing
+    to draw.<br><br>
+    <b>If you are viewing this locally:</b> keep <code class="mono">index.html</code> and
+    <code class="mono">data.js</code> in the same folder and open the folder over
+    <code class="mono">http</code> (for example <code class="mono">python3 -m http.server</code>)
+    rather than as a bare <code class="mono">file://</code> path.<br>
+    <b>If you are viewing this deployed:</b> the deploy is missing a file — re-upload the whole
+    folder.</p></div>`;
+  ["timeline","lanesHost"].forEach(id=>{const el=document.getElementById(id); if(el) el.innerHTML=msg;});
+  const f=document.getElementById('filters'); if(f) f.style.display="none";
+}
+
+/* ================= timeline ================= */
+const TAGS=[["all","everything"],["position","position / length"],["compute","compute (T²)"],
+            ["memory","KV-cache memory"],["state","recurrent state"],["sparse","sparsity"]];
+let filt="all";
+const fmt=d=>new Date(d+"T00:00:00Z").toLocaleDateString("en-GB",{year:"numeric",month:"short",timeZone:"UTC"});
+if(DATA_OK) document.getElementById('filters').innerHTML=TAGS.map(([k,l])=>
+  `<button data-k="${k}"${k==="all"?' class="on"':''}>${l}</button>`).join("");
+if(DATA_OK) document.getElementById('filters').onclick=e=>{const b=e.target.closest('button');if(!b)return;
+  filt=b.dataset.k;document.querySelectorAll('#filters button').forEach(x=>x.classList.toggle('on',x.dataset.k===filt));
+  drawTimeline();};
+
+function drawTimeline(){
+  if(!DATA_OK) return;
+  const items=[...MECHANISMS].sort((a,b)=>a.date.localeCompare(b.date))
+    .filter(m=>filt==="all"||(m.tags||[]).includes(filt));
+  let html="", eraIdx=-1;
+  items.forEach(m=>{
+    const ei=ERAS.findIndex(e=>m.date>=e.from&&m.date<=e.to);
+    if(ei!==eraIdx&&filt==="all"){ eraIdx=ei; const e=ERAS[ei];
+      if(e) html+=`<div class="era"><h4>${e.name}</h4><p>${e.text}</p></div>`; }
+    html+=`<div class="item">
+      <div class="when">${fmt(m.date)}</div>
+      <div>
+        <div class="head"><h3>${m.name}</h3>
+          <span class="badge">${m.short}</span>
+          ${m.turning?'<span class="badge turn">turning point</span>':''}
+          ${m.bonus?'<span class="badge bonus">bonus</span>':''}
+        </div>
+        <p class="cite"><a href="${m.url}" target="_blank" rel="noopener">${m.paper}</a><br>
+           <span class="auth">${m.authors}</span></p>
+        <p class="what"><b>The bill it was paying:</b> ${m.bill}</p>
+        <p class="what"><b>How:</b> ${m.how}</p>
+        <div class="tradeoff">
+          <div class="buys"><span class="lbl">what it buys</span>${m.buys}</div>
+          <div class="costs"><span class="lbl">what it gives up</span>${m.costs}</div>
+        </div>
+        <div class="pickbox"><span class="lbl">when I would actually pick it</span>${m.pick}</div>
+        ${m.note?`<div class="note">${m.note}</div>`:''}
+        <div class="srcid">source of date: ${m.dateNote}</div>
+      </div></div>`;
+  });
+  document.getElementById('timeline').innerHTML=html;
+}
+if(DATA_OK) drawTimeline();
+
+/* ================= lane chart =================
+   One dot per mechanism on the bill it attacks. A stacked bar per year hid the
+   thing that matters most - the EMPTY stretches. Lanes make the gaps visible. */
+(function(){
+  if(!DATA_OK) return;
+  const Y0=2014.4, Y1=2026.9;                    // x-axis span in decimal years
+  const LANES=[
+    {label:"The original idea", sub:"attention itself", col:"#5c6672", tags:["origin","core"]},
+    {label:"Where am I?", sub:"position &amp; length", col:"#1f5fd0", tags:["position"]},
+    {label:"The reading bill", sub:"T² compute, sparsity", col:"#c2620a", tags:["compute","sparse"]},
+    {label:"The remembering bill", sub:"KV-cache memory", col:"#0d7a4a", tags:["memory"]},
+    {label:"Carry a summary instead", sub:"recurrent state", col:"#6d28d9", tags:["state"]}
+  ];
+  const dec=d=>{const [y,m,dd]=d.split("-").map(Number); return y+(m-1)/12+(dd-1)/365;};
+  const pct=d=>((dec(d)-Y0)/(Y1-Y0))*100;
+  // short labels only where they earn their space
+  const CALL={sdpa:"Transformer",mqa:"MQA",gqa:"GQA",mla:"MLA",flash:"Flash",rope:"RoPE",
+              alibi:"ALiBi",mamba:"Mamba",nsa:"NSA",dsa:"DSA",yarn:"YaRN",drope:"DroPE",
+              bahdanau:"Bahdanau","gated-deltanet":"Gated DeltaNet","sliding-window":"window",
+              "linear-attention":"linear",sinks:"sinks",reformer:"Reformer",deltanet:"DeltaNet"};
+
+  let html="";
+  LANES.forEach(L=>{
+    const items=MECHANISMS.filter(m=>(m.tags||[]).some(t=>L.tags.includes(t)))
+                          .sort((a,b)=>a.date.localeCompare(b.date));
+    // Dots sit on one clean line per lane. Where two land in the same month the
+    // second nudges down so neither is hidden. Label tiers are packed later, from
+    // MEASURED widths - guessing text width from character counts does not survive
+    // a different font or a narrower window.
+    let lastX=-99, dots="";
+    items.forEach(m=>{
+      const x=pct(m.date);
+      const drop = (x-lastX) < 1.4;              // ~ same month: nudge the second one
+      lastX=Math.max(lastX,x);
+      const lab=CALL[m.id];
+      dots+=`<span class="pt${m.turning?' big':''}" style="left:${x}%;top:${drop?30:18}px;background:${L.col}"
+              title="${m.name} — ${fmt(m.date)}"></span>`;
+      if(lab) dots+=`<span class="ptl" data-x="${x}" style="left:${x}%;top:40px">${lab}</span>`;
+    });
+    html+=`<div class="lane"><div class="laneLbl"><b style="color:${L.col}">${L.label}</b>
+      <span>${L.sub}</span></div><div class="plot">${dots}</div></div>`;
+  });
+  // year axis
+  let ax="";
+  for(let y=2015;y<=2026;y++) ax+=`<span class="yr" style="left:${pct(y+"-01-01")}%">${y}</span>`;
+  html+=`<div class="axis"><div></div><div class="axisIn">${ax}</div></div>`;
+  document.getElementById('lanes').innerHTML=html;
+
+  // overlays: the FlashAttention line across every lane, and the MQA->GQA dead zone
+  const host=document.getElementById('lanes');
+  const plots=[...host.querySelectorAll('.plot')];
+  const fx=pct("2022-05-27");
+  plots.forEach(p=>{p.insertAdjacentHTML('beforeend',
+    `<span class="flashline" style="left:${fx}%"></span>`);});
+  const mem=plots[3];                              // the remembering-bill lane
+  if(mem){
+    const a=pct("2019-11-06"), b=pct("2023-05-22");
+    mem.insertAdjacentHTML('beforeend',
+      `<span class="gapbar" style="left:${a}%;width:${b-a}%;top:18px"></span>
+       <span class="gaplbl" style="left:${a+(b-a)/2}%;top:24px;transform:translateX(-50%)">3&frac12; years, nobody cared</span>`);
+  }
+
+  /* ---- label packing ----
+     Pure decision function, separated out so it can be unit-tested without a
+     browser: given each label's centre and MEASURED width plus the plot width,
+     decide which tier it goes in and whether it needs edge-clamping. Guessing
+     text width from character counts does not survive a font change, so the
+     widths come from getBoundingClientRect below.
+     Labels that still cannot fit are dropped; the dot keeps its hover tooltip,
+     which beats two words printed on top of each other. */
+  const TIER=[40,54,68];   // three tiers: the 2020 compute cluster needs all of them
+  function packTiers(items, plotW, gap=6){
+    const edge=[];                                    // rightmost occupied px per tier
+    return items.slice().sort((a,b)=>a.x-b.x).map(o=>{
+      let left=o.x-o.w/2, anchor="center";
+      if(left<0){ anchor="left"; left=0; }
+      else if(left+o.w>plotW){ anchor="right"; left=plotW-o.w; }
+      const right=left+o.w;
+      const t=TIER.findIndex((_,i)=>left > (edge[i]??-1e4)+gap);
+      if(t<0) return {...o, tier:-1, anchor};         // -1 = hide
+      edge[t]=right;
+      return {...o, tier:t, anchor};
+    });
+  }
+  if(typeof window!=="undefined") window.__packTiers=packTiers;   // test hook
+
+  function packLabels(){
+    plots.forEach(plot=>{
+      const pw=plot.clientWidth; if(!pw) return;
+      const els=[...plot.querySelectorAll('.ptl')];
+      els.forEach(el=>{el.style.display="";el.style.transform="translate(-50%,0)";el.style.left=el.dataset.x+"%";});
+      const items=els.map(el=>({el, x:parseFloat(el.dataset.x)/100*pw,
+                                w:el.getBoundingClientRect().width}));
+      packTiers(items, pw).forEach(o=>{
+        if(o.tier<0){ o.el.style.display="none"; return; }
+        o.el.style.top=TIER[o.tier]+"px";
+        if(o.anchor==="left"){ o.el.style.transform="translate(0,0)"; o.el.style.left="0"; }
+        else if(o.anchor==="right"){ o.el.style.transform="translate(-100%,0)"; o.el.style.left="100%"; }
+      });
+    });
+  }
+  packLabels(); addEventListener('resize',packLabels);
+})();
+</script>
+</body></html>
