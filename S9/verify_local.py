@@ -22,6 +22,9 @@ os.environ["S9_STEPS"]     = os.environ.get("S9_STEPS", "12")
 os.environ["S9_BS"]        = os.environ.get("S9_BS", "2")
 os.environ["S9_SEQ"]       = os.environ.get("S9_SEQ", "128")
 os.environ["S9_SHARD"]     = os.path.join(HERE, "data", "s9_owt_clean.jsonl.gz")
+# The full pass runs fp32 because this CPU has no bf16 kernels and bf16 takes minutes.
+# The bf16 case is covered by a targeted regression at the end instead -- see below.
+os.environ["S9_DTYPE"]     = os.environ.get("S9_DTYPE", "float32")
 os.environ["S9_TOKENIZER"] = "/sessions/serene-dazzling-volta/mnt/ERA/s2_submission/upload/tokenizer.json"
 
 cells = [c for c in json.load(open(NB))["cells"] if c["cell_type"] == "code"]
@@ -89,6 +92,35 @@ chk("both heads improved",
     ns["f1"] >= ns["e1"] and ns["f2"] > ns["e2"],
     f"h1 {ns['f1']:.3f}->{ns['e1']:.3f}  h2 {ns['f2']:.3f}->{ns['e2']:.3f}")
 chk("head 2 starts near ln(V)", ns["f2"] > 0.6 * math.log(V), f"{ns['f2']:.3f} vs {math.log(V):.3f}")
+
+trunk_dt = next(ns["two"].trunk.parameters()).dtype
+chk("head 2 dtype follows the trunk", ns["two"].head2.weight.dtype == trunk_dt,
+    f"head2={ns['two'].head2.weight.dtype} trunk={trunk_dt}")
+
+# --- REGRESSION for the bug that reached Colab ---------------------------------
+# transformers v5 loads SmolLM2 in bfloat16. A bare nn.Linear is fp32, so head 2's
+# first matmul died with "mat1 and mat2 have different dtype". The offline substitute
+# was fp32 throughout, so it never reproduced the one thing that mattered.
+# This rebuilds TwoHeadModel on a bf16 trunk and runs a real forward pass.
+import torch
+from transformers import LlamaConfig, LlamaForCausalLM
+tiny = LlamaConfig(vocab_size=ns["V"], hidden_size=ns["D"], intermediate_size=1536,
+                   num_hidden_layers=1, num_attention_heads=9, num_key_value_heads=3,
+                   hidden_act="silu", max_position_embeddings=2048, rms_norm_eps=1e-5,
+                   tie_word_embeddings=True, rope_theta=10000.0)
+for dt in (torch.bfloat16, torch.float16, torch.float32):
+    base = LlamaForCausalLM(tiny).to(dt)
+    m2   = ns["TwoHeadModel"](base, tiny)
+    ok_dtype = m2.head2.weight.dtype == dt
+    try:
+        l1, l2 = m2.losses(torch.randint(0, ns["V"], (1, 16)))
+        ok_run = bool(torch.isfinite(l1) and torch.isfinite(l2))
+        err = ""
+    except Exception as e:
+        ok_run, err = False, f"{type(e).__name__}: {e}"
+    chk(f"TwoHeadModel works on a {str(dt).split('.')[-1]} trunk", ok_dtype and ok_run,
+        err or f"head2={m2.head2.weight.dtype}  l1={l1.item():.3f} l2={l2.item():.3f}")
+    del base, m2
 
 print(f"\n{len(cells)} cells executed in {time.time()-t0:.0f}s")
 if fails:

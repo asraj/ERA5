@@ -92,12 +92,22 @@ def load_model_and_tokenizer():
                           hidden_act="silu", max_position_embeddings=2048,
                           rms_norm_eps=1e-5, tie_word_embeddings=True, rope_theta=10000.0)
         model = LlamaForCausalLM(cfg)
+        # honour S9_DTYPE so verify_local.py can reproduce Colab's bfloat16 load,
+        # which is what surfaced the head-2 dtype bug in the first place
+        model = model.to(getattr(torch, os.environ.get("S9_DTYPE", "float32")))
         tok = PreTrainedTokenizerFast(tokenizer_object=Tokenizer.from_file(
             os.environ["S9_TOKENIZER"]), unk_token="<unk>", eos_token="</s>", bos_token="<s>")
         return model, tok, cfg
-    tok   = AutoTokenizer.from_pretrained(MODEL_ID)
-    cfg   = AutoConfig.from_pretrained(MODEL_ID)
-    model = AutoModelForCausalLM.from_pretrained(MODEL_ID)
+    tok = AutoTokenizer.from_pretrained(MODEL_ID)
+    cfg = AutoConfig.from_pretrained(MODEL_ID)
+    # Pin fp32. transformers v5 defaults to the checkpoint's own dtype, which for
+    # SmolLM2 is bfloat16 -- and then any nn.Linear we add later (head 2, Part 2) is
+    # fp32 by default and the matmul raises "mat1 and mat2 have different dtype".
+    # Pinning also keeps item 7's analytic fp32 logit sizes honest.
+    try:
+        model = AutoModelForCausalLM.from_pretrained(MODEL_ID, dtype=torch.float32)
+    except TypeError:                     # transformers < 5 spells it torch_dtype
+        model = AutoModelForCausalLM.from_pretrained(MODEL_ID, torch_dtype=torch.float32)
     return model, tok, cfg
 
 model, tok, cfg = load_model_and_tokenizer()
@@ -110,6 +120,8 @@ print(f"hidden_size D       = {D}")
 print(f"layers              = {cfg.num_hidden_layers}")
 print(f"tie_word_embeddings = {cfg.tie_word_embeddings}")
 print(f"total parameters    = {sum(p.numel() for p in model.parameters()):,}")
+MODEL_DTYPE = next(model.parameters()).dtype
+print(f"parameter dtype     = {MODEL_DTYPE}")
 
 # A padding token is required for item 3. SmolLM2 ships without one, so we borrow EOS
 # and rely on the tokenizer's attention_mask -- not on `id == pad_id` -- to find padding.
@@ -435,7 +447,7 @@ def perplexity(m, ids_, labels_=None, bs=2):
     return tot / n, math.exp(tot / n)
 
 from transformers import AutoConfig
-untrained = type(model)(cfg).to(DEVICE).eval()      # same architecture, random weights
+untrained = type(model)(cfg).to(device=DEVICE, dtype=MODEL_DTYPE).eval()   # same arch, random weights
 l_rand, p_rand = perplexity(untrained, ids_p)
 l_train, p_train = perplexity(model, ids_p)
 
@@ -515,29 +527,41 @@ tg_mem = mem_ids[:, 1:]
 head = model.lm_head
 
 def peak(fn):
+    '''Peak memory ATTRIBUTABLE TO fn, i.e. above what was already resident.
+
+    Reporting raw max_memory_allocated() buries the result: the model weights and
+    activations are ~1 GiB before the loss is even called, so a 287 MiB saving shows
+    up as a 1.1x ratio and the effect looks negligible. Subtracting the baseline
+    measures the thing chunking actually changes.'''
     if DEVICE == "cuda":
         torch.cuda.synchronize(); torch.cuda.empty_cache()
+        base = torch.cuda.memory_allocated()
         torch.cuda.reset_peak_memory_stats()
         out = fn(); torch.cuda.synchronize()
-        return out, torch.cuda.max_memory_allocated() / 2**20
-    return fn(), float("nan")     # peak allocation is a CUDA-only measurement
+        return out, (torch.cuda.max_memory_allocated() - base) / 2**20, base / 2**20
+    return fn(), float("nan"), float("nan")   # CUDA-only counter
 
 def run_full():
     l = ce_full(h_a, head, tg_mem); l.backward(); return l.item()
 def run_chunked():
     l = ce_chunked(h_b, head, tg_mem, chunk=CHUNK); l.backward(); return l.item()
 
-l_full,  m_full  = peak(run_full)
-l_chunk, m_chunk = peak(run_chunked)
-logit_bytes = MB * (MT - 1) * V * 4 / 2**20     # fp32 logits, forward only
-chunk_bytes = CHUNK * V * 4 / 2**20
+l_full,  m_full,  base_mib = peak(run_full)
+l_chunk, m_chunk, _        = peak(run_chunked)
+# size the analytic figures off the ACTUAL logit dtype, not an assumed fp32
+LOGIT_BYTES = torch.finfo(model.lm_head.weight.dtype).bits // 8
+logit_bytes = MB * (MT - 1) * V * LOGIT_BYTES / 2**20
+chunk_bytes = CHUNK * V * LOGIT_BYTES / 2**20
 
-print(f"batch {MB} x {MT-1} predictions, V = {V:,}, chunk = {CHUNK}\n")
+print(f"batch {MB} x {MT-1} predictions, V = {V:,}, chunk = {CHUNK}, "
+      f"logits are {model.lm_head.weight.dtype} ({LOGIT_BYTES} bytes)")
+print(f"already resident before the loss: {base_mib:,.1f} MiB of weights and activations\n")
 print(f"{'':22}{'loss':>12}{'peak MiB':>12}{'logits MiB (theory)':>22}")
 print(f"{'ordinary CE':<22}{l_full:>12.6f}{m_full:>12.1f}{logit_bytes:>22.1f}")
 print(f"{'chunked CE':<22}{l_chunk:>12.6f}{m_chunk:>12.1f}{chunk_bytes:>22.1f}")
 if m_full == m_full:                       # not NaN
-    print(f"\nmeasured peak-memory ratio  = {m_full / m_chunk:.2f}x")
+    print(f"\nmeasured peak-memory ratio  = {m_full / m_chunk:.2f}x "
+          f"(above baseline; {m_full - m_chunk:,.1f} MiB saved)")
 print(f"theoretical logits ratio    = {logit_bytes / chunk_bytes:.1f}x "
       f"(= {MB*(MT-1)} predictions / {CHUNK} chunk)")
 
@@ -580,9 +604,14 @@ class TwoHeadModel(nn.Module):
         super().__init__()
         self.trunk = base.model
         self.head1 = base.lm_head
-        self.head2 = nn.Linear(cfg.hidden_size, cfg.vocab_size, bias=False)
-        # init head 2 like the model's own embeddings rather than PyTorch's default,
-        # so step 0 is a fair ln(V) start instead of an artificially large loss
+        # Build head 2 in the TRUNK's dtype and device. A bare nn.Linear is fp32,
+        # and if the checkpoint loaded as bf16 the first matmul dies with
+        # "mat1 and mat2 have different dtype". Never assume fp32 -- ask the trunk.
+        p0 = next(base.parameters())
+        self.head2 = nn.Linear(cfg.hidden_size, cfg.vocab_size, bias=False,
+                               dtype=p0.dtype, device=p0.device)
+        # init like the model's own embeddings rather than PyTorch's default, so
+        # step 0 is a fair ln(V) start instead of an artificially large loss
         self.head2.weight.data.normal_(mean=0.0, std=cfg.initializer_range)
 
     def forward(self, ids_):
@@ -604,6 +633,10 @@ two = TwoHeadModel(model, cfg).to(DEVICE)
 print(f"head 1 parameters: {two.head1.weight.numel():,} (tied to the embedding table)")
 print(f"head 2 parameters: {two.head2.weight.numel():,} (new, untied)")
 print(f"a second dense head costs +{100*two.head2.weight.numel()/tied_total:.1f}% of the model")
+assert two.head2.weight.dtype == next(two.trunk.parameters()).dtype, (
+    f"head 2 is {two.head2.weight.dtype} but the trunk is "
+    f"{next(two.trunk.parameters()).dtype} - the matmul will fail")
+print(f"head dtypes match trunk: {two.head1.weight.dtype} / {two.head2.weight.dtype}")
 """)
 
 code(r"""
@@ -616,6 +649,13 @@ train_ids, train_start = pack(DOCS[100:], TT, TB * (STEPS // 4 + 2), tok.eos_tok
 train_lab = train_ids.masked_fill(train_start.bool(), -100)      # never train across a join
 print(f"training tensor {tuple(train_ids.shape)}  "
       f"({int((train_lab != -100).sum()):,} contributing tokens)")
+
+# AdamW on bf16/fp16 master weights silently loses small updates: at lr 3e-5 the
+# step is below the representable gap and rounds to nothing. Fail loudly instead.
+pdt = next(two.parameters()).dtype
+assert pdt == torch.float32, (
+    f"parameters are {pdt}; AdamW at lr={LR} will round most updates away. "
+    "Load the model with dtype=torch.float32 rather than casting the heads to bf16.")
 
 opt  = torch.optim.AdamW(two.parameters(), lr=LR)
 hist = []
@@ -650,6 +690,20 @@ print(f"{'improvement':<16}{f1-e1:>+15.4f}{f2-e2:>+15.4f}")
 print(f"\nln(V) = {math.log(V):.3f}  <- where an untrained head starts")
 print(f"head 2 perplexity: {math.exp(f2):,.0f} -> {math.exp(e2):,.0f}")
 assert e2 > e1, "head 2 should stay above head 1: predicting two ahead is strictly harder"
+
+# A head still above ln(V) after training is worse than guessing uniformly, which
+# means it has not learned - not that the task is hard. Say so loudly rather than
+# letting a plausible-looking number into the write-up.
+if e2 >= math.log(V):
+    print(f"\n*** WARNING: head 2 finished at {e2:.4f}, ABOVE ln(V) = {math.log(V):.4f}.")
+    print("*** It is still worse than guessing uniformly, so it has not learned yet.")
+    print("*** Usual cause: the model is in bfloat16 and AdamW is updating bf16 master")
+    print("*** weights - at lr 3e-5 the updates round away. Load the model in fp32")
+    print("*** (load_model_and_tokenizer pins dtype=torch.float32) and re-run.")
+    print(f"*** Also check head 1: it went {f1:.4f} -> {e1:.4f}"
+          f" ({'improved' if e1 < f1 else 'got WORSE - same cause'}).")
+else:
+    print(f"\nhead 2 finished {math.log(V) - e2:.4f} nats below ln(V): it has learned.")
 
 try:
     import matplotlib.pyplot as plt
