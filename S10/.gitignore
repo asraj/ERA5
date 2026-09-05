@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.DS_Store
+
+# downloaded at runtime, sha256-verified against S9/data/s9_owt_clean.manifest.json
+s9_owt_clean.jsonl.gz
+
+# run artifacts: the notebook writes these itself, and any copy sitting here is
+# from verify_local.py's random-weight substitute rather than a real run, so
+# committing one would put a meaningless plot in the repo
+accumulation.png
+gradnorm.png
