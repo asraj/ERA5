@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.DS_Store
+s9_owt_clean.jsonl.gz
+# run artifacts: the notebook writes these; any copy here is from verify_local.py's
+# tiny offline substitute, so committing one would put a meaningless plot in the repo
+bias_correction.png
+update_ratio.png
+schedules.png
+lr_sweep.png
+_t.py
+_tail.py
