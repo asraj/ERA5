@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.DS_Store
+
+# build/verify scratch
+_run.py
+_more.py
